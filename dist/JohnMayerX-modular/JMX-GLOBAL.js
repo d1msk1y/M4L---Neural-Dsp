@@ -100,14 +100,16 @@ var curTab = 0;
 
 function now() { return new Date().getTime(); }
 
+function isArr(x) { return Object.prototype.toString.call(x) === "[object Array]"; }
+
 function str(x) {
     if (x === null || x === undefined) return "";
-    if (x instanceof Array) return x.join(" ");
+    if (isArr(x)) return x.join(" ");
     return String(x);
 }
 
 function num(x) {
-    if (x instanceof Array) x = x[0];
+    if (isArr(x)) x = x[0];
     return Number(x);
 }
 
@@ -150,7 +152,7 @@ function tableFind(t, v) {
 
 function tableFor(names) {
     if (!PROFILE.tables || !names) return null;
-    if (!(names instanceof Array)) names = [names];
+    if (!isArr(names)) names = [names];
     for (var i = 0; i < names.length; i++) {
         var t = PROFILE.tables[key(names[i])];
         if (t) return t;
@@ -182,7 +184,7 @@ function toPlugin(s, v) {
 // tried in order. Nothing fuzzier: a wrong binding is worse than a missing one.
 function resolve(names) {
     if (!target || !names) return 0;
-    if (!(names instanceof Array)) names = [names];
+    if (!isArr(names)) names = [names];
     var i;
     for (i = 0; i < names.length; i++) {
         if (target.byName.hasOwnProperty(names[i])) return target.byName[names[i]];
