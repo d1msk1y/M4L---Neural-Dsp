@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js JohnMayerX.js POSTFX be10769",
+					"text": "js JohnMayerX.js POSTFX b8fd223",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
@@ -402,51 +402,69 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.text",
+					"maxclass": "comment",
 					"numinlets": 1,
-					"numoutlets": 2,
+					"numoutlets": 0,
+					"text": "Dly Sync",
+					"fontsize": 9,
+					"textjustification": 1,
+					"patching_rect": [
+						156,
+						282,
+						60,
+						18
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						122,
+						22,
+						58,
+						16
+					],
+					"varname": "c_1_l",
+					"id": "obj-15"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.menu",
+					"numinlets": 1,
+					"numoutlets": 3,
 					"outlettype": [
 						"",
-						""
-					],
-					"mode": 1,
-					"text": "Delay On",
-					"texton": "Delay On",
-					"activebgoncolor": [
-						0.9,
-						0.3,
-						0.28,
-						1
+						"",
+						"float"
 					],
 					"patching_rect": [
 						156,
 						300,
 						48,
-						18
+						15
 					],
 					"presentation_rect": [
 						127,
-						35,
+						39,
 						48,
-						18
+						15
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
 							"parameter_enum": [
-								"Off",
-								"On"
+								"Free",
+								"App",
+								"Tap"
 							],
-							"parameter_longname": "Delay On",
-							"parameter_mmax": 1,
+							"parameter_longname": "Dly Sync",
+							"parameter_mmax": 2,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Delay On",
+							"parameter_shortname": "Dly Sync",
 							"parameter_type": 2
 						}
 					},
 					"varname": "c_1",
-					"id": "obj-15"
+					"id": "obj-16"
 				}
 			},
 			{
@@ -464,19 +482,22 @@
 						52,
 						22
 					],
-					"id": "obj-16"
+					"id": "obj-17"
 				}
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "live.text",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"float"
+						""
 					],
-					"activedialcolor": [
+					"mode": 1,
+					"text": "Dly PingPong",
+					"texton": "Dly PingPong",
+					"activebgoncolor": [
 						0.9,
 						0.3,
 						0.28,
@@ -485,30 +506,32 @@
 					"patching_rect": [
 						206,
 						300,
-						44,
-						48
+						48,
+						18
 					],
 					"presentation_rect": [
-						179,
-						21,
-						44,
-						48
+						177,
+						35,
+						48,
+						18
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Dly Mix",
-							"parameter_mmax": 100,
-							"parameter_mmin": 0,
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "Dly PingPong",
+							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Dly Mix",
-							"parameter_type": 0,
-							"parameter_unitstyle": 5
+							"parameter_shortname": "Dly PingPong",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_2",
-					"id": "obj-17"
+					"id": "obj-18"
 				}
 			},
 			{
@@ -526,7 +549,7 @@
 						52,
 						22
 					],
-					"id": "obj-18"
+					"id": "obj-19"
 				}
 			},
 			{
@@ -560,17 +583,17 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Dly Fdbk",
+							"parameter_longname": "Dly Mix",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Dly Fdbk",
+							"parameter_shortname": "Dly Mix",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_3",
-					"id": "obj-19"
+					"id": "obj-20"
 				}
 			},
 			{
@@ -588,7 +611,7 @@
 						52,
 						22
 					],
-					"id": "obj-20"
+					"id": "obj-21"
 				}
 			},
 			{
@@ -622,17 +645,17 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Dly Time",
-							"parameter_mmax": 2000,
-							"parameter_mmin": 5,
+							"parameter_longname": "Dly Hard",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Dly Time",
+							"parameter_shortname": "Dly Hard",
 							"parameter_type": 0,
-							"parameter_unitstyle": 2
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_4",
-					"id": "obj-21"
+					"id": "obj-22"
 				}
 			},
 			{
@@ -650,7 +673,7 @@
 						52,
 						22
 					],
-					"id": "obj-22"
+					"id": "obj-23"
 				}
 			},
 			{
@@ -684,17 +707,17 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Dly Hard",
+							"parameter_longname": "Dly Fdbk",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Dly Hard",
+							"parameter_shortname": "Dly Fdbk",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_5",
-					"id": "obj-23"
+					"id": "obj-24"
 				}
 			},
 			{
@@ -712,70 +735,47 @@
 						52,
 						22
 					],
-					"id": "obj-24"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "comment",
-					"numinlets": 1,
-					"numoutlets": 0,
-					"text": "Dly Sync",
-					"fontsize": 9,
-					"textjustification": 1,
-					"patching_rect": [
-						206,
-						382,
-						60,
-						18
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						172,
-						77,
-						58,
-						16
-					],
-					"varname": "c_6_l",
 					"id": "obj-25"
 				}
 			},
 			{
 				"box": {
-					"maxclass": "live.menu",
+					"maxclass": "live.dial",
 					"numinlets": 1,
-					"numoutlets": 3,
+					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"",
 						"float"
+					],
+					"activedialcolor": [
+						0.9,
+						0.3,
+						0.28,
+						1
 					],
 					"patching_rect": [
 						206,
 						400,
-						48,
-						15
+						44,
+						48
 					],
 					"presentation_rect": [
-						177,
-						94,
-						48,
-						15
+						179,
+						76,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_enum": [
-								"Free",
-								"App",
-								"Tap"
-							],
-							"parameter_longname": "Dly Sync",
-							"parameter_mmax": 2,
+							"parameter_longname": "Dly Time",
+							"parameter_mmax": 2000,
+							"parameter_mmin": 5,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Dly Sync",
-							"parameter_type": 2
+							"parameter_shortname": "Dly Time",
+							"parameter_type": 0,
+							"parameter_unitstyle": 2
 						}
 					},
 					"varname": "c_6",
@@ -810,8 +810,8 @@
 						""
 					],
 					"mode": 1,
-					"text": "Dly PingPong",
-					"texton": "Dly PingPong",
+					"text": "Delay On",
+					"texton": "Delay On",
 					"activebgoncolor": [
 						0.9,
 						0.3,
@@ -838,10 +838,10 @@
 								"Off",
 								"On"
 							],
-							"parameter_longname": "Dly PingPong",
+							"parameter_longname": "Delay On",
 							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Dly PingPong",
+							"parameter_shortname": "Delay On",
 							"parameter_type": 2
 						}
 					},
@@ -869,17 +869,14 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.text",
+					"maxclass": "live.dial",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						""
+						"float"
 					],
-					"mode": 1,
-					"text": "Reverb On",
-					"texton": "Reverb On",
-					"activebgoncolor": [
+					"activedialcolor": [
 						0.35,
 						0.72,
 						0.85,
@@ -888,28 +885,26 @@
 					"patching_rect": [
 						372,
 						300,
-						48,
-						18
+						44,
+						48
 					],
 					"presentation_rect": [
-						343,
-						35,
-						48,
-						18
+						345,
+						21,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_enum": [
-								"Off",
-								"On"
-							],
-							"parameter_longname": "Reverb On",
-							"parameter_mmax": 1,
+							"parameter_longname": "Rev Mix",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Reverb On",
-							"parameter_type": 2
+							"parameter_shortname": "Rev Mix",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_8",
@@ -965,13 +960,14 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Rev Mix",
-							"parameter_mmax": 100,
+							"parameter_exponent": 1.67,
+							"parameter_longname": "Rev PreDly",
+							"parameter_mmax": 200,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Rev Mix",
+							"parameter_shortname": "Rev PreDly",
 							"parameter_type": 0,
-							"parameter_unitstyle": 5
+							"parameter_unitstyle": 2
 						}
 					},
 					"varname": "c_9",
@@ -1091,14 +1087,13 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_exponent": 1.67,
-							"parameter_longname": "Rev PreDly",
-							"parameter_mmax": 200,
-							"parameter_mmin": 0,
+							"parameter_longname": "Rev LoCut",
+							"parameter_mmax": 1500,
+							"parameter_mmin": 20,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Rev PreDly",
+							"parameter_shortname": "Rev LoCut",
 							"parameter_type": 0,
-							"parameter_unitstyle": 2
+							"parameter_unitstyle": 3
 						}
 					},
 					"varname": "c_11",
@@ -1125,14 +1120,42 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "comment",
+					"numinlets": 1,
+					"numoutlets": 0,
+					"text": "Rev Mode",
+					"fontsize": 9,
+					"textjustification": 1,
+					"patching_rect": [
+						372,
+						382,
+						60,
+						18
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						338,
+						77,
+						58,
+						16
+					],
+					"varname": "c_12_l",
+					"id": "obj-38"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.text",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"float"
+						""
 					],
-					"activedialcolor": [
+					"mode": 1,
+					"text": "Plate",
+					"texton": "Hall",
+					"activebgoncolor": [
 						0.35,
 						0.72,
 						0.85,
@@ -1141,30 +1164,32 @@
 					"patching_rect": [
 						372,
 						400,
-						44,
-						48
+						48,
+						18
 					],
 					"presentation_rect": [
-						345,
-						76,
-						44,
-						48
+						343,
+						94,
+						48,
+						15
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Rev LoCut",
-							"parameter_mmax": 1500,
-							"parameter_mmin": 20,
+							"parameter_enum": [
+								"Plate",
+								"Hall"
+							],
+							"parameter_longname": "Rev Mode",
+							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Rev LoCut",
-							"parameter_type": 0,
-							"parameter_unitstyle": 3
+							"parameter_shortname": "Rev Mode",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_12",
-					"id": "obj-38"
+					"id": "obj-39"
 				}
 			},
 			{
@@ -1182,7 +1207,7 @@
 						52,
 						22
 					],
-					"id": "obj-39"
+					"id": "obj-40"
 				}
 			},
 			{
@@ -1227,7 +1252,7 @@
 						}
 					},
 					"varname": "c_13",
-					"id": "obj-40"
+					"id": "obj-41"
 				}
 			},
 			{
@@ -1245,31 +1270,6 @@
 						52,
 						22
 					],
-					"id": "obj-41"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "comment",
-					"numinlets": 1,
-					"numoutlets": 0,
-					"text": "Rev Mode",
-					"fontsize": 9,
-					"textjustification": 1,
-					"patching_rect": [
-						472,
-						382,
-						60,
-						18
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						438,
-						77,
-						58,
-						16
-					],
-					"varname": "c_14_l",
 					"id": "obj-42"
 				}
 			},
@@ -1283,8 +1283,8 @@
 						""
 					],
 					"mode": 1,
-					"text": "Plate",
-					"texton": "Hall",
+					"text": "Reverb On",
+					"texton": "Reverb On",
 					"activebgoncolor": [
 						0.35,
 						0.72,
@@ -1299,22 +1299,22 @@
 					],
 					"presentation_rect": [
 						443,
-						94,
+						90,
 						48,
-						15
+						18
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
 							"parameter_enum": [
-								"Plate",
-								"Hall"
+								"Off",
+								"On"
 							],
-							"parameter_longname": "Rev Mode",
+							"parameter_longname": "Reverb On",
 							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Rev Mode",
+							"parameter_shortname": "Reverb On",
 							"parameter_type": 2
 						}
 					},
@@ -1458,23 +1458,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-15",
-						0
-					],
-					"destination": [
-						"obj-16",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
 						"obj-16",
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-17",
 						0
 					]
 				}
@@ -1486,7 +1474,7 @@
 						0
 					],
 					"destination": [
-						"obj-18",
+						"obj-3",
 						0
 					]
 				}
@@ -1498,7 +1486,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-19",
 						0
 					]
 				}
@@ -1510,7 +1498,7 @@
 						0
 					],
 					"destination": [
-						"obj-20",
+						"obj-3",
 						0
 					]
 				}
@@ -1522,7 +1510,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-21",
 						0
 					]
 				}
@@ -1534,7 +1522,7 @@
 						0
 					],
 					"destination": [
-						"obj-22",
+						"obj-3",
 						0
 					]
 				}
@@ -1546,7 +1534,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-23",
 						0
 					]
 				}
@@ -1558,7 +1546,7 @@
 						0
 					],
 					"destination": [
-						"obj-24",
+						"obj-3",
 						0
 					]
 				}
@@ -1567,6 +1555,18 @@
 				"patchline": {
 					"source": [
 						"obj-24",
+						0
+					],
+					"destination": [
+						"obj-25",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-25",
 						0
 					],
 					"destination": [
@@ -1722,23 +1722,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-38",
-						0
-					],
-					"destination": [
-						"obj-39",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
 						"obj-39",
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-40",
 						0
 					]
 				}
@@ -1750,7 +1738,7 @@
 						0
 					],
 					"destination": [
-						"obj-41",
+						"obj-3",
 						0
 					]
 				}
@@ -1759,6 +1747,18 @@
 				"patchline": {
 					"source": [
 						"obj-41",
+						0
+					],
+					"destination": [
+						"obj-42",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-42",
 						0
 					],
 					"destination": [
@@ -1810,49 +1810,49 @@
 				"Effect",
 				0
 			],
-			"obj-15": [
-				"Delay On",
-				"Delay On",
+			"obj-16": [
+				"Dly Sync",
+				"Dly Sync",
 				0
 			],
-			"obj-17": [
+			"obj-18": [
+				"Dly PingPong",
+				"Dly PingPong",
+				0
+			],
+			"obj-20": [
 				"Dly Mix",
 				"Dly Mix",
 				0
 			],
-			"obj-19": [
-				"Dly Fdbk",
-				"Dly Fdbk",
-				0
-			],
-			"obj-21": [
-				"Dly Time",
-				"Dly Time",
-				0
-			],
-			"obj-23": [
+			"obj-22": [
 				"Dly Hard",
 				"Dly Hard",
+				0
+			],
+			"obj-24": [
+				"Dly Fdbk",
+				"Dly Fdbk",
 				0
 			],
 			"obj-26": [
-				"Dly Sync",
-				"Dly Sync",
+				"Dly Time",
+				"Dly Time",
 				0
 			],
 			"obj-28": [
-				"Dly PingPong",
-				"Dly PingPong",
+				"Delay On",
+				"Delay On",
 				0
 			],
 			"obj-30": [
-				"Reverb On",
-				"Reverb On",
+				"Rev Mix",
+				"Rev Mix",
 				0
 			],
 			"obj-32": [
-				"Rev Mix",
-				"Rev Mix",
+				"Rev PreDly",
+				"Rev PreDly",
 				0
 			],
 			"obj-34": [
@@ -1861,23 +1861,23 @@
 				0
 			],
 			"obj-36": [
-				"Rev PreDly",
-				"Rev PreDly",
-				0
-			],
-			"obj-38": [
 				"Rev LoCut",
 				"Rev LoCut",
 				0
 			],
-			"obj-40": [
+			"obj-39": [
+				"Rev Mode",
+				"Rev Mode",
+				0
+			],
+			"obj-41": [
 				"Rev HiCut",
 				"Rev HiCut",
 				0
 			],
 			"obj-43": [
-				"Rev Mode",
-				"Rev Mode",
+				"Reverb On",
+				"Reverb On",
 				0
 			],
 			"parameterbanks": {
@@ -1886,11 +1886,11 @@
 					"name": "POST FX",
 					"parameters": [
 						"Effect",
+						"Dly Sync",
 						"Dly Mix",
+						"Dly Hard",
 						"Dly Fdbk",
 						"Dly Time",
-						"Dly Hard",
-						"Dly Sync",
 						"-",
 						"-"
 					]

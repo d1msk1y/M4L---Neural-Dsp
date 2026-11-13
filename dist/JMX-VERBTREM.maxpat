@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js JohnMayerX.js VERBTREM be10769",
+					"text": "js JohnMayerX.js VERBTREM b8fd223",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
@@ -148,14 +148,14 @@
 					"patching_rect": [
 						34,
 						260,
-						112,
+						162,
 						16
 					],
 					"presentation": 1,
 					"presentation_rect": [
 						4,
 						4,
-						112,
+						162,
 						145
 					],
 					"varname": "g_0_p",
@@ -167,21 +167,21 @@
 					"maxclass": "comment",
 					"numinlets": 1,
 					"numoutlets": 0,
-					"text": "Spring Reverb",
+					"text": "Harmonic Tremolo",
 					"fontface": 1,
 					"fontsize": 10,
 					"textjustification": 1,
 					"patching_rect": [
 						34,
 						278,
-						112,
+						162,
 						18
 					],
 					"presentation": 1,
 					"presentation_rect": [
 						4,
 						5,
-						112,
+						162,
 						16
 					],
 					"varname": "g_0_t",
@@ -210,16 +210,16 @@
 						0.7
 					],
 					"patching_rect": [
-						150,
+						200,
 						260,
-						162,
+						112,
 						16
 					],
 					"presentation": 1,
 					"presentation_rect": [
-						120,
+						170,
 						4,
-						162,
+						112,
 						145
 					],
 					"varname": "g_1_p",
@@ -231,21 +231,21 @@
 					"maxclass": "comment",
 					"numinlets": 1,
 					"numoutlets": 0,
-					"text": "Harmonic Tremolo",
+					"text": "Spring Reverb",
 					"fontface": 1,
 					"fontsize": 10,
 					"textjustification": 1,
 					"patching_rect": [
-						150,
+						200,
 						278,
-						162,
+						112,
 						18
 					],
 					"presentation": 1,
 					"presentation_rect": [
-						120,
+						170,
 						5,
-						162,
+						112,
 						16
 					],
 					"varname": "g_1_t",
@@ -262,8 +262,8 @@
 						""
 					],
 					"mode": 1,
-					"text": "Spring On",
-					"texton": "Spring On",
+					"text": "Trem On",
+					"texton": "Trem On",
 					"activebgoncolor": [
 						0.96,
 						0.62,
@@ -290,10 +290,10 @@
 								"Off",
 								"On"
 							],
-							"parameter_longname": "Spring On",
+							"parameter_longname": "Trem On",
 							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Spring On",
+							"parameter_shortname": "Trem On",
 							"parameter_type": 2
 						}
 					},
@@ -350,11 +350,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Spring Mix",
+							"parameter_longname": "Trem Intens",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Spring Mix",
+							"parameter_shortname": "Trem Intens",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -397,14 +397,14 @@
 						1
 					],
 					"patching_rect": [
-						40,
-						400,
+						140,
+						300,
 						44,
 						48
 					],
 					"presentation_rect": [
-						13,
-						76,
+						113,
+						21,
 						44,
 						48
 					],
@@ -412,11 +412,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Spring Tone",
+							"parameter_longname": "Trem Speed",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Spring Tone",
+							"parameter_shortname": "Trem Speed",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -435,334 +435,12 @@
 						""
 					],
 					"patching_rect": [
-						40,
-						454,
+						140,
+						354,
 						52,
 						22
 					],
 					"id": "obj-15"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.96,
-						0.62,
-						0.2,
-						1
-					],
-					"patching_rect": [
-						90,
-						400,
-						44,
-						48
-					],
-					"presentation_rect": [
-						63,
-						76,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_exponent": 2,
-							"parameter_longname": "Spring Decay",
-							"parameter_mmax": 4.66,
-							"parameter_mmin": 0.85,
-							"parameter_modmode": 0,
-							"parameter_shortname": "Spring Decay",
-							"parameter_type": 0,
-							"parameter_units": "%.2f s",
-							"parameter_unitstyle": 9
-						}
-					},
-					"varname": "c_3",
-					"id": "obj-16"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 3",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						90,
-						454,
-						52,
-						22
-					],
-					"id": "obj-17"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.text",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						""
-					],
-					"mode": 1,
-					"text": "Trem On",
-					"texton": "Trem On",
-					"activebgoncolor": [
-						0.9,
-						0.3,
-						0.28,
-						1
-					],
-					"patching_rect": [
-						156,
-						300,
-						48,
-						18
-					],
-					"presentation_rect": [
-						127,
-						35,
-						48,
-						18
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_enum": [
-								"Off",
-								"On"
-							],
-							"parameter_longname": "Trem On",
-							"parameter_mmax": 1,
-							"parameter_modmode": 0,
-							"parameter_shortname": "Trem On",
-							"parameter_type": 2
-						}
-					},
-					"varname": "c_4",
-					"id": "obj-18"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 4",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						156,
-						354,
-						52,
-						22
-					],
-					"id": "obj-19"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.9,
-						0.3,
-						0.28,
-						1
-					],
-					"patching_rect": [
-						206,
-						300,
-						44,
-						48
-					],
-					"presentation_rect": [
-						179,
-						21,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_longname": "Trem Speed",
-							"parameter_mmax": 100,
-							"parameter_mmin": 0,
-							"parameter_modmode": 0,
-							"parameter_shortname": "Trem Speed",
-							"parameter_type": 0,
-							"parameter_unitstyle": 5
-						}
-					},
-					"varname": "c_5",
-					"id": "obj-20"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 5",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						206,
-						354,
-						52,
-						22
-					],
-					"id": "obj-21"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.9,
-						0.3,
-						0.28,
-						1
-					],
-					"patching_rect": [
-						256,
-						300,
-						44,
-						48
-					],
-					"presentation_rect": [
-						229,
-						21,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_longname": "Trem Intens",
-							"parameter_mmax": 100,
-							"parameter_mmin": 0,
-							"parameter_modmode": 0,
-							"parameter_shortname": "Trem Intens",
-							"parameter_type": 0,
-							"parameter_unitstyle": 5
-						}
-					},
-					"varname": "c_6",
-					"id": "obj-22"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 6",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						256,
-						354,
-						52,
-						22
-					],
-					"id": "obj-23"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.text",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						""
-					],
-					"mode": 1,
-					"text": "Trem Sync",
-					"texton": "Trem Sync",
-					"activebgoncolor": [
-						0.9,
-						0.3,
-						0.28,
-						1
-					],
-					"patching_rect": [
-						156,
-						400,
-						48,
-						18
-					],
-					"presentation_rect": [
-						127,
-						90,
-						48,
-						18
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_enum": [
-								"Off",
-								"On"
-							],
-							"parameter_longname": "Trem Sync",
-							"parameter_mmax": 1,
-							"parameter_modmode": 0,
-							"parameter_shortname": "Trem Sync",
-							"parameter_type": 2
-						}
-					},
-					"varname": "c_7",
-					"id": "obj-24"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 7",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						156,
-						454,
-						52,
-						22
-					],
-					"id": "obj-25"
 				}
 			},
 			{
@@ -774,20 +452,20 @@
 					"fontsize": 9,
 					"textjustification": 1,
 					"patching_rect": [
-						206,
+						40,
 						382,
 						60,
 						18
 					],
 					"presentation": 1,
 					"presentation_rect": [
-						172,
+						6,
 						77,
 						58,
 						16
 					],
-					"varname": "c_8_l",
-					"id": "obj-26"
+					"varname": "c_3_l",
+					"id": "obj-16"
 				}
 			},
 			{
@@ -801,13 +479,13 @@
 						"float"
 					],
 					"patching_rect": [
-						206,
+						40,
 						400,
 						48,
 						15
 					],
 					"presentation_rect": [
-						177,
+						11,
 						94,
 						48,
 						15
@@ -842,6 +520,328 @@
 							"parameter_type": 2
 						}
 					},
+					"varname": "c_3",
+					"id": "obj-17"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 3",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						40,
+						454,
+						52,
+						22
+					],
+					"id": "obj-18"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.text",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						""
+					],
+					"mode": 1,
+					"text": "Trem Sync",
+					"texton": "Trem Sync",
+					"activebgoncolor": [
+						0.96,
+						0.62,
+						0.2,
+						1
+					],
+					"patching_rect": [
+						90,
+						400,
+						48,
+						18
+					],
+					"presentation_rect": [
+						61,
+						90,
+						48,
+						18
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "Trem Sync",
+							"parameter_mmax": 1,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Trem Sync",
+							"parameter_type": 2
+						}
+					},
+					"varname": "c_4",
+					"id": "obj-19"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 4",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						90,
+						454,
+						52,
+						22
+					],
+					"id": "obj-20"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.9,
+						0.3,
+						0.28,
+						1
+					],
+					"patching_rect": [
+						206,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						179,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "Spring Mix",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Spring Mix",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_5",
+					"id": "obj-21"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 5",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						206,
+						354,
+						52,
+						22
+					],
+					"id": "obj-22"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.9,
+						0.3,
+						0.28,
+						1
+					],
+					"patching_rect": [
+						256,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						229,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "Spring Tone",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Spring Tone",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_6",
+					"id": "obj-23"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 6",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						256,
+						354,
+						52,
+						22
+					],
+					"id": "obj-24"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.9,
+						0.3,
+						0.28,
+						1
+					],
+					"patching_rect": [
+						206,
+						400,
+						44,
+						48
+					],
+					"presentation_rect": [
+						179,
+						76,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_exponent": 2,
+							"parameter_longname": "Spring Decay",
+							"parameter_mmax": 4.66,
+							"parameter_mmin": 0.85,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Spring Decay",
+							"parameter_type": 0,
+							"parameter_units": "%.2f s",
+							"parameter_unitstyle": 9
+						}
+					},
+					"varname": "c_7",
+					"id": "obj-25"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 7",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						206,
+						454,
+						52,
+						22
+					],
+					"id": "obj-26"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.text",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						""
+					],
+					"mode": 1,
+					"text": "Spring On",
+					"texton": "Spring On",
+					"activebgoncolor": [
+						0.9,
+						0.3,
+						0.28,
+						1
+					],
+					"patching_rect": [
+						256,
+						400,
+						48,
+						18
+					],
+					"presentation_rect": [
+						227,
+						90,
+						48,
+						18
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "Spring On",
+							"parameter_mmax": 1,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Spring On",
+							"parameter_type": 2
+						}
+					},
 					"varname": "c_8",
 					"id": "obj-27"
 				}
@@ -856,7 +856,7 @@
 						""
 					],
 					"patching_rect": [
-						206,
+						256,
 						454,
 						52,
 						22
@@ -1030,23 +1030,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-16",
-						0
-					],
-					"destination": [
-						"obj-17",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
 						"obj-17",
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-18",
 						0
 					]
 				}
@@ -1058,7 +1046,7 @@
 						0
 					],
 					"destination": [
-						"obj-19",
+						"obj-3",
 						0
 					]
 				}
@@ -1070,7 +1058,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-20",
 						0
 					]
 				}
@@ -1082,7 +1070,7 @@
 						0
 					],
 					"destination": [
-						"obj-21",
+						"obj-3",
 						0
 					]
 				}
@@ -1094,7 +1082,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-22",
 						0
 					]
 				}
@@ -1106,7 +1094,7 @@
 						0
 					],
 					"destination": [
-						"obj-23",
+						"obj-3",
 						0
 					]
 				}
@@ -1118,7 +1106,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-24",
 						0
 					]
 				}
@@ -1130,7 +1118,7 @@
 						0
 					],
 					"destination": [
-						"obj-25",
+						"obj-3",
 						0
 					]
 				}
@@ -1139,6 +1127,18 @@
 				"patchline": {
 					"source": [
 						"obj-25",
+						0
+					],
+					"destination": [
+						"obj-26",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-26",
 						0
 					],
 					"destination": [
@@ -1186,48 +1186,48 @@
 		],
 		"parameters": {
 			"obj-10": [
-				"Spring On",
-				"Spring On",
+				"Trem On",
+				"Trem On",
 				0
 			],
 			"obj-12": [
-				"Spring Mix",
-				"Spring Mix",
+				"Trem Intens",
+				"Trem Intens",
 				0
 			],
 			"obj-14": [
-				"Spring Tone",
-				"Spring Tone",
-				0
-			],
-			"obj-16": [
-				"Spring Decay",
-				"Spring Decay",
-				0
-			],
-			"obj-18": [
-				"Trem On",
-				"Trem On",
-				0
-			],
-			"obj-20": [
 				"Trem Speed",
 				"Trem Speed",
 				0
 			],
-			"obj-22": [
-				"Trem Intens",
-				"Trem Intens",
+			"obj-17": [
+				"Trem Note",
+				"Trem Note",
 				0
 			],
-			"obj-24": [
+			"obj-19": [
 				"Trem Sync",
 				"Trem Sync",
+				0
+			],
+			"obj-21": [
+				"Spring Mix",
+				"Spring Mix",
+				0
+			],
+			"obj-23": [
+				"Spring Tone",
+				"Spring Tone",
+				0
+			],
+			"obj-25": [
+				"Spring Decay",
+				"Spring Decay",
 				0
 			],
 			"obj-27": [
-				"Trem Note",
-				"Trem Note",
+				"Spring On",
+				"Spring On",
 				0
 			],
 			"parameterbanks": {
@@ -1235,12 +1235,12 @@
 					"index": 0,
 					"name": "VERB/TREM",
 					"parameters": [
+						"Trem Intens",
+						"Trem Speed",
+						"Trem Note",
 						"Spring Mix",
 						"Spring Tone",
 						"Spring Decay",
-						"Trem Speed",
-						"Trem Intens",
-						"Trem Note",
 						"-",
 						"-"
 					]

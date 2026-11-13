@@ -16,7 +16,7 @@
 			700
 		],
 		"openinpresentation": 1,
-		"devicewidth": 352,
+		"devicewidth": 330,
 		"default_fontsize": 10,
 		"default_fontface": 0,
 		"default_fontname": "Arial Bold",
@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js JohnMayerX.js GLOBAL be10769",
+					"text": "js JohnMayerX.js GLOBAL b8fd223",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
@@ -148,14 +148,14 @@
 					"patching_rect": [
 						34,
 						260,
-						112,
+						212,
 						16
 					],
 					"presentation": 1,
 					"presentation_rect": [
 						4,
 						4,
-						112,
+						212,
 						145
 					],
 					"varname": "g_0_p",
@@ -167,153 +167,25 @@
 					"maxclass": "comment",
 					"numinlets": 1,
 					"numoutlets": 0,
-					"text": "In / Out",
+					"text": "Global",
 					"fontface": 1,
 					"fontsize": 10,
 					"textjustification": 1,
 					"patching_rect": [
 						34,
 						278,
-						112,
+						212,
 						18
 					],
 					"presentation": 1,
 					"presentation_rect": [
 						4,
 						5,
-						112,
+						212,
 						16
 					],
 					"varname": "g_0_t",
 					"id": "obj-7"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "panel",
-					"numinlets": 1,
-					"numoutlets": 0,
-					"mode": 0,
-					"rounded": 6,
-					"background": 1,
-					"bgcolor": [
-						0.9,
-						0.3,
-						0.28,
-						0.16
-					],
-					"border": 1,
-					"bordercolor": [
-						0.9,
-						0.3,
-						0.28,
-						0.7
-					],
-					"patching_rect": [
-						150,
-						260,
-						112,
-						16
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						120,
-						4,
-						112,
-						145
-					],
-					"varname": "g_1_p",
-					"id": "obj-8"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "comment",
-					"numinlets": 1,
-					"numoutlets": 0,
-					"text": "Gate",
-					"fontface": 1,
-					"fontsize": 10,
-					"textjustification": 1,
-					"patching_rect": [
-						150,
-						278,
-						112,
-						18
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						120,
-						5,
-						112,
-						16
-					],
-					"varname": "g_1_t",
-					"id": "obj-9"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "panel",
-					"numinlets": 1,
-					"numoutlets": 0,
-					"mode": 0,
-					"rounded": 6,
-					"background": 1,
-					"bgcolor": [
-						0.35,
-						0.72,
-						0.85,
-						0.16
-					],
-					"border": 1,
-					"bordercolor": [
-						0.35,
-						0.72,
-						0.85,
-						0.7
-					],
-					"patching_rect": [
-						266,
-						260,
-						112,
-						16
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						236,
-						4,
-						112,
-						145
-					],
-					"varname": "g_2_p",
-					"id": "obj-10"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "comment",
-					"numinlets": 1,
-					"numoutlets": 0,
-					"text": "Doubler",
-					"fontface": 1,
-					"fontsize": 10,
-					"textjustification": 1,
-					"patching_rect": [
-						266,
-						278,
-						112,
-						18
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						236,
-						5,
-						112,
-						16
-					],
-					"varname": "g_2_t",
-					"id": "obj-11"
 				}
 			},
 			{
@@ -357,7 +229,7 @@
 						}
 					},
 					"varname": "c_0",
-					"id": "obj-12"
+					"id": "obj-8"
 				}
 			},
 			{
@@ -371,6 +243,135 @@
 					],
 					"patching_rect": [
 						40,
+						354,
+						52,
+						22
+					],
+					"id": "obj-9"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.text",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						""
+					],
+					"mode": 1,
+					"text": "Gate On",
+					"texton": "Gate On",
+					"activebgoncolor": [
+						0.96,
+						0.62,
+						0.2,
+						1
+					],
+					"patching_rect": [
+						90,
+						300,
+						48,
+						18
+					],
+					"presentation_rect": [
+						61,
+						35,
+						48,
+						18
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "Gate On",
+							"parameter_mmax": 1,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Gate On",
+							"parameter_type": 2
+						}
+					},
+					"varname": "c_1",
+					"id": "obj-10"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 1",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						90,
+						354,
+						52,
+						22
+					],
+					"id": "obj-11"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.96,
+						0.62,
+						0.2,
+						1
+					],
+					"patching_rect": [
+						140,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						113,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "Gate Thresh",
+							"parameter_mmax": 0,
+							"parameter_mmin": -96,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Gate Thresh",
+							"parameter_type": 0,
+							"parameter_unitstyle": 4
+						}
+					},
+					"varname": "c_2",
+					"id": "obj-12"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 2",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						140,
 						354,
 						52,
 						22
@@ -394,76 +395,14 @@
 						1
 					],
 					"patching_rect": [
-						90,
+						190,
 						300,
 						44,
 						48
 					],
 					"presentation_rect": [
-						63,
+						163,
 						21,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_longname": "Output",
-							"parameter_mmax": 24,
-							"parameter_mmin": -24,
-							"parameter_modmode": 0,
-							"parameter_shortname": "Output",
-							"parameter_type": 0,
-							"parameter_unitstyle": 4
-						}
-					},
-					"varname": "c_1",
-					"id": "obj-14"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 1",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						90,
-						354,
-						52,
-						22
-					],
-					"id": "obj-15"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.96,
-						0.62,
-						0.2,
-						1
-					],
-					"patching_rect": [
-						40,
-						400,
-						44,
-						48
-					],
-					"presentation_rect": [
-						13,
-						76,
 						44,
 						48
 					],
@@ -480,75 +419,8 @@
 							"parameter_unitstyle": 7
 						}
 					},
-					"varname": "c_2",
-					"id": "obj-16"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 2",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						40,
-						454,
-						52,
-						22
-					],
-					"id": "obj-17"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.text",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						""
-					],
-					"mode": 1,
-					"text": "Gate On",
-					"texton": "Gate On",
-					"activebgoncolor": [
-						0.9,
-						0.3,
-						0.28,
-						1
-					],
-					"patching_rect": [
-						156,
-						300,
-						48,
-						18
-					],
-					"presentation_rect": [
-						127,
-						35,
-						48,
-						18
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_enum": [
-								"Off",
-								"On"
-							],
-							"parameter_longname": "Gate On",
-							"parameter_mmax": 1,
-							"parameter_modmode": 0,
-							"parameter_shortname": "Gate On",
-							"parameter_type": 2
-						}
-					},
 					"varname": "c_3",
-					"id": "obj-18"
+					"id": "obj-14"
 				}
 			},
 			{
@@ -561,74 +433,12 @@
 						""
 					],
 					"patching_rect": [
-						156,
+						190,
 						354,
 						52,
 						22
 					],
-					"id": "obj-19"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.9,
-						0.3,
-						0.28,
-						1
-					],
-					"patching_rect": [
-						206,
-						300,
-						44,
-						48
-					],
-					"presentation_rect": [
-						179,
-						21,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_longname": "Gate Thresh",
-							"parameter_mmax": 0,
-							"parameter_mmin": -96,
-							"parameter_modmode": 0,
-							"parameter_shortname": "Gate Thresh",
-							"parameter_type": 0,
-							"parameter_unitstyle": 4
-						}
-					},
-					"varname": "c_4",
-					"id": "obj-20"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 4",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						206,
-						354,
-						52,
-						22
-					],
-					"id": "obj-21"
+					"id": "obj-15"
 				}
 			},
 			{
@@ -644,20 +454,20 @@
 					"text": "Doubler On",
 					"texton": "Doubler On",
 					"activebgoncolor": [
-						0.35,
-						0.72,
-						0.85,
+						0.96,
+						0.62,
+						0.2,
 						1
 					],
 					"patching_rect": [
-						272,
-						300,
+						40,
+						400,
 						48,
 						18
 					],
 					"presentation_rect": [
-						243,
-						35,
+						11,
+						90,
 						48,
 						18
 					],
@@ -676,26 +486,26 @@
 							"parameter_type": 2
 						}
 					},
-					"varname": "c_5",
-					"id": "obj-22"
+					"varname": "c_4",
+					"id": "obj-16"
 				}
 			},
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "prepend ui 5",
+					"text": "prepend ui 4",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
 						""
 					],
 					"patching_rect": [
-						272,
-						354,
+						40,
+						454,
 						52,
 						22
 					],
-					"id": "obj-23"
+					"id": "obj-17"
 				}
 			},
 			{
@@ -708,20 +518,20 @@
 						"float"
 					],
 					"activedialcolor": [
-						0.35,
-						0.72,
-						0.85,
+						0.96,
+						0.62,
+						0.2,
 						1
 					],
 					"patching_rect": [
-						322,
-						300,
+						90,
+						400,
 						44,
 						48
 					],
 					"presentation_rect": [
-						295,
-						21,
+						63,
+						76,
 						44,
 						48
 					],
@@ -738,8 +548,70 @@
 							"parameter_unitstyle": 2
 						}
 					},
+					"varname": "c_5",
+					"id": "obj-18"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 5",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						90,
+						454,
+						52,
+						22
+					],
+					"id": "obj-19"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.96,
+						0.62,
+						0.2,
+						1
+					],
+					"patching_rect": [
+						140,
+						400,
+						44,
+						48
+					],
+					"presentation_rect": [
+						113,
+						76,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "Output",
+							"parameter_mmax": 24,
+							"parameter_mmin": -24,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Output",
+							"parameter_type": 0,
+							"parameter_unitstyle": 4
+						}
+					},
 					"varname": "c_6",
-					"id": "obj-24"
+					"id": "obj-20"
 				}
 			},
 			{
@@ -752,12 +624,12 @@
 						""
 					],
 					"patching_rect": [
-						322,
-						354,
+						140,
+						454,
 						52,
 						22
 					],
-					"id": "obj-25"
+					"id": "obj-21"
 				}
 			},
 			{
@@ -778,10 +650,10 @@
 					"presentation_rect": [
 						4,
 						151,
-						344,
+						322,
 						16
 					],
-					"id": "obj-26"
+					"id": "obj-22"
 				}
 			},
 			{
@@ -807,10 +679,10 @@
 					"presentation_rect": [
 						4,
 						151,
-						344,
+						322,
 						16
 					],
-					"id": "obj-27"
+					"id": "obj-23"
 				}
 			}
 		],
@@ -843,6 +715,54 @@
 				"patchline": {
 					"source": [
 						"obj-4",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-8",
+						0
+					],
+					"destination": [
+						"obj-9",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-9",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-10",
+						0
+					],
+					"destination": [
+						"obj-11",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-11",
 						0
 					],
 					"destination": [
@@ -974,55 +894,7 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-22",
-						0
-					],
-					"destination": [
 						"obj-23",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
-						"obj-23",
-						0
-					],
-					"destination": [
-						"obj-3",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
-						"obj-24",
-						0
-					],
-					"destination": [
-						"obj-25",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
-						"obj-25",
-						0
-					],
-					"destination": [
-						"obj-3",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
-						"obj-27",
 						0
 					],
 					"destination": [
@@ -1033,39 +905,39 @@
 			}
 		],
 		"parameters": {
+			"obj-8": [
+				"Input",
+				"Input",
+				0
+			],
+			"obj-10": [
+				"Gate On",
+				"Gate On",
+				0
+			],
 			"obj-12": [
-				"Input",
-				"Input",
+				"Gate Thresh",
+				"Gate Thresh",
 				0
 			],
 			"obj-14": [
-				"Output",
-				"Output",
+				"Transpose",
+				"Transpose",
 				0
 			],
 			"obj-16": [
-				"Transpose",
-				"Transpose",
+				"Doubler On",
+				"Doubler On",
 				0
 			],
 			"obj-18": [
-				"Gate On",
-				"Gate On",
+				"Dblr Spread",
+				"Dblr Spread",
 				0
 			],
 			"obj-20": [
-				"Gate Thresh",
-				"Gate Thresh",
-				0
-			],
-			"obj-22": [
-				"Doubler On",
-				"Doubler On",
-				0
-			],
-			"obj-24": [
-				"Dblr Spread",
-				"Dblr Spread",
+				"Output",
+				"Output",
 				0
 			],
 			"parameterbanks": {
@@ -1074,10 +946,10 @@
 					"name": "GLOBAL",
 					"parameters": [
 						"Input",
-						"Output",
-						"Transpose",
 						"Gate Thresh",
+						"Transpose",
 						"Dblr Spread",
+						"Output",
 						"-",
 						"-",
 						"-"

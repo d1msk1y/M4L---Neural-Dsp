@@ -16,6 +16,24 @@
       "selector": "Pedal",
       "groups": [
         {
+          "name": "Justa Boost",
+          "controls": [
+            {
+              "label": "Boost On",
+              "param": "Justa Boost Active"
+            },
+            {
+              "label": "Boost Vol",
+              "param": "Justa Boost Output"
+            },
+            {
+              "label": "Boost Sw",
+              "param": "Justa Boost Boost"
+            }
+          ],
+          "short": "Boost"
+        },
+        {
           "name": "Antelope Filter",
           "controls": [
             {
@@ -31,37 +49,19 @@
               "param": "Antelope Filter Peak"
             },
             {
-              "label": "Filter Range",
-              "param": "Antelope Filter Range"
-            },
-            {
               "label": "Filter Sweep",
               "param": "Antelope Filter Sweep"
             },
             {
               "label": "Filter Resp",
               "param": "Antelope Filter Response"
+            },
+            {
+              "label": "Filter Range",
+              "param": "Antelope Filter Range"
             }
           ],
           "short": "Filter"
-        },
-        {
-          "name": "Justa Boost",
-          "controls": [
-            {
-              "label": "Boost On",
-              "param": "Justa Boost Active"
-            },
-            {
-              "label": "Boost Out",
-              "param": "Justa Boost Output"
-            },
-            {
-              "label": "Boost Sw",
-              "param": "Justa Boost Boost"
-            }
-          ],
-          "short": "Boost"
         },
         {
           "name": "Halfman OD",
@@ -75,12 +75,12 @@
               "param": "Halfman OD Gain"
             },
             {
-              "label": "Halfman Treb",
-              "param": "Halfman OD Treble"
-            },
-            {
               "label": "Halfman Lvl",
               "param": "Halfman OD Level"
+            },
+            {
+              "label": "Halfman Treb",
+              "param": "Halfman OD Treble"
             }
           ],
           "short": "Halfman"
@@ -97,16 +97,16 @@
               "param": "Tealbreaker Gain"
             },
             {
-              "label": "Teal Tone",
-              "param": "Tealbreaker Tone"
+              "label": "Teal Mode",
+              "param": "Tealbreaker Mode"
             },
             {
               "label": "Teal Level",
               "param": "Tealbreaker Level"
             },
             {
-              "label": "Teal Mode",
-              "param": "Tealbreaker Mode"
+              "label": "Teal Tone",
+              "param": "Tealbreaker Tone"
             }
           ],
           "short": "Teal"
@@ -119,19 +119,73 @@
               "param": "Millipede Delay Active"
             },
             {
-              "label": "Milli Blend",
-              "param": "Millipede Delay Blend"
-            },
-            {
               "label": "Milli Time",
               "param": "Millipede Delay Time"
             },
             {
               "label": "Milli Fdbk",
               "param": "Millipede Delay Feedback"
+            },
+            {
+              "label": "Milli Blend",
+              "param": "Millipede Delay Blend"
             }
           ],
           "short": "Millipede"
+        }
+      ]
+    },
+    {
+      "name": "VERB/TREM",
+      "groups": [
+        {
+          "name": "Harmonic Tremolo",
+          "controls": [
+            {
+              "label": "Trem On",
+              "param": "Harmonic Tremolo Active"
+            },
+            {
+              "label": "Trem Intens",
+              "param": "Harmonic Tremolo Intensity"
+            },
+            {
+              "label": "Trem Speed",
+              "param": [
+                "Harmonic Tremolo Speed",
+                "Harmonic Tremolo Rate"
+              ]
+            },
+            {
+              "label": "Trem Note",
+              "param": "Harmonic Tremolo Sync Note"
+            },
+            {
+              "label": "Trem Sync",
+              "param": "Harmonic Tremolo Sync"
+            }
+          ]
+        },
+        {
+          "name": "Spring Reverb",
+          "controls": [
+            {
+              "label": "Spring Mix",
+              "param": "Spring Reverb Mix"
+            },
+            {
+              "label": "Spring Tone",
+              "param": "Spring Reverb Tone"
+            },
+            {
+              "label": "Spring Decay",
+              "param": "Spring Reverb Decay"
+            },
+            {
+              "label": "Spring On",
+              "param": "Spring Reverb Active"
+            }
+          ]
         }
       ]
     },
@@ -151,12 +205,20 @@
           ],
           "param": "Amp Type",
           "sets": "amp"
+        },
+        {
+          "label": "Amp On",
+          "param": "Active Amp Section"
         }
       ],
       "groups": [
         {
           "name": "Smooth Operator",
           "controls": [
+            {
+              "label": "SO Bright",
+              "param": "Smooth Operator Bright"
+            },
             {
               "label": "SO Volume",
               "param": "Smooth Operator Volume"
@@ -172,16 +234,24 @@
             {
               "label": "SO Output",
               "param": "Smooth Operator Output"
-            },
-            {
-              "label": "SO Bright",
-              "param": "Smooth Operator Bright"
             }
           ]
         },
         {
           "name": "Headroom Hero",
           "controls": [
+            {
+              "label": "HH Input",
+              "param": "Headroom Hero Input Jack"
+            },
+            {
+              "label": "HH Bright",
+              "param": "Headroom Hero Bright"
+            },
+            {
+              "label": "HH Mid Boost",
+              "param": "Headroom Hero Mid Boost"
+            },
             {
               "label": "HH Gain",
               "param": "Headroom Hero Gain"
@@ -205,24 +275,20 @@
             {
               "label": "HH Output",
               "param": "Headroom Hero Output"
-            },
-            {
-              "label": "HH Bright",
-              "param": "Headroom Hero Bright"
-            },
-            {
-              "label": "HH Mid Boost",
-              "param": "Headroom Hero Mid Boost"
-            },
-            {
-              "label": "HH Input",
-              "param": "Headroom Hero Input Jack"
             }
           ]
         },
         {
           "name": "Signature 83",
           "controls": [
+            {
+              "label": "83 Bright",
+              "param": "Signature 83 Bright"
+            },
+            {
+              "label": "83 EQ",
+              "param": "Signature 83 EQ"
+            },
             {
               "label": "83 Gain",
               "param": "Signature 83 Gain"
@@ -250,14 +316,6 @@
             {
               "label": "83 Output",
               "param": "Signature 83 Output"
-            },
-            {
-              "label": "83 Bright",
-              "param": "Signature 83 Bright"
-            },
-            {
-              "label": "83 EQ",
-              "param": "Signature 83 EQ"
             }
           ]
         },
@@ -267,10 +325,6 @@
             {
               "label": "3in1 Gain",
               "param": "Three-In-One Amp Gain"
-            },
-            {
-              "label": "3in1 Output",
-              "param": "Three-In-One Amp Output"
             },
             {
               "label": "3in1 SmOp",
@@ -287,60 +341,10 @@
             {
               "label": "3in1 Room",
               "param": "Three-In-One Amp Room Send"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name": "VERB/TREM",
-      "groups": [
-        {
-          "name": "Spring Reverb",
-          "controls": [
-            {
-              "label": "Spring On",
-              "param": "Spring Reverb Active"
             },
             {
-              "label": "Spring Mix",
-              "param": "Spring Reverb Mix"
-            },
-            {
-              "label": "Spring Tone",
-              "param": "Spring Reverb Tone"
-            },
-            {
-              "label": "Spring Decay",
-              "param": "Spring Reverb Decay"
-            }
-          ]
-        },
-        {
-          "name": "Harmonic Tremolo",
-          "controls": [
-            {
-              "label": "Trem On",
-              "param": "Harmonic Tremolo Active"
-            },
-            {
-              "label": "Trem Speed",
-              "param": [
-                "Harmonic Tremolo Speed",
-                "Harmonic Tremolo Rate"
-              ]
-            },
-            {
-              "label": "Trem Intens",
-              "param": "Harmonic Tremolo Intensity"
-            },
-            {
-              "label": "Trem Sync",
-              "param": "Harmonic Tremolo Sync"
-            },
-            {
-              "label": "Trem Note",
-              "param": "Harmonic Tremolo Sync Note"
+              "label": "3in1 Output",
+              "param": "Three-In-One Amp Output"
             }
           ]
         }
@@ -351,58 +355,8 @@
       "selector": "EQ View",
       "groups": [
         {
-          "name": "EQ",
+          "name": "EQ Frequencies",
           "controls": [
-            {
-              "label": "EQ On",
-              "by": "amp",
-              "params": [
-                "Smooth Operator EQ Active",
-                "Headroom Hero EQ Active",
-                "Signature 83 EQ Active",
-                "Three-In-One EQ Active"
-              ]
-            },
-            {
-              "label": "EQ Low",
-              "by": "amp",
-              "params": [
-                "Smooth Operator EQ Lo Gain",
-                "Headroom Hero EQ Lo Gain",
-                "Signature 83 EQ Lo Gain",
-                "Three-In-One EQ Lo Gain"
-              ]
-            },
-            {
-              "label": "EQ LoMid",
-              "by": "amp",
-              "params": [
-                "Smooth Operator EQ Lo-Mid Gain",
-                "Headroom Hero EQ Lo-Mid Gain",
-                "Signature 83 EQ Lo-Mid Gain",
-                "Three-In-One EQ Lo-Mid Gain"
-              ]
-            },
-            {
-              "label": "EQ HiMid",
-              "by": "amp",
-              "params": [
-                "Smooth Operator EQ Hi-Mid Gain",
-                "Headroom Hero EQ Hi-Mid Gain",
-                "Signature 83 EQ Hi-Mid Gain",
-                "Three-In-One EQ Hi-Mid Gain"
-              ]
-            },
-            {
-              "label": "EQ High",
-              "by": "amp",
-              "params": [
-                "Smooth Operator EQ Hi Gain",
-                "Headroom Hero EQ Hi Gain",
-                "Signature 83 EQ Hi Gain",
-                "Three-In-One EQ Hi Gain"
-              ]
-            },
             {
               "label": "EQ HPF",
               "by": "amp",
@@ -413,21 +367,6 @@
                 "Three-In-One EQ HPF"
               ]
             },
-            {
-              "label": "EQ LPF",
-              "by": "amp",
-              "params": [
-                "Smooth Operator EQ LPF",
-                "Headroom Hero EQ LPF",
-                "Signature 83 EQ LPF",
-                "Three-In-One EQ LPF"
-              ]
-            }
-          ]
-        },
-        {
-          "name": "Frequencies + Comp",
-          "controls": [
             {
               "label": "Low Freq",
               "by": "amp",
@@ -469,13 +408,69 @@
               ]
             },
             {
-              "label": "Comp On",
+              "label": "EQ LPF",
               "by": "amp",
               "params": [
-                "Smooth Operator Compressor Active",
-                "Headroom Hero Compressor Active",
-                "Signature 83 Compressor Active",
-                "Three-In-One Compressor Active"
+                "Smooth Operator EQ LPF",
+                "Headroom Hero EQ LPF",
+                "Signature 83 EQ LPF",
+                "Three-In-One EQ LPF"
+              ]
+            }
+          ],
+          "short": "Freq"
+        },
+        {
+          "name": "EQ Gains + Compressor",
+          "controls": [
+            {
+              "label": "EQ Low",
+              "by": "amp",
+              "params": [
+                "Smooth Operator EQ Lo Gain",
+                "Headroom Hero EQ Lo Gain",
+                "Signature 83 EQ Lo Gain",
+                "Three-In-One EQ Lo Gain"
+              ]
+            },
+            {
+              "label": "EQ LoMid",
+              "by": "amp",
+              "params": [
+                "Smooth Operator EQ Lo-Mid Gain",
+                "Headroom Hero EQ Lo-Mid Gain",
+                "Signature 83 EQ Lo-Mid Gain",
+                "Three-In-One EQ Lo-Mid Gain"
+              ]
+            },
+            {
+              "label": "EQ HiMid",
+              "by": "amp",
+              "params": [
+                "Smooth Operator EQ Hi-Mid Gain",
+                "Headroom Hero EQ Hi-Mid Gain",
+                "Signature 83 EQ Hi-Mid Gain",
+                "Three-In-One EQ Hi-Mid Gain"
+              ]
+            },
+            {
+              "label": "EQ High",
+              "by": "amp",
+              "params": [
+                "Smooth Operator EQ Hi Gain",
+                "Headroom Hero EQ Hi Gain",
+                "Signature 83 EQ Hi Gain",
+                "Three-In-One EQ Hi Gain"
+              ]
+            },
+            {
+              "label": "EQ On",
+              "by": "amp",
+              "params": [
+                "Smooth Operator EQ Active",
+                "Headroom Hero EQ Active",
+                "Signature 83 EQ Active",
+                "Three-In-One EQ Active"
               ]
             },
             {
@@ -497,9 +492,19 @@
                 "Signature 83 Compressor Output",
                 "Three-In-One Compressor Output"
               ]
+            },
+            {
+              "label": "Comp On",
+              "by": "amp",
+              "params": [
+                "Smooth Operator Compressor Active",
+                "Headroom Hero Compressor Active",
+                "Signature 83 Compressor Active",
+                "Three-In-One Compressor Active"
+              ]
             }
           ],
-          "short": "Freq/Comp"
+          "short": "Gain/Comp"
         }
       ]
     },
@@ -511,12 +516,20 @@
           "name": "Dream Delay",
           "controls": [
             {
-              "label": "Delay On",
-              "param": "Dream Delay Active"
+              "label": "Dly Sync",
+              "param": "Dream Delay Sync"
+            },
+            {
+              "label": "Dly PingPong",
+              "param": "Dream Delay Ping Pong"
             },
             {
               "label": "Dly Mix",
               "param": "Dream Delay Mix"
+            },
+            {
+              "label": "Dly Hard",
+              "param": "Dream Delay Hardness"
             },
             {
               "label": "Dly Fdbk",
@@ -527,16 +540,8 @@
               "param": "Dream Delay Time"
             },
             {
-              "label": "Dly Hard",
-              "param": "Dream Delay Hardness"
-            },
-            {
-              "label": "Dly Sync",
-              "param": "Dream Delay Sync"
-            },
-            {
-              "label": "Dly PingPong",
-              "param": "Dream Delay Ping Pong"
+              "label": "Delay On",
+              "param": "Dream Delay Active"
             }
           ],
           "short": "Delay"
@@ -545,32 +550,32 @@
           "name": "Studio Verb",
           "controls": [
             {
-              "label": "Reverb On",
-              "param": "Studio Verb Active"
-            },
-            {
               "label": "Rev Mix",
               "param": "Studio Verb Mix"
-            },
-            {
-              "label": "Rev Decay",
-              "param": "Studio Verb Decay"
             },
             {
               "label": "Rev PreDly",
               "param": "Studio Verb Pre-Delay"
             },
             {
+              "label": "Rev Decay",
+              "param": "Studio Verb Decay"
+            },
+            {
               "label": "Rev LoCut",
               "param": "Studio Verb Low Cut"
+            },
+            {
+              "label": "Rev Mode",
+              "param": "Studio Verb Mode"
             },
             {
               "label": "Rev HiCut",
               "param": "Studio Verb High Cut"
             },
             {
-              "label": "Rev Mode",
-              "param": "Studio Verb Mode"
+              "label": "Reverb On",
+              "param": "Studio Verb Active"
             }
           ],
           "short": "Reverb"
@@ -581,25 +586,12 @@
       "name": "GLOBAL",
       "groups": [
         {
-          "name": "In / Out",
+          "name": "Global",
           "controls": [
             {
               "label": "Input",
               "param": "Input Gain"
             },
-            {
-              "label": "Output",
-              "param": "Output Gain"
-            },
-            {
-              "label": "Transpose",
-              "param": "Transpose"
-            }
-          ]
-        },
-        {
-          "name": "Gate",
-          "controls": [
             {
               "label": "Gate On",
               "param": "Gate Active"
@@ -607,12 +599,11 @@
             {
               "label": "Gate Thresh",
               "param": "Gate Threshold"
-            }
-          ]
-        },
-        {
-          "name": "Doubler",
-          "controls": [
+            },
+            {
+              "label": "Transpose",
+              "param": "Transpose"
+            },
             {
               "label": "Doubler On",
               "param": "Doubler Active"
@@ -620,6 +611,10 @@
             {
               "label": "Dblr Spread",
               "param": "Doubler Spread"
+            },
+            {
+              "label": "Output",
+              "param": "Output Gain"
             }
           ]
         }

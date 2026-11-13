@@ -16,7 +16,7 @@
 			700
 		],
 		"openinpresentation": 1,
-		"devicewidth": 552,
+		"devicewidth": 502,
 		"default_fontsize": 10,
 		"default_fontface": 0,
 		"default_fontname": "Arial Bold",
@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js JohnMayerX.js EQCOMP be10769",
+					"text": "js JohnMayerX.js EQCOMP b8fd223",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
@@ -212,14 +212,14 @@
 					"patching_rect": [
 						150,
 						260,
-						212,
+						162,
 						16
 					],
 					"presentation": 1,
 					"presentation_rect": [
 						120,
 						4,
-						212,
+						162,
 						145
 					],
 					"varname": "g_1_p",
@@ -231,21 +231,21 @@
 					"maxclass": "comment",
 					"numinlets": 1,
 					"numoutlets": 0,
-					"text": "EQ",
+					"text": "EQ Frequencies",
 					"fontface": 1,
 					"fontsize": 10,
 					"textjustification": 1,
 					"patching_rect": [
 						150,
 						278,
-						212,
+						162,
 						18
 					],
 					"presentation": 1,
 					"presentation_rect": [
 						120,
 						5,
-						212,
+						162,
 						16
 					],
 					"varname": "g_1_t",
@@ -274,14 +274,14 @@
 						0.7
 					],
 					"patching_rect": [
-						366,
+						316,
 						260,
 						212,
 						16
 					],
 					"presentation": 1,
 					"presentation_rect": [
-						336,
+						286,
 						4,
 						212,
 						145
@@ -295,19 +295,19 @@
 					"maxclass": "comment",
 					"numinlets": 1,
 					"numoutlets": 0,
-					"text": "Frequencies + Comp",
+					"text": "EQ Gains + Compressor",
 					"fontface": 1,
 					"fontsize": 10,
 					"textjustification": 1,
 					"patching_rect": [
-						366,
+						316,
 						278,
 						212,
 						18
 					],
 					"presentation": 1,
 					"presentation_rect": [
-						336,
+						286,
 						5,
 						212,
 						16
@@ -368,8 +368,8 @@
 					"saved_attribute_attributes": {
 						"valueof": {
 							"parameter_enum": [
-								"EQ",
-								"Freq/Comp"
+								"Freq",
+								"Gain/Comp"
 							],
 							"parameter_longname": "EQ View",
 							"parameter_mmax": 1,
@@ -402,17 +402,14 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.text",
+					"maxclass": "live.dial",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						""
+						"float"
 					],
-					"mode": 1,
-					"text": "EQ On",
-					"texton": "EQ On",
-					"activebgoncolor": [
+					"activedialcolor": [
 						0.9,
 						0.3,
 						0.28,
@@ -421,28 +418,27 @@
 					"patching_rect": [
 						156,
 						300,
-						48,
-						18
+						44,
+						48
 					],
 					"presentation_rect": [
-						127,
-						35,
-						48,
-						18
+						129,
+						21,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_enum": [
-								"Off",
-								"On"
-							],
-							"parameter_longname": "EQ On",
-							"parameter_mmax": 1,
+							"parameter_exponent": 1.68,
+							"parameter_longname": "EQ HPF",
+							"parameter_mmax": 500,
+							"parameter_mmin": 21,
 							"parameter_modmode": 0,
-							"parameter_shortname": "EQ On",
-							"parameter_type": 2
+							"parameter_shortname": "EQ HPF",
+							"parameter_type": 0,
+							"parameter_unitstyle": 3
 						}
 					},
 					"varname": "c_1",
@@ -498,13 +494,14 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "EQ Low",
-							"parameter_mmax": 12,
-							"parameter_mmin": -12,
+							"parameter_exponent": 2.17,
+							"parameter_longname": "Low Freq",
+							"parameter_mmax": 200,
+							"parameter_mmin": 20,
 							"parameter_modmode": 0,
-							"parameter_shortname": "EQ Low",
+							"parameter_shortname": "Low Freq",
 							"parameter_type": 0,
-							"parameter_unitstyle": 4
+							"parameter_unitstyle": 3
 						}
 					},
 					"varname": "c_2",
@@ -560,13 +557,14 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "EQ LoMid",
-							"parameter_mmax": 12,
-							"parameter_mmin": -12,
+							"parameter_exponent": 2.49,
+							"parameter_longname": "LoMid Freq",
+							"parameter_mmax": 1000,
+							"parameter_mmin": 100,
 							"parameter_modmode": 0,
-							"parameter_shortname": "EQ LoMid",
+							"parameter_shortname": "LoMid Freq",
 							"parameter_type": 0,
-							"parameter_unitstyle": 4
+							"parameter_unitstyle": 3
 						}
 					},
 					"varname": "c_3",
@@ -607,14 +605,14 @@
 						1
 					],
 					"patching_rect": [
-						306,
-						300,
+						156,
+						400,
 						44,
 						48
 					],
 					"presentation_rect": [
-						279,
-						21,
+						129,
+						76,
 						44,
 						48
 					],
@@ -622,13 +620,14 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "EQ HiMid",
-							"parameter_mmax": 12,
-							"parameter_mmin": -12,
+							"parameter_exponent": 2.68,
+							"parameter_longname": "HiMid Freq",
+							"parameter_mmax": 5000,
+							"parameter_mmin": 500,
 							"parameter_modmode": 0,
-							"parameter_shortname": "EQ HiMid",
+							"parameter_shortname": "HiMid Freq",
 							"parameter_type": 0,
-							"parameter_unitstyle": 4
+							"parameter_unitstyle": 3
 						}
 					},
 					"varname": "c_4",
@@ -645,74 +644,12 @@
 						""
 					],
 					"patching_rect": [
-						306,
-						354,
-						52,
-						22
-					],
-					"id": "obj-22"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.9,
-						0.3,
-						0.28,
-						1
-					],
-					"patching_rect": [
-						156,
-						400,
-						44,
-						48
-					],
-					"presentation_rect": [
-						129,
-						76,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_longname": "EQ High",
-							"parameter_mmax": 12,
-							"parameter_mmin": -12,
-							"parameter_modmode": 0,
-							"parameter_shortname": "EQ High",
-							"parameter_type": 0,
-							"parameter_unitstyle": 4
-						}
-					},
-					"varname": "c_5",
-					"id": "obj-23"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 5",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
 						156,
 						454,
 						52,
 						22
 					],
-					"id": "obj-24"
+					"id": "obj-22"
 				}
 			},
 			{
@@ -746,24 +683,24 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_exponent": 1.68,
-							"parameter_longname": "EQ HPF",
-							"parameter_mmax": 500,
-							"parameter_mmin": 21,
+							"parameter_exponent": 2.17,
+							"parameter_longname": "High Freq",
+							"parameter_mmax": 20000,
+							"parameter_mmin": 2000,
 							"parameter_modmode": 0,
-							"parameter_shortname": "EQ HPF",
+							"parameter_shortname": "High Freq",
 							"parameter_type": 0,
 							"parameter_unitstyle": 3
 						}
 					},
-					"varname": "c_6",
-					"id": "obj-25"
+					"varname": "c_5",
+					"id": "obj-23"
 				}
 			},
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "prepend ui 6",
+					"text": "prepend ui 5",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
@@ -775,7 +712,7 @@
 						52,
 						22
 					],
-					"id": "obj-26"
+					"id": "obj-24"
 				}
 			},
 			{
@@ -819,6 +756,68 @@
 							"parameter_unitstyle": 3
 						}
 					},
+					"varname": "c_6",
+					"id": "obj-25"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 6",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						256,
+						454,
+						52,
+						22
+					],
+					"id": "obj-26"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.35,
+						0.72,
+						0.85,
+						1
+					],
+					"patching_rect": [
+						322,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						295,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "EQ Low",
+							"parameter_mmax": 12,
+							"parameter_mmin": -12,
+							"parameter_modmode": 0,
+							"parameter_shortname": "EQ Low",
+							"parameter_type": 0,
+							"parameter_unitstyle": 4
+						}
+					},
 					"varname": "c_7",
 					"id": "obj-27"
 				}
@@ -833,8 +832,8 @@
 						""
 					],
 					"patching_rect": [
-						256,
-						454,
+						322,
+						354,
 						52,
 						22
 					],
@@ -872,14 +871,13 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_exponent": 2.17,
-							"parameter_longname": "Low Freq",
-							"parameter_mmax": 200,
-							"parameter_mmin": 20,
+							"parameter_longname": "EQ LoMid",
+							"parameter_mmax": 12,
+							"parameter_mmin": -12,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Low Freq",
+							"parameter_shortname": "EQ LoMid",
 							"parameter_type": 0,
-							"parameter_unitstyle": 3
+							"parameter_unitstyle": 4
 						}
 					},
 					"varname": "c_8",
@@ -935,14 +933,13 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_exponent": 2.49,
-							"parameter_longname": "LoMid Freq",
-							"parameter_mmax": 1000,
-							"parameter_mmin": 100,
+							"parameter_longname": "EQ HiMid",
+							"parameter_mmax": 12,
+							"parameter_mmin": -12,
 							"parameter_modmode": 0,
-							"parameter_shortname": "LoMid Freq",
+							"parameter_shortname": "EQ HiMid",
 							"parameter_type": 0,
-							"parameter_unitstyle": 3
+							"parameter_unitstyle": 4
 						}
 					},
 					"varname": "c_9",
@@ -998,14 +995,13 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_exponent": 2.68,
-							"parameter_longname": "HiMid Freq",
-							"parameter_mmax": 5000,
-							"parameter_mmin": 500,
+							"parameter_longname": "EQ High",
+							"parameter_mmax": 12,
+							"parameter_mmin": -12,
 							"parameter_modmode": 0,
-							"parameter_shortname": "HiMid Freq",
+							"parameter_shortname": "EQ High",
 							"parameter_type": 0,
-							"parameter_unitstyle": 3
+							"parameter_unitstyle": 4
 						}
 					},
 					"varname": "c_10",
@@ -1032,43 +1028,47 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "live.text",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"float"
+						""
 					],
-					"activedialcolor": [
+					"mode": 1,
+					"text": "EQ On",
+					"texton": "EQ On",
+					"activebgoncolor": [
 						0.35,
 						0.72,
 						0.85,
 						1
 					],
 					"patching_rect": [
-						522,
-						300,
-						44,
-						48
+						322,
+						400,
+						48,
+						18
 					],
 					"presentation_rect": [
-						495,
-						21,
-						44,
-						48
+						293,
+						90,
+						48,
+						18
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_exponent": 2.17,
-							"parameter_longname": "High Freq",
-							"parameter_mmax": 20000,
-							"parameter_mmin": 2000,
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "EQ On",
+							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "High Freq",
-							"parameter_type": 0,
-							"parameter_unitstyle": 3
+							"parameter_shortname": "EQ On",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_11",
@@ -1085,8 +1085,8 @@
 						""
 					],
 					"patching_rect": [
-						522,
-						354,
+						322,
+						454,
 						52,
 						22
 					],
@@ -1095,17 +1095,14 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.text",
+					"maxclass": "live.dial",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						""
+						"float"
 					],
-					"mode": 1,
-					"text": "Comp On",
-					"texton": "Comp On",
-					"activebgoncolor": [
+					"activedialcolor": [
 						0.35,
 						0.72,
 						0.85,
@@ -1114,28 +1111,26 @@
 					"patching_rect": [
 						372,
 						400,
-						48,
-						18
+						44,
+						48
 					],
 					"presentation_rect": [
-						343,
-						90,
-						48,
-						18
+						345,
+						76,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_enum": [
-								"Off",
-								"On"
-							],
-							"parameter_longname": "Comp On",
-							"parameter_mmax": 1,
+							"parameter_longname": "Comp In",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Comp On",
-							"parameter_type": 2
+							"parameter_shortname": "Comp In",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_12",
@@ -1191,11 +1186,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Comp In",
+							"parameter_longname": "Comp Out",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Comp In",
+							"parameter_shortname": "Comp Out",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -1224,14 +1219,17 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "live.text",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"float"
+						""
 					],
-					"activedialcolor": [
+					"mode": 1,
+					"text": "Comp On",
+					"texton": "Comp On",
+					"activebgoncolor": [
 						0.35,
 						0.72,
 						0.85,
@@ -1240,26 +1238,28 @@
 					"patching_rect": [
 						472,
 						400,
-						44,
-						48
+						48,
+						18
 					],
 					"presentation_rect": [
-						445,
-						76,
-						44,
-						48
+						443,
+						90,
+						48,
+						18
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Comp Out",
-							"parameter_mmax": 100,
-							"parameter_mmin": 0,
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "Comp On",
+							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Comp Out",
-							"parameter_type": 0,
-							"parameter_unitstyle": 5
+							"parameter_shortname": "Comp On",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_14",
@@ -1302,7 +1302,7 @@
 					"presentation_rect": [
 						4,
 						151,
-						544,
+						494,
 						16
 					],
 					"id": "obj-43"
@@ -1331,7 +1331,7 @@
 					"presentation_rect": [
 						4,
 						151,
-						544,
+						494,
 						16
 					],
 					"id": "obj-44"
@@ -1755,73 +1755,73 @@
 				0
 			],
 			"obj-15": [
-				"EQ On",
-				"EQ On",
+				"EQ HPF",
+				"EQ HPF",
 				0
 			],
 			"obj-17": [
-				"EQ Low",
-				"EQ Low",
+				"Low Freq",
+				"Low Freq",
 				0
 			],
 			"obj-19": [
-				"EQ LoMid",
-				"EQ LoMid",
+				"LoMid Freq",
+				"LoMid Freq",
 				0
 			],
 			"obj-21": [
-				"EQ HiMid",
-				"EQ HiMid",
+				"HiMid Freq",
+				"HiMid Freq",
 				0
 			],
 			"obj-23": [
-				"EQ High",
-				"EQ High",
+				"High Freq",
+				"High Freq",
 				0
 			],
 			"obj-25": [
-				"EQ HPF",
-				"EQ HPF",
+				"EQ LPF",
+				"EQ LPF",
 				0
 			],
 			"obj-27": [
-				"EQ LPF",
-				"EQ LPF",
+				"EQ Low",
+				"EQ Low",
 				0
 			],
 			"obj-29": [
-				"Low Freq",
-				"Low Freq",
+				"EQ LoMid",
+				"EQ LoMid",
 				0
 			],
 			"obj-31": [
-				"LoMid Freq",
-				"LoMid Freq",
+				"EQ HiMid",
+				"EQ HiMid",
 				0
 			],
 			"obj-33": [
-				"HiMid Freq",
-				"HiMid Freq",
+				"EQ High",
+				"EQ High",
 				0
 			],
 			"obj-35": [
-				"High Freq",
-				"High Freq",
+				"EQ On",
+				"EQ On",
 				0
 			],
 			"obj-37": [
-				"Comp On",
-				"Comp On",
+				"Comp In",
+				"Comp In",
 				0
 			],
 			"obj-39": [
-				"Comp In",
-				"Comp In",
+				"Comp Out",
+				"Comp Out",
 				0
 			],
 			"obj-41": [
-				"Comp Out",
-				"Comp Out",
+				"Comp On",
+				"Comp On",
 				0
 			],
 			"parameterbanks": {
@@ -1830,11 +1830,11 @@
 					"name": "EQ/COMP",
 					"parameters": [
 						"EQ View",
-						"EQ Low",
-						"EQ LoMid",
-						"EQ HiMid",
-						"EQ High",
 						"EQ HPF",
+						"Low Freq",
+						"LoMid Freq",
+						"HiMid Freq",
+						"High Freq",
 						"EQ LPF",
 						"-"
 					]
