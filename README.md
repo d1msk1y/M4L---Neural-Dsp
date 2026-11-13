@@ -45,19 +45,26 @@ pick up parameter renames while a device is loaded.
   "device": "MyPlugin",
   "match": ["My Plugin"],
   "switches": { "amp": { "param": "Amp Type", "count": 3 } },
-  "banks": [
-    { "name": "AMP", "controls": [
-      { "label": "Amp Type", "type": "menu", "items": ["A", "B", "C"], "param": "Amp Type" },
-      { "label": "Gain", "by": "amp", "params": ["A Gain", "B Gain", "C Gain"] },
-      { "label": "Pres/Bright", "by": "amp",
-        "params": ["A Bright", null, "C Presence"], "labels": ["Bright", "-", "Presence"] },
-      { "label": "Boost On", "type": "toggle", "param": "Boost Active" }
+  "pages": [
+    { "name": "AMP", "groups": [
+      { "name": "Amp", "controls": [
+        { "label": "Amp Type", "type": "menu", "items": ["A", "B", "C"], "param": "Amp Type", "sets": "amp" },
+        { "label": "Gain", "by": "amp", "params": ["A Gain", "B Gain", "C Gain"] },
+        { "label": "Pres/Bright", "by": "amp",
+          "params": ["A Bright", null, "C Presence"], "labels": ["Bright", "-", "Presence"] }
+      ] },
+      { "name": "Boost", "bank": "AMP 2", "controls": [
+        { "label": "Boost On", "type": "toggle", "param": "Boost Active" }
+      ] }
     ] }
   ]
 }
 ```
 
-- Up to 8 banks of 8 controls. Use `null` in `controls` to leave a Push slot empty.
+- A **page** is a tab in the device in Live. A **group** is one coloured panel on that
+  page, with up to 8 controls.
+- On Push each group is its own bank, named after the group. Give consecutive groups the
+  same `"bank"` name to merge them into one bank of up to 8.
 - `type` is `dial` (default), `toggle` or `menu`. Add `"invert": true` for bypass-style switches.
 - `param` is the plugin's parameter name. Matching ignores case and punctuation. A list
   of names is tried in order.

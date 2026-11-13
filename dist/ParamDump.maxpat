@@ -13,7 +13,7 @@
 			80,
 			100,
 			1300,
-			520
+			700
 		],
 		"openinpresentation": 1,
 		"devicewidth": 330,

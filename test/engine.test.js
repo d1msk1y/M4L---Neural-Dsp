@@ -230,4 +230,13 @@ test('a switch the plugin does not expose is driven from the wrapper menu', () =
   delete w.js.PROFILE.controls[0].sets;
 });
 
+test('selecting a tab shows only that page', () => {
+  const { w } = setup();
+  w.js.PROFILE.ui = [['c_0', 'c_1'], ['c_3']];
+  w.js.tab(1);
+  assert.deepStrictEqual(w.ui.c_0.log.pop(), ['hidden', 1]);
+  assert.deepStrictEqual(w.ui.c_3.log.pop(), ['hidden', 0]);
+  delete w.js.PROFILE.ui;
+});
+
 console.log(`${passed} tests passed`);

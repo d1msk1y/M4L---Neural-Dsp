@@ -9,26 +9,183 @@ var PROFILE = {
       "count": 4
     }
   },
+  "ui": [
+    [
+      "g_0_p",
+      "g_0_t",
+      "g_1_p",
+      "g_1_t",
+      "g_2_p",
+      "g_2_t",
+      "g_3_p",
+      "g_3_t",
+      "g_4_p",
+      "g_4_t",
+      "c_0",
+      "c_1",
+      "c_2",
+      "c_3",
+      "c_4",
+      "c_5",
+      "c_6",
+      "c_7",
+      "c_8",
+      "c_9",
+      "c_10",
+      "c_11",
+      "c_12",
+      "c_13",
+      "c_14",
+      "c_15",
+      "c_16",
+      "c_17",
+      "c_18",
+      "c_19",
+      "c_20",
+      "c_21"
+    ],
+    [
+      "g_5_p",
+      "g_5_t",
+      "g_6_p",
+      "g_6_t",
+      "g_7_p",
+      "g_7_t",
+      "c_22",
+      "c_23",
+      "c_24",
+      "c_25",
+      "c_26",
+      "c_27",
+      "c_28",
+      "c_29",
+      "c_30",
+      "c_31",
+      "c_32",
+      "c_33",
+      "c_34",
+      "c_35",
+      "c_36",
+      "c_37"
+    ],
+    [
+      "g_8_p",
+      "g_8_t",
+      "g_9_p",
+      "g_9_t",
+      "c_38",
+      "c_39",
+      "c_40",
+      "c_41",
+      "c_42",
+      "c_43",
+      "c_44",
+      "c_45",
+      "c_46"
+    ],
+    [
+      "g_10_p",
+      "g_10_t",
+      "g_11_p",
+      "g_11_t",
+      "g_12_p",
+      "g_12_t",
+      "c_47",
+      "c_48",
+      "c_49",
+      "c_50",
+      "c_51",
+      "c_52",
+      "c_53",
+      "c_54",
+      "c_55",
+      "c_56",
+      "c_57",
+      "c_58",
+      "c_59",
+      "c_60"
+    ],
+    [
+      "g_13_p",
+      "g_13_t",
+      "g_14_p",
+      "g_14_t",
+      "c_61",
+      "c_62",
+      "c_63",
+      "c_64",
+      "c_65",
+      "c_66",
+      "c_67",
+      "c_68",
+      "c_69",
+      "c_70",
+      "c_71",
+      "c_72",
+      "c_73",
+      "c_74"
+    ],
+    [
+      "g_15_p",
+      "g_15_t",
+      "g_16_p",
+      "g_16_t",
+      "g_17_p",
+      "g_17_t",
+      "c_75",
+      "c_76",
+      "c_77",
+      "c_78",
+      "c_79",
+      "c_80",
+      "c_81"
+    ]
+  ],
   "controls": [
     {
-      "label": "Teal On",
+      "label": "Filter On",
       "type": "toggle",
-      "param": "Tealbreaker Active"
+      "param": "Antelope Filter Active"
     },
     {
-      "label": "Teal Gain",
+      "label": "Filter Gain",
       "type": "dial",
-      "param": "Tealbreaker Gain"
+      "param": "Antelope Filter Gain"
     },
     {
-      "label": "Teal Tone",
+      "label": "Filter Peak",
       "type": "dial",
-      "param": "Tealbreaker Tone"
+      "param": "Antelope Filter Peak"
     },
     {
-      "label": "Teal Level",
+      "label": "Filter Range",
+      "type": "toggle",
+      "param": "Antelope Filter Range"
+    },
+    {
+      "label": "Filter Sweep",
+      "type": "toggle",
+      "param": "Antelope Filter Sweep"
+    },
+    {
+      "label": "Filter Resp",
+      "type": "toggle",
+      "param": "Antelope Filter Response"
+    },
+    {
+      "label": "Boost On",
+      "type": "toggle",
+      "param": "Justa Boost Active"
+    },
+    {
+      "label": "Boost Out",
       "type": "dial",
-      "param": "Tealbreaker Level"
+      "param": "Justa Boost Output"
+    },
+    {
+      "label": "Boost Sw",
+      "type": "toggle",
+      "param": "Justa Boost Boost"
     },
     {
       "label": "Halfman On",
@@ -51,29 +208,29 @@ var PROFILE = {
       "param": "Halfman OD Level"
     },
     {
-      "label": "Filter On",
+      "label": "Teal On",
       "type": "toggle",
-      "param": "Antelope Filter Active"
+      "param": "Tealbreaker Active"
     },
     {
-      "label": "Filter Gain",
+      "label": "Teal Gain",
       "type": "dial",
-      "param": "Antelope Filter Gain"
+      "param": "Tealbreaker Gain"
     },
     {
-      "label": "Filter Peak",
+      "label": "Teal Tone",
       "type": "dial",
-      "param": "Antelope Filter Peak"
+      "param": "Tealbreaker Tone"
     },
     {
-      "label": "Boost On",
-      "type": "toggle",
-      "param": "Justa Boost Active"
-    },
-    {
-      "label": "Boost Out",
+      "label": "Teal Level",
       "type": "dial",
-      "param": "Justa Boost Output"
+      "param": "Tealbreaker Level"
+    },
+    {
+      "label": "Teal Mode",
+      "type": "dial",
+      "param": "Tealbreaker Mode"
     },
     {
       "label": "Milli On",
@@ -89,6 +246,11 @@ var PROFILE = {
       "label": "Milli Time",
       "type": "dial",
       "param": "Millipede Delay Time"
+    },
+    {
+      "label": "Milli Fdbk",
+      "type": "dial",
+      "param": "Millipede Delay Feedback"
     },
     {
       "label": "Amp",
@@ -293,6 +455,11 @@ var PROFILE = {
       "param": "Harmonic Tremolo Sync"
     },
     {
+      "label": "Trem Note",
+      "type": "dial",
+      "param": "Harmonic Tremolo Sync Note"
+    },
+    {
       "label": "EQ On",
       "type": "toggle",
       "by": "amp",
@@ -345,6 +512,72 @@ var PROFILE = {
         "Headroom Hero EQ Hi Gain",
         "Signature 83 EQ Hi Gain",
         "Three-In-One EQ Hi Gain"
+      ]
+    },
+    {
+      "label": "EQ HPF",
+      "type": "dial",
+      "by": "amp",
+      "params": [
+        "Smooth Operator EQ HPF",
+        "Headroom Hero EQ HPF",
+        "Signature 83 EQ HPF",
+        "Three-In-One EQ HPF"
+      ]
+    },
+    {
+      "label": "EQ LPF",
+      "type": "dial",
+      "by": "amp",
+      "params": [
+        "Smooth Operator EQ LPF",
+        "Headroom Hero EQ LPF",
+        "Signature 83 EQ LPF",
+        "Three-In-One EQ LPF"
+      ]
+    },
+    {
+      "label": "Low Freq",
+      "type": "dial",
+      "by": "amp",
+      "params": [
+        "Smooth Operator EQ Lo Freq",
+        "Headroom Hero EQ Lo Freq",
+        "Signature 83 EQ Lo Freq",
+        "Three-In-One EQ Lo Freq"
+      ]
+    },
+    {
+      "label": "LoMid Freq",
+      "type": "dial",
+      "by": "amp",
+      "params": [
+        "Smooth Operator EQ Lo-Mid Freq",
+        "Headroom Hero EQ Lo-Mid Freq",
+        "Signature 83 EQ Lo-Mid Freq",
+        "Three-In-One EQ Lo-Mid Freq"
+      ]
+    },
+    {
+      "label": "HiMid Freq",
+      "type": "dial",
+      "by": "amp",
+      "params": [
+        "Smooth Operator EQ Hi-Mid Freq",
+        "Headroom Hero EQ Hi-Mid Freq",
+        "Signature 83 EQ Hi-Mid Freq",
+        "Three-In-One EQ Hi-Mid Freq"
+      ]
+    },
+    {
+      "label": "High Freq",
+      "type": "dial",
+      "by": "amp",
+      "params": [
+        "Smooth Operator EQ Hi Freq",
+        "Headroom Hero EQ Hi Freq",
+        "Signature 83 EQ Hi Freq",
+        "Three-In-One EQ Hi Freq"
       ]
     },
     {
@@ -401,6 +634,21 @@ var PROFILE = {
       "param": "Dream Delay Time"
     },
     {
+      "label": "Dly Hard",
+      "type": "dial",
+      "param": "Dream Delay Hardness"
+    },
+    {
+      "label": "Dly Sync",
+      "type": "toggle",
+      "param": "Dream Delay Sync"
+    },
+    {
+      "label": "Dly PingPong",
+      "type": "toggle",
+      "param": "Dream Delay Ping Pong"
+    },
+    {
       "label": "Reverb On",
       "type": "toggle",
       "param": "Studio Verb Active"
@@ -421,6 +669,21 @@ var PROFILE = {
       "param": "Studio Verb Pre-Delay"
     },
     {
+      "label": "Rev LoCut",
+      "type": "dial",
+      "param": "Studio Verb Low Cut"
+    },
+    {
+      "label": "Rev HiCut",
+      "type": "dial",
+      "param": "Studio Verb High Cut"
+    },
+    {
+      "label": "Rev Mode",
+      "type": "dial",
+      "param": "Studio Verb Mode"
+    },
+    {
       "label": "Input",
       "type": "dial",
       "param": "Input Gain"
@@ -431,6 +694,11 @@ var PROFILE = {
       "param": "Output Gain"
     },
     {
+      "label": "Transpose",
+      "type": "dial",
+      "param": "Transpose"
+    },
+    {
       "label": "Gate On",
       "type": "toggle",
       "param": "Gate Active"
@@ -439,11 +707,6 @@ var PROFILE = {
       "label": "Gate Thresh",
       "type": "dial",
       "param": "Gate Threshold"
-    },
-    {
-      "label": "Transpose",
-      "type": "dial",
-      "param": "Transpose"
     },
     {
       "label": "Doubler On",
@@ -484,6 +747,7 @@ var missing = [];
 var flushTask = null;
 var rescanTask = null;
 var rebindTask = null;
+var curTab = 0;
 
 // ---------- helpers ----------
 
@@ -571,6 +835,7 @@ function init() {
     if (!flushTask) flushTask = new Task(flush, this);
     if (!rescanTask) rescanTask = new Task(rescan, this);
     if (!rebindTask) rebindTask = new Task(rebind, this);
+    showTab();
     ignoreUntil = now() + SETTLE_MS;
     rescanTask.schedule(1);
 }
@@ -815,6 +1080,24 @@ function ui(i, v) {
     s.uiVal = v;
     s.touched = now();
     s.api.set("value", toPlugin(s, v));
+}
+
+// ---------- pages ----------
+
+// Shows one page of the device in Live. Push is unaffected: it always sees every bank.
+function tab(n) {
+    curTab = Math.round(n);
+    showTab();
+}
+
+function showTab() {
+    if (!PROFILE.ui) return;
+    for (var p = 0; p < PROFILE.ui.length; p++) {
+        for (var k = 0; k < PROFILE.ui[p].length; k++) {
+            var o = this.patcher.getnamed(PROFILE.ui[p][k]);
+            if (o) o.message("hidden", p === curTab ? 0 : 1);
+        }
+    }
 }
 
 // ---------- tools ----------

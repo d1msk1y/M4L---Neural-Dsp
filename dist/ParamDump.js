@@ -2,6 +2,7 @@
 var PROFILE = {
   "match": [],
   "switches": {},
+  "ui": [],
   "controls": []
 };
 
@@ -31,6 +32,7 @@ var missing = [];
 var flushTask = null;
 var rescanTask = null;
 var rebindTask = null;
+var curTab = 0;
 
 // ---------- helpers ----------
 
@@ -118,6 +120,7 @@ function init() {
     if (!flushTask) flushTask = new Task(flush, this);
     if (!rescanTask) rescanTask = new Task(rescan, this);
     if (!rebindTask) rebindTask = new Task(rebind, this);
+    showTab();
     ignoreUntil = now() + SETTLE_MS;
     rescanTask.schedule(1);
 }
@@ -362,6 +365,24 @@ function ui(i, v) {
     s.uiVal = v;
     s.touched = now();
     s.api.set("value", toPlugin(s, v));
+}
+
+// ---------- pages ----------
+
+// Shows one page of the device in Live. Push is unaffected: it always sees every bank.
+function tab(n) {
+    curTab = Math.round(n);
+    showTab();
+}
+
+function showTab() {
+    if (!PROFILE.ui) return;
+    for (var p = 0; p < PROFILE.ui.length; p++) {
+        for (var k = 0; k < PROFILE.ui[p].length; k++) {
+            var o = this.patcher.getnamed(PROFILE.ui[p][k]);
+            if (o) o.message("hidden", p === curTab ? 0 : 1);
+        }
+    }
 }
 
 // ---------- tools ----------
