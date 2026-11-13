@@ -250,7 +250,7 @@ test('a Push page follows its switch: encoders and buttons are re-pointed, and L
   w.advance(2000);
   const edits = () => w.ui.banks.log.filter((m) => m[0] === 'edit');
   assert.deepStrictEqual(edits().pop(), ['edit', 0, '-', 0, 'Amp', 1, 'A Gain', 2, '-', 3, '-', 4, '-', 5, '-', 6, '-', 7, '-',
-    '@buttons', 0, 'A Bright', 1, '-', 2, '-', 3, '-', 4, '-', 5, '-', 6, '-', 7, '-']);
+    '@buttons', 0, '-', 1, 'A Bright', 2, '-', 3, '-', 4, '-', 5, '-', 6, '-', 7, '-']);
   const before = edits().length;
   w.pluginSet(id.amp, 1); // the plugin (or a preset) switches to the third amp
   w.advance(10);

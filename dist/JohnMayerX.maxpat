@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js JohnMayerX.js main b8fd223",
+					"text": "js JohnMayerX.js main b826d8e",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [

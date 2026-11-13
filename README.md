@@ -79,7 +79,8 @@ same folder as the devices.
 
 - In Live, a **page** is a tab and a **group** is one coloured panel (up to 8 controls).
 - On Push, a **page is one bank**. Knobs and menus go on the eight encoders; two-state
-  switches go on the eight buttons above the display.
+  switches go on the buttons above the display (seven of them: Push keeps the first
+  for the device name).
 - If a page's groups do not all fit, the first encoder becomes a selector (named by
   `"selector"`) and the other seven show the selected group, like the oscillator page
   of a Live synth. `"short"` is the group's name in that selector.

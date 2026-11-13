@@ -31,6 +31,7 @@ var flushTask = null;
 var rescanTask = null;
 var rebindTask = null;
 var curTab = 0;
+var lastMissing = "";
 var shownViews = [];  // per Push page: which view its encoders currently show
 
 // ---------- helpers ----------
@@ -325,8 +326,12 @@ function report() {
         text = target.name + " shows no parameters yet: add them with Configure on the plugin";
     } else if (missing.length) {
         text += " - " + missing.length + (missing.length === 1 ? " control is" : " controls are") + " greyed out: add them with Configure on the plugin";
-        post("PushWrapper: parameters not found in " + target.name + ":\n");
-        for (i = 0; i < missing.length; i++) post("   " + missing[i] + "\n");
+        var list = missing.join("\n");
+        if (list !== lastMissing) { // say it once, not on every amp or view change
+            post("PushWrapper: parameters not found in " + target.name + ":\n");
+            for (i = 0; i < missing.length; i++) post("   " + missing[i] + "\n");
+        }
+        lastMissing = list;
     }
     if (PROFILE.match && PROFILE.match.length && !matchesProfile(target.name)) {
         text = "Made for " + PROFILE.match[0] + " but found " + target.name;
@@ -495,8 +500,10 @@ function updateBanks() {
         shownViews[b] = v;
         var view = bank.views[v], msg = ["edit", b, "-"], k;
         for (k = 0; k < 8; k++) msg.push(k, view.enc[k] || "-");
+        // Push uses the space above the first encoder for the device name, so a switch
+        // placed on the first button never shows. Switches start at the second button.
         msg.push("@buttons");
-        for (k = 0; k < 8; k++) msg.push(k, view.btn[k] || "-");
+        for (k = 0; k < 8; k++) msg.push(k, k === 0 ? "-" : (view.btn[k - 1] || "-"));
         obj.message.apply(obj, msg);
     }
 }

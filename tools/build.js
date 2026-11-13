@@ -101,7 +101,7 @@ function compile(profile, file, facts) {
       if (!switches[page.switch]) fail(`${file}: page "${page.name}" uses unknown switch "${page.switch}"`);
       if (groups.length !== switches[page.switch].count) fail(`${file}: page "${page.name}" needs ${switches[page.switch].count} groups, one per "${page.switch}" position`);
       by = page.switch; exclusive = true;
-    } else if (all.enc.length > 8 || all.btn.length > 8) {
+    } else if (all.enc.length > 8 || all.btn.length > 7) {
       by = 'view' + p;
       switches[by] = { param: null, count: groups.length };
       head = [makeControl({ label: page.selector || page.name + ' View', type: 'menu', items: groups.map((g) => g.short), sets: by, local: true }, `${file}: page "${page.name}" selector`)].concat(head);
@@ -111,7 +111,7 @@ function compile(profile, file, facts) {
       views = groups.map((g) => {
         const v = split(head.concat(g.list));
         if (v.enc.length > 8) fail(`${file}: "${g.name}" on page "${page.name}" needs ${v.enc.length} encoders; Push has 8 (the selector takes one)`);
-        if (v.btn.length > 8) fail(`${file}: "${g.name}" on page "${page.name}" has ${v.btn.length} two-state switches; Push has 8 buttons`);
+        if (v.btn.length > 7) fail(`${file}: "${g.name}" on page "${page.name}" has ${v.btn.length} two-state switches; Push has room for 7`);
         return v;
       });
     } else {
