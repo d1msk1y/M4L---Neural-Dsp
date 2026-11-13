@@ -1,0 +1,511 @@
+{
+  "device": "MateusAsato",
+  "match": [
+    "Mateus Asato"
+  ],
+  "switches": {
+    "amp": {
+      "param": "Amp Type",
+      "count": 3
+    }
+  },
+  "pages": [
+    {
+      "name": "PRE FX",
+      "selector": "Pedal",
+      "groups": [
+        {
+          "name": "Comp",
+          "controls": [
+            {
+              "label": "Comp On",
+              "param": "Compressor Active"
+            },
+            {
+              "label": "Comp Amount",
+              "param": "Compressor Comp"
+            },
+            {
+              "label": "Comp EQ",
+              "param": "Compressor EQ"
+            },
+            {
+              "label": "Comp Volume",
+              "param": "Compressor Volume"
+            },
+            {
+              "label": "Comp Mix",
+              "param": "Compressor Mix"
+            }
+          ]
+        },
+        {
+          "name": "OD1",
+          "controls": [
+            {
+              "label": "OD1 On",
+              "param": "Drive 1 Active"
+            },
+            {
+              "label": "OD1 Volume",
+              "param": "Drive 1 Volume"
+            },
+            {
+              "label": "OD1 Gain",
+              "param": "Drive 1 Gain"
+            },
+            {
+              "label": "OD1 Tone",
+              "param": "Drive 1 Tone"
+            },
+            {
+              "label": "OD1 MidBoost",
+              "param": "Drive 1 Mid Boost"
+            }
+          ]
+        },
+        {
+          "name": "OD2",
+          "controls": [
+            {
+              "label": "OD2 On",
+              "param": "Drive 2 Active"
+            },
+            {
+              "label": "OD2 Volume",
+              "param": "Drive 2 Volume"
+            },
+            {
+              "label": "OD2 Gain",
+              "param": "Drive 2 Gain"
+            },
+            {
+              "label": "OD2 Cut",
+              "param": "Drive 2 Cut"
+            }
+          ]
+        },
+        {
+          "name": "Mod",
+          "controls": [
+            {
+              "label": "Mod On",
+              "param": "Mod Active"
+            },
+            {
+              "label": "Mod Speed",
+              "param": "Mod Speed"
+            },
+            {
+              "label": "Mod Intens",
+              "param": "Mod Intensity"
+            },
+            {
+              "label": "Mod Mode",
+              "param": "Mod Mode"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AMP",
+      "switch": "amp",
+      "headName": "Amp",
+      "head": [
+        {
+          "label": "Amp",
+          "type": "menu",
+          "items": [
+            "Amp 1",
+            "Amp 2",
+            "Amp 3"
+          ],
+          "param": "Amp Type",
+          "sets": "amp"
+        },
+        {
+          "label": "Amp On",
+          "param": "Active Amp Section"
+        }
+      ],
+      "groups": [
+        {
+          "name": "Amp 1",
+          "controls": [
+            {
+              "label": "A1 Volume",
+              "param": "Amp 1 Volume"
+            },
+            {
+              "label": "A1 Bass",
+              "param": "Amp 1 Bass"
+            },
+            {
+              "label": "A1 Cut",
+              "param": "Amp 1 Cut"
+            },
+            {
+              "label": "A1 Master",
+              "param": "Amp 1 Master"
+            },
+            {
+              "label": "A1 Level",
+              "param": "Amp 1 Level"
+            }
+          ]
+        },
+        {
+          "name": "Amp 2",
+          "controls": [
+            {
+              "label": "A2 Mode",
+              "param": "Amp 2 Mode"
+            },
+            {
+              "label": "A2 Gain",
+              "param": "Amp 2 Gain"
+            },
+            {
+              "label": "A2 Bass",
+              "param": "Amp 2 Bass"
+            },
+            {
+              "label": "A2 Mid",
+              "param": "Amp 2 Mid"
+            },
+            {
+              "label": "A2 Treble",
+              "param": "Amp 2 Treble"
+            },
+            {
+              "label": "A2 Presence",
+              "param": "Amp 2 Presence"
+            },
+            {
+              "label": "A2 Master",
+              "param": "Amp 2 Master"
+            },
+            {
+              "label": "A2 Output",
+              "param": "Amp 2 Output",
+              "push": false
+            }
+          ]
+        },
+        {
+          "name": "Amp 3",
+          "controls": [
+            {
+              "label": "A3 Bright",
+              "param": "Amp 3 Bright"
+            },
+            {
+              "label": "A3 Gain",
+              "param": "Amp 3 Gain"
+            },
+            {
+              "label": "A3 Bass",
+              "param": "Amp 3 Bass"
+            },
+            {
+              "label": "A3 Middle",
+              "param": "Amp 3 Middle"
+            },
+            {
+              "label": "A3 Treble",
+              "param": "Amp 3 Treble"
+            },
+            {
+              "label": "A3 Shift",
+              "param": "Amp 3 Shift"
+            },
+            {
+              "label": "A3 Master",
+              "param": "Amp 3 Master"
+            },
+            {
+              "label": "A3 Presence",
+              "param": "Amp 3 Presence"
+            },
+            {
+              "label": "A3 Output",
+              "param": "Amp 3 Output"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EQ",
+      "selector": "EQ Bands",
+      "head": [
+        {
+          "label": "EQ On",
+          "by": "amp",
+          "params": [
+            "Amp 1 EQ Active",
+            "Amp 2 EQ Active",
+            "Amp 3 EQ Active"
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "name": "Low bands",
+          "controls": [
+            {
+              "label": "EQ HPF",
+              "by": "amp",
+              "params": [
+                "Amp 1 EQ High Pass",
+                "Amp 2 EQ High Pass",
+                "Amp 3 EQ High Pass"
+              ]
+            },
+            {
+              "label": "EQ 65",
+              "by": "amp",
+              "params": [
+                "Amp 1 EQ 65 Hz",
+                "Amp 2 EQ 65 Hz",
+                "Amp 3 EQ 65 Hz"
+              ]
+            },
+            {
+              "label": "EQ 125",
+              "by": "amp",
+              "params": [
+                "Amp 1 EQ 125 Hz",
+                "Amp 2 EQ 125 Hz",
+                "Amp 3 EQ 125 Hz"
+              ]
+            },
+            {
+              "label": "EQ 250",
+              "by": "amp",
+              "params": [
+                "Amp 1 EQ 250 Hz",
+                "Amp 2 EQ 250 Hz",
+                "Amp 3 EQ 250 Hz"
+              ]
+            },
+            {
+              "label": "EQ 500",
+              "by": "amp",
+              "params": [
+                "Amp 1 EQ 500 Hz",
+                "Amp 2 EQ 500 Hz",
+                "Amp 3 EQ 500 Hz"
+              ]
+            },
+            {
+              "label": "EQ 1k",
+              "by": "amp",
+              "params": [
+                "Amp 1 EQ 1 kHz",
+                "Amp 2 EQ 1 kHz",
+                "Amp 3 EQ 1 kHz"
+              ]
+            }
+          ],
+          "short": "Low"
+        },
+        {
+          "name": "High bands",
+          "controls": [
+            {
+              "label": "EQ 2k",
+              "by": "amp",
+              "params": [
+                "Amp 1 EQ 2 kHz",
+                "Amp 2 EQ 2 kHz",
+                "Amp 3 EQ 2 kHz"
+              ]
+            },
+            {
+              "label": "EQ 4k",
+              "by": "amp",
+              "params": [
+                "Amp 1 EQ 4 kHz",
+                "Amp 2 EQ 4 kHz",
+                "Amp 3 EQ 4 kHz"
+              ]
+            },
+            {
+              "label": "EQ 8k",
+              "by": "amp",
+              "params": [
+                "Amp 1 EQ 8 kHz",
+                "Amp 2 EQ 8 kHz",
+                "Amp 3 EQ 8 kHz"
+              ]
+            },
+            {
+              "label": "EQ 16k",
+              "by": "amp",
+              "params": [
+                "Amp 1 EQ 16 kHz",
+                "Amp 2 EQ 16 kHz",
+                "Amp 3 EQ 16 kHz"
+              ]
+            },
+            {
+              "label": "EQ LPF",
+              "by": "amp",
+              "params": [
+                "Amp 1 EQ Low Pass",
+                "Amp 2 EQ Low Pass",
+                "Amp 3 EQ Low Pass"
+              ]
+            }
+          ],
+          "short": "High"
+        }
+      ]
+    },
+    {
+      "name": "POST FX",
+      "selector": "Effect",
+      "groups": [
+        {
+          "name": "Echo",
+          "controls": [
+            {
+              "label": "Echo Heads",
+              "param": "Echo Mode Selector"
+            },
+            {
+              "label": "Echo Sync",
+              "param": "Echo Sync Mode"
+            },
+            {
+              "label": "Echo Time",
+              "param": [
+                "Echo Time",
+                "Echo Delay Time"
+              ]
+            },
+            {
+              "label": "Echo Note",
+              "param": "Echo Sync Note"
+            },
+            {
+              "label": "Echo Fdbk",
+              "param": "Echo Feedback"
+            },
+            {
+              "label": "Echo TapeMod",
+              "param": "Echo Tape Mod"
+            },
+            {
+              "label": "Echo Mix",
+              "param": "Echo Mix"
+            },
+            {
+              "label": "Echo On",
+              "param": "Echo Active"
+            }
+          ]
+        },
+        {
+          "name": "Echo tone",
+          "controls": [
+            {
+              "label": "Echo Drive",
+              "param": "Echo Tape Drive"
+            },
+            {
+              "label": "Echo Bass",
+              "param": "Echo Bass"
+            },
+            {
+              "label": "Echo Treble",
+              "param": "Echo Treble"
+            },
+            {
+              "label": "Echo Width",
+              "param": "Echo Width"
+            },
+            {
+              "label": "Echo Tempo",
+              "param": "Echo Tempo"
+            }
+          ],
+          "short": "Echo Tone"
+        },
+        {
+          "name": "Reverb",
+          "controls": [
+            {
+              "label": "Rev Mode",
+              "param": "Reverb Mode"
+            },
+            {
+              "label": "Rev PreDly",
+              "param": "Reverb Pre-Delay"
+            },
+            {
+              "label": "Rev Decay",
+              "param": "Reverb Decay"
+            },
+            {
+              "label": "Rev LoCut",
+              "param": "Reverb Low Cut"
+            },
+            {
+              "label": "Rev HiCut",
+              "param": "Reverb High Cut"
+            },
+            {
+              "label": "Rev Mix",
+              "param": "Reverb Mix"
+            },
+            {
+              "label": "Reverb On",
+              "param": "Reverb Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GLOBAL",
+      "groups": [
+        {
+          "name": "Global",
+          "controls": [
+            {
+              "label": "Input",
+              "param": "Input Gain"
+            },
+            {
+              "label": "Gate On",
+              "param": "Gate Active"
+            },
+            {
+              "label": "Gate Thresh",
+              "param": "Gate Threshold"
+            },
+            {
+              "label": "Transpose",
+              "param": "Transpose"
+            },
+            {
+              "label": "Doubler On",
+              "param": "Doubler Active"
+            },
+            {
+              "label": "Dblr Spread",
+              "param": "Doubler Spread"
+            },
+            {
+              "label": "Output",
+              "param": "Output Gain"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
