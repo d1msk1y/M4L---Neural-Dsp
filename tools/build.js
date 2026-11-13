@@ -200,13 +200,17 @@ function buildPatcher(c) {
     wire(b, 0, m, 0);
     wire(m, 0, js, 0);
   };
-  button('Rescan', 'init', GAP, 30);
   // Dump is a development tool: only the page-less ParamDump device carries it.
   const dumper = c.pageNames.length === 0;
-  if (dumper) button('Dump', 'dump', GAP + 50, 100);
-  const sx = GAP + (dumper ? 102 : 52);
+  if (dumper) button('Dump', 'dump', GAP, 100);
+  const sx = GAP + (dumper ? 52 : 0);
   add({ maxclass: 'comment', numinlets: 1, numoutlets: 0, varname: 'status', text: 'Loading...', fontsize: 9,
     patching_rect: [30, 210, 330, 18], presentation: 1, presentation_rect: [sx, sy, width - sx - GAP, 16] });
+  // The wrapper reconnects by itself; clicking the status line forces it, as a fallback.
+  const again = add({ maxclass: 'ubutton', numinlets: 1, numoutlets: 4, outlettype: ['bang', 'bang', '', 'int'],
+    hint: 'Click to reconnect to the plugin', annotation: 'Click to reconnect to the plugin',
+    patching_rect: [30, 232, 330, 18], presentation: 1, presentation_rect: [sx, sy, width - sx - GAP, 16] });
+  wire(again, 0, js, 0);
 
   const banks = {};
   c.banks.forEach((bank, b) => {

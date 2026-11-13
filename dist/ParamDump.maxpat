@@ -115,10 +115,10 @@
 						"",
 						"int"
 					],
-					"text": "Rescan",
+					"text": "Dump",
 					"fontsize": 9,
 					"patching_rect": [
-						30,
+						100,
 						150,
 						60,
 						18
@@ -141,52 +141,6 @@
 					"outlettype": [
 						""
 					],
-					"text": "init",
-					"patching_rect": [
-						30,
-						176,
-						50,
-						22
-					],
-					"id": "obj-6"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "textbutton",
-					"numinlets": 1,
-					"numoutlets": 3,
-					"outlettype": [
-						"",
-						"",
-						"int"
-					],
-					"text": "Dump",
-					"fontsize": 9,
-					"patching_rect": [
-						100,
-						150,
-						60,
-						18
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						54,
-						151,
-						46,
-						15
-					],
-					"id": "obj-7"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "message",
-					"numinlets": 2,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
 					"text": "dump",
 					"patching_rect": [
 						100,
@@ -194,7 +148,7 @@
 						50,
 						22
 					],
-					"id": "obj-8"
+					"id": "obj-6"
 				}
 			},
 			{
@@ -213,12 +167,41 @@
 					],
 					"presentation": 1,
 					"presentation_rect": [
-						106,
+						56,
 						151,
-						220,
+						270,
 						16
 					],
-					"id": "obj-9"
+					"id": "obj-7"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "ubutton",
+					"numinlets": 1,
+					"numoutlets": 4,
+					"outlettype": [
+						"bang",
+						"bang",
+						"",
+						"int"
+					],
+					"hint": "Click to reconnect to the plugin",
+					"annotation": "Click to reconnect to the plugin",
+					"patching_rect": [
+						30,
+						232,
+						330,
+						18
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						56,
+						151,
+						270,
+						16
+					],
+					"id": "obj-8"
 				}
 			}
 		],
@@ -279,18 +262,6 @@
 					],
 					"destination": [
 						"obj-3",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
-						"obj-7",
-						0
-					],
-					"destination": [
-						"obj-8",
 						0
 					]
 				}

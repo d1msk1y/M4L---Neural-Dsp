@@ -1177,52 +1177,6 @@
 			},
 			{
 				"box": {
-					"maxclass": "textbutton",
-					"numinlets": 1,
-					"numoutlets": 3,
-					"outlettype": [
-						"",
-						"",
-						"int"
-					],
-					"text": "Rescan",
-					"fontsize": 9,
-					"patching_rect": [
-						30,
-						150,
-						60,
-						18
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						4,
-						151,
-						46,
-						15
-					],
-					"id": "obj-39"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "message",
-					"numinlets": 2,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"text": "init",
-					"patching_rect": [
-						30,
-						176,
-						50,
-						22
-					],
-					"id": "obj-40"
-				}
-			},
-			{
-				"box": {
 					"maxclass": "comment",
 					"numinlets": 1,
 					"numoutlets": 0,
@@ -1237,12 +1191,41 @@
 					],
 					"presentation": 1,
 					"presentation_rect": [
-						56,
+						4,
 						151,
-						392,
+						444,
 						16
 					],
-					"id": "obj-41"
+					"id": "obj-39"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "ubutton",
+					"numinlets": 1,
+					"numoutlets": 4,
+					"outlettype": [
+						"bang",
+						"bang",
+						"",
+						"int"
+					],
+					"hint": "Click to reconnect to the plugin",
+					"annotation": "Click to reconnect to the plugin",
+					"patching_rect": [
+						30,
+						232,
+						330,
+						18
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						4,
+						151,
+						444,
+						16
+					],
+					"id": "obj-40"
 				}
 			}
 		],
@@ -1615,18 +1598,6 @@
 					],
 					"destination": [
 						"obj-3",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
-						"obj-39",
-						0
-					],
-					"destination": [
-						"obj-40",
 						0
 					]
 				}

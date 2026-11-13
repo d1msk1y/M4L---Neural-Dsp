@@ -101,6 +101,12 @@ next `npm run build` every control is shaped by what the plugin itself reports:
 Without a dump file, knobs read 0-100 % and control types come from the profile.
 Controls with explicit `"items"` in the profile are never changed.
 
+## Staying connected
+
+There is no rescan button. A wrapper reconnects by itself when devices on the track are
+added, removed, reordered or renamed, when the plugin's Configure list changes, and when
+the set loads. Clicking the status line forces a reconnect if it ever gets stuck.
+
 ## Known limits
 
 - Knob values are rebuilt from 33 sample points, so they can differ slightly from the plugin's display. Positions the plugin shows as text (OFF) appear as the nearest number.

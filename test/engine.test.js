@@ -136,7 +136,7 @@ test('initial sync pulls plugin values onto the controls without writing to the 
   assert.strictEqual(w.ui.c_3.value, 1); // matched case/space-insensitively
   assert.strictEqual(w.ui.c_4.active, 0); // unknown parameter greys out
   assert.strictEqual(w.sets.length, 0);
-  assert.ok(/3\/4|4\/5/.test(w.ui.status.value) || /bound/.test(w.ui.status.value));
+  assert.ok(/Connected to Fake Plugin/.test(w.ui.status.value) && /1 control is greyed out/.test(w.ui.status.value));
 });
 
 test('restored dial values arriving during load never reach the plugin', () => {

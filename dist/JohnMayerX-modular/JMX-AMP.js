@@ -222,6 +222,7 @@ var ignoreUntil = 0;
 var parentPath = null;
 var trackObs = null;
 var paramsObs = null;
+var nameObs = null;
 var muteStructure = false;
 var missing = [];
 var flushTask = null;
@@ -366,6 +367,7 @@ function unbindAll() {
     }
     switches = {};
     if (paramsObs) { paramsObs.property = ""; paramsObs = null; }
+    if (nameObs) { nameObs.property = ""; nameObs = null; }
     target = null;
 }
 
@@ -435,7 +437,7 @@ function rescan() {
     if (!dev) {
         muteStructure = false;
         setAllActive(0);
-        status("No plugin found on this track");
+        status("No plugin found: put this device on the same track as the plugin");
         return;
     }
 
@@ -453,6 +455,8 @@ function rescan() {
 
     paramsObs = new LiveAPI(onStructureChanged, tpath);
     paramsObs.property = "parameters";
+    nameObs = new LiveAPI(onStructureChanged, tpath);
+    nameObs.property = "name";
     muteStructure = false;
 
     for (name in PROFILE.switches) {
@@ -480,21 +484,16 @@ function rescan() {
 }
 
 function report() {
-    var bound = 0, wanted = 0, i;
-    for (i = 0; i < slots.length; i++) {
-        if (slots[i].wanted) wanted++;
-        if (slots[i].api) bound++;
-    }
-    var text = target.name + " - " + bound + "/" + wanted + " bound";
+    var i, text = "Connected to " + target.name;
     if (target.count <= 1) {
-        text = target.name + " exposes no parameters: add them with Configure on the plugin";
+        text = target.name + " shows no parameters yet: add them with Configure on the plugin";
     } else if (missing.length) {
-        text += " - " + missing.length + " not found (see Max console)";
+        text += " - " + missing.length + (missing.length === 1 ? " control is" : " controls are") + " greyed out: add them with Configure on the plugin";
         post("PushWrapper: parameters not found in " + target.name + ":\n");
         for (i = 0; i < missing.length; i++) post("   " + missing[i] + "\n");
     }
-    if (PROFILE.match && PROFILE.match.length) {
-        if (!matchesProfile(target.name)) text = "Profile is for " + PROFILE.match[0] + " but found " + text;
+    if (PROFILE.match && PROFILE.match.length && !matchesProfile(target.name)) {
+        text = "Made for " + PROFILE.match[0] + " but found " + target.name;
     }
     status(text);
 }
