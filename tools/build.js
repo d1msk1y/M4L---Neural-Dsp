@@ -41,6 +41,11 @@ function compile(profile, file) {
       const out = { label: c.label, type, bank: b, pos };
       if (c.items) out.items = c.items;
       if (c.invert) out.invert = true;
+      if (c.sets) {
+        if (!switches[c.sets]) fail(`${where}: unknown switch "${c.sets}"`);
+        if (type !== 'menu' || c.items.length !== switches[c.sets].count) fail(`${where}: "sets" needs a menu with ${switches[c.sets].count} items`);
+        out.sets = c.sets;
+      }
       if (c.by) {
         const sw = switches[c.by];
         if (!sw) fail(`${where}: unknown switch "${c.by}"`);

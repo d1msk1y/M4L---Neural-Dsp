@@ -200,6 +200,11 @@ function rescan() {
         sw.index = switchIndex(sw, num(sw.api.get("value")));
         sw.api.property = "value";
     }
+    // A switch the plugin does not expose is driven by the wrapper's own menu instead.
+    for (i = 0; i < slots.length; i++) {
+        var own = slots[i].def.sets ? switches[slots[i].def.sets] : null;
+        if (own && !own.api && slots[i].uiVal !== null) own.index = Math.round(slots[i].uiVal);
+    }
 
     for (i = 0; i < slots.length; i++) bindSlot(slots[i]);
     ready = true;
@@ -256,8 +261,8 @@ function bindSlot(s) {
     }
     var id = s.wanted ? resolve(s.wanted) : 0;
     if (!id) {
-        if (s.wanted) missing.push(str(s.wanted) + "  (" + s.def.label + ")");
-        setActive(s, 0);
+        if (s.wanted && !s.def.sets) missing.push(str(s.wanted) + "  (" + s.def.label + ")");
+        setActive(s, s.def.sets ? 1 : 0);
         return;
     }
     var api = new LiveAPI(makeParamCb(s), "id " + id);
@@ -328,6 +333,12 @@ function flush() {
 function ui(i, v) {
     var s = slots[i];
     if (!s) return;
+    var own = s.def.sets ? switches[s.def.sets] : null;
+    if (own && !own.api) {
+        s.uiVal = v;
+        if (ready && Math.round(v) !== own.index) { own.index = Math.round(v); rebindTask.schedule(1); }
+        return;
+    }
     if (!ready || !s.api || now() < ignoreUntil) {
         // Not ours to send (loading, or unbound). Remember what the control shows and
         // let the plugin's value win on the next flush.

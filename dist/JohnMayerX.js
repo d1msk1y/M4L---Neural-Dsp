@@ -5,69 +5,128 @@ var PROFILE = {
   ],
   "switches": {
     "amp": {
-      "param": "Amp Type",
-      "count": 3
+      "param": [
+        "selectedAmp",
+        "Amp",
+        "Amp Type",
+        "Selected Amp"
+      ],
+      "count": 4
     }
   },
   "controls": [
     {
-      "label": "Filter On",
+      "label": "Teal On",
       "type": "toggle",
-      "param": "Filter Active"
+      "param": "overdriveActive"
     },
     {
-      "label": "Filter Sens",
+      "label": "Teal Gain",
       "type": "dial",
-      "param": "Filter Sensitivity"
+      "param": "overdriveGain"
+    },
+    {
+      "label": "Teal Tone",
+      "type": "dial",
+      "param": "overdriveTone"
+    },
+    {
+      "label": "Teal Level",
+      "type": "dial",
+      "param": "overdriveLevel"
+    },
+    {
+      "label": "Halfman On",
+      "type": "toggle",
+      "param": "centaurActive"
+    },
+    {
+      "label": "Halfman Gain",
+      "type": "dial",
+      "param": "centaurGain"
+    },
+    {
+      "label": "Halfman Treb",
+      "type": "dial",
+      "param": "centaurTreble"
+    },
+    {
+      "label": "Halfman Lvl",
+      "type": "dial",
+      "param": "centaurLevel"
+    },
+    {
+      "label": "Filter On",
+      "type": "toggle",
+      "param": "qTronActive"
+    },
+    {
+      "label": "Filter Gain",
+      "type": "dial",
+      "param": "qTronGain"
+    },
+    {
+      "label": "Filter Peak",
+      "type": "dial",
+      "param": "qTronPeak"
     },
     {
       "label": "Boost On",
       "type": "toggle",
-      "param": "Boost Active"
+      "param": "katanaActive"
     },
     {
-      "label": "Boost Lvl",
+      "label": "Boost Out",
       "type": "dial",
-      "param": "Boost Level"
+      "param": "katanaOutput"
     },
     {
-      "label": "OD1 On",
+      "label": "Milli On",
       "type": "toggle",
-      "param": "Overdrive 1 Active"
+      "param": "aquapussActive"
     },
     {
-      "label": "OD1 Drive",
+      "label": "Milli Blend",
       "type": "dial",
-      "param": "Overdrive 1 Drive"
+      "param": "aquapussBlend"
     },
     {
-      "label": "OD2 On",
-      "type": "toggle",
-      "param": "Overdrive 2 Active"
-    },
-    {
-      "label": "OD2 Drive",
+      "label": "Milli Time",
       "type": "dial",
-      "param": "Overdrive 2 Drive"
+      "param": "aquapussTime"
     },
     {
-      "label": "Amp Type",
+      "label": "Amp",
       "type": "menu",
       "items": [
         "Smooth Op",
         "Headroom",
-        "Sig 83"
+        "Sig 83",
+        "3-in-1"
       ],
-      "param": "Amp Type"
+      "sets": "amp",
+      "param": [
+        "selectedAmp",
+        "Amp",
+        "Amp Type",
+        "Selected Amp"
+      ]
     },
     {
       "label": "Gain",
       "type": "dial",
       "by": "amp",
       "params": [
-        "Smooth Operator Gain",
-        "Headroom Gain",
-        "Signature 83 Gain"
+        "dumbleGain",
+        "vibroverbVolume",
+        "twoRockGain",
+        "threeInOneGain"
+      ],
+      "labels": [
+        "Gain",
+        "Volume",
+        "Gain",
+        "Gain"
       ]
     },
     {
@@ -75,9 +134,10 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "Smooth Operator Bass",
-        "Headroom Bass",
-        "Signature 83 Bass"
+        "dumbleBass",
+        "vibroverbBass",
+        "twoRockBass",
+        null
       ]
     },
     {
@@ -85,9 +145,10 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "Smooth Operator Mid",
-        "Headroom Mid",
-        "Signature 83 Mid"
+        "dumbleMid",
+        null,
+        "twoRockMid",
+        null
       ]
     },
     {
@@ -95,24 +156,21 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "Smooth Operator Treble",
-        "Headroom Treble",
-        "Signature 83 Treble"
+        "dumbleTreble",
+        "vibroverbTreble",
+        "twoRockTreble",
+        null
       ]
     },
     {
-      "label": "Pres/Bright",
+      "label": "Presence",
       "type": "dial",
       "by": "amp",
       "params": [
-        "Smooth Operator Bright",
-        "Headroom Bright",
-        "Signature 83 Presence"
-      ],
-      "labels": [
-        "Bright",
-        "Bright",
-        "Presence"
+        null,
+        null,
+        "twoRockPresence",
+        null
       ]
     },
     {
@@ -120,135 +178,289 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "Smooth Operator Master",
-        "Headroom Master",
-        "Signature 83 Master"
+        "dumbleMaster",
+        null,
+        "twoRockMaster",
+        null
       ]
     },
     {
-      "label": "Amp Boost",
+      "label": "Amp Out",
       "type": "dial",
       "by": "amp",
       "params": [
-        "Smooth Operator Boost",
-        "Headroom Boost",
-        "Signature 83 Boost"
+        "dumbleOutput",
+        "vibroverbOutput",
+        "twoRockOutput",
+        "threeInOneOutput"
       ]
+    },
+    {
+      "label": "Bright",
+      "type": "toggle",
+      "by": "amp",
+      "params": [
+        "dumbleBright",
+        "vibroverbBright",
+        "twoRockBright",
+        null
+      ]
+    },
+    {
+      "label": "Mid Boost",
+      "type": "toggle",
+      "by": "amp",
+      "params": [
+        "dumbleMidBoost",
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "label": "Input Jack",
+      "type": "toggle",
+      "by": "amp",
+      "params": [
+        "dumbleInputJack",
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "label": "Amp EQ",
+      "type": "dial",
+      "by": "amp",
+      "params": [
+        null,
+        null,
+        "twoRockEQ",
+        null
+      ]
+    },
+    {
+      "label": "3in1 SmOp",
+      "type": "dial",
+      "param": "threeInOneDumbleOutput"
+    },
+    {
+      "label": "3in1 Headrm",
+      "type": "dial",
+      "param": "threeInOneVibroverbOutput"
+    },
+    {
+      "label": "3in1 Sig83",
+      "type": "dial",
+      "param": "threeInOneTwoRockOutput"
+    },
+    {
+      "label": "3in1 Room",
+      "type": "dial",
+      "param": "threeInOneRoomSend"
     },
     {
       "label": "Spring On",
       "type": "toggle",
-      "param": "Spring Reverb Active"
+      "param": "springReverbActive"
     },
     {
       "label": "Spring Mix",
       "type": "dial",
-      "param": "Spring Reverb Mix"
-    },
-    {
-      "label": "Spring Dwell",
-      "type": "dial",
-      "param": "Spring Reverb Dwell"
+      "param": "springReverbMix"
     },
     {
       "label": "Spring Tone",
       "type": "dial",
-      "param": "Spring Reverb Tone"
+      "param": "springReverbTone"
+    },
+    {
+      "label": "Spring Decay",
+      "type": "dial",
+      "param": "springReverbDecay"
     },
     {
       "label": "Trem On",
       "type": "toggle",
-      "param": "Tremolo Active"
+      "param": "reverberatoActive"
     },
     {
       "label": "Trem Speed",
       "type": "dial",
-      "param": "Tremolo Speed"
+      "param": "reverberatoSpeed"
     },
     {
-      "label": "Trem Depth",
+      "label": "Trem Intens",
       "type": "dial",
-      "param": "Tremolo Depth"
+      "param": "reverberatoIntensity"
+    },
+    {
+      "label": "Trem Sync",
+      "type": "toggle",
+      "param": "reverberatoSync"
     },
     {
       "label": "EQ On",
       "type": "toggle",
-      "param": "EQ Active"
+      "by": "amp",
+      "params": [
+        "dumbleEQActive",
+        "vibroverbEQActive",
+        "twoRockEQActive",
+        "threeInOneEQActive"
+      ]
     },
     {
       "label": "EQ Low",
       "type": "dial",
-      "param": "EQ Low"
+      "by": "amp",
+      "params": [
+        "dumbleLowGain",
+        "vibroverbLowGain",
+        "twoRockLowGain",
+        "threeInOneLowGain"
+      ]
     },
     {
       "label": "EQ LoMid",
       "type": "dial",
-      "param": "EQ Low Mid"
+      "by": "amp",
+      "params": [
+        "dumbleLowMidGain",
+        "vibroverbLowMidGain",
+        "twoRockLowMidGain",
+        "threeInOneLowMidGain"
+      ]
     },
     {
       "label": "EQ HiMid",
       "type": "dial",
-      "param": "EQ High Mid"
+      "by": "amp",
+      "params": [
+        "dumbleHighMidGain",
+        "vibroverbHighMidGain",
+        "twoRockHighMidGain",
+        "threeInOneHighMidGain"
+      ]
     },
     {
       "label": "EQ High",
       "type": "dial",
-      "param": "EQ High"
+      "by": "amp",
+      "params": [
+        "dumbleHighGain",
+        "vibroverbHighGain",
+        "twoRockHighGain",
+        "threeInOneHighGain"
+      ]
     },
     {
       "label": "Comp On",
       "type": "toggle",
-      "param": "Compressor Active"
+      "by": "amp",
+      "params": [
+        "dumbleCompressorActive",
+        "vibroverbCompressorActive",
+        "twoRockCompressorActive",
+        "threeInOneCompressorActive"
+      ]
     },
     {
-      "label": "Comp Amt",
+      "label": "Comp In",
       "type": "dial",
-      "param": "Compressor Compression"
+      "by": "amp",
+      "params": [
+        "dumbleCompressorInput",
+        "vibroverbCompressorInput",
+        "twoRockCompressorInput",
+        "threeInOneCompressorInput"
+      ]
     },
     {
-      "label": "Comp Lvl",
+      "label": "Comp Out",
       "type": "dial",
-      "param": "Compressor Level"
+      "by": "amp",
+      "params": [
+        "dumbleCompressorOutput",
+        "vibroverbCompressorOutput",
+        "twoRockCompressorOutput",
+        "threeInOneCompressorOutput"
+      ]
     },
     {
       "label": "Delay On",
       "type": "toggle",
-      "param": "Delay Active"
+      "param": "delayActive"
     },
     {
       "label": "Dly Mix",
       "type": "dial",
-      "param": "Delay Mix"
+      "param": "delayMix"
     },
     {
       "label": "Dly Fdbk",
       "type": "dial",
-      "param": "Delay Feedback"
+      "param": "delayFeedback"
     },
     {
       "label": "Dly Time",
       "type": "dial",
-      "param": "Delay Time"
+      "param": "delayTime"
     },
     {
       "label": "Reverb On",
       "type": "toggle",
-      "param": "Reverb Active"
+      "param": "reverbActive"
     },
     {
       "label": "Rev Mix",
       "type": "dial",
-      "param": "Reverb Mix"
+      "param": "reverbMix"
     },
     {
       "label": "Rev Decay",
       "type": "dial",
-      "param": "Reverb Decay"
+      "param": "reverbDecay"
     },
     {
       "label": "Rev PreDly",
       "type": "dial",
-      "param": "Reverb Pre Delay"
+      "param": "reverbPreDelay"
+    },
+    {
+      "label": "Input",
+      "type": "dial",
+      "param": "inputGain"
+    },
+    {
+      "label": "Output",
+      "type": "dial",
+      "param": "outputGain"
+    },
+    {
+      "label": "Gate On",
+      "type": "toggle",
+      "param": "gateActive"
+    },
+    {
+      "label": "Gate Thresh",
+      "type": "dial",
+      "param": "gateThreshold"
+    },
+    {
+      "label": "Transpose",
+      "type": "dial",
+      "param": "transpose"
+    },
+    {
+      "label": "Doubler On",
+      "type": "toggle",
+      "param": "doublerActive"
+    },
+    {
+      "label": "Dblr Spread",
+      "type": "dial",
+      "param": "doublerSpread"
     }
   ]
 };
@@ -455,6 +667,11 @@ function rescan() {
         sw.index = switchIndex(sw, num(sw.api.get("value")));
         sw.api.property = "value";
     }
+    // A switch the plugin does not expose is driven by the wrapper's own menu instead.
+    for (i = 0; i < slots.length; i++) {
+        var own = slots[i].def.sets ? switches[slots[i].def.sets] : null;
+        if (own && !own.api && slots[i].uiVal !== null) own.index = Math.round(slots[i].uiVal);
+    }
 
     for (i = 0; i < slots.length; i++) bindSlot(slots[i]);
     ready = true;
@@ -511,8 +728,8 @@ function bindSlot(s) {
     }
     var id = s.wanted ? resolve(s.wanted) : 0;
     if (!id) {
-        if (s.wanted) missing.push(str(s.wanted) + "  (" + s.def.label + ")");
-        setActive(s, 0);
+        if (s.wanted && !s.def.sets) missing.push(str(s.wanted) + "  (" + s.def.label + ")");
+        setActive(s, s.def.sets ? 1 : 0);
         return;
     }
     var api = new LiveAPI(makeParamCb(s), "id " + id);
@@ -583,6 +800,12 @@ function flush() {
 function ui(i, v) {
     var s = slots[i];
     if (!s) return;
+    var own = s.def.sets ? switches[s.def.sets] : null;
+    if (own && !own.api) {
+        s.uiVal = v;
+        if (ready && Math.round(v) !== own.index) { own.index = Math.round(v); rebindTask.schedule(1); }
+        return;
+    }
     if (!ready || !s.api || now() < ignoreUntil) {
         // Not ours to send (loading, or unbound). Remember what the control shows and
         // let the plugin's value win on the next flush.

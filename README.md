@@ -31,9 +31,9 @@ pick up parameter renames while a device is loaded.
 3. **Check preset sync is possible.** Switch presets in the plugin and watch the sliders
    in Live's Configure panel. If they do not move, the plugin is not telling Live about
    preset changes and no wrapper can follow them.
-4. **Fix the profile.** `profiles/john-mayer-x.json` is a template: its layout is real but
-   its `param` names are guesses. Replace them with names from the dump, then
-   `npm run build`.
+4. **Fix the profile.** `profiles/john-mayer-x.json` uses the plugin's internal names
+   taken from a saved preset (`twoRockGain`, `delayMix`, ...). Live may show different
+   names; replace any the status line reports as not found, then `npm run build`.
 5. **Load `dist/JohnMayerX.amxd`** before the plugin. The status line shows how many
    controls bound; unresolved names are listed in the Max console and their controls are
    greyed out.
@@ -63,6 +63,7 @@ pick up parameter renames while a device is loaded.
   of names is tried in order.
 - `by` makes a control follow a switch: `params` has one entry per switch value, `null`
   where that variant has no such control.
+- `"sets": "amp"` on a menu lets the wrapper drive a switch the plugin does not expose.
 - `labels` must be unique across the device (they become Live's parameter names).
 - Changing only parameter names needs only the rebuilt `.js`; changing labels, banks or
   types needs the rebuilt `.amxd` as well.

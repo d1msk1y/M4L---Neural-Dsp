@@ -213,4 +213,21 @@ test('no device to the right is reported, not thrown', () => {
   assert.ok(/No device/.test(w.ui.status.value));
 });
 
+test('a switch the plugin does not expose is driven from the wrapper menu', () => {
+  const w = world();
+  const a = w.addParam('A Gain', 0.2), c = w.addParam('C Gain', 0.9);
+  w.js.PROFILE.controls[0].sets = 'amp';
+  w.js.init();
+  w.advance(2000);
+  near(w.ui.c_1.value, 20);
+  assert.strictEqual(w.ui.c_0.active, 1);
+  w.js.ui(0, 2);
+  w.advance(10);
+  near(w.ui.c_1.value, 90);
+  w.js.ui(1, 30);
+  assert.deepStrictEqual(w.sets, [{ id: c, v: 0.3 }]);
+  near(w.params[a].value, 0.2);
+  delete w.js.PROFILE.controls[0].sets;
+});
+
 console.log(`${passed} tests passed`);
