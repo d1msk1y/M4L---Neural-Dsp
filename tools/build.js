@@ -201,9 +201,12 @@ function buildPatcher(c) {
     wire(m, 0, js, 0);
   };
   button('Rescan', 'init', GAP, 30);
-  button('Dump', 'dump', GAP + 50, 100);
+  // Dump is a development tool: only the page-less ParamDump device carries it.
+  const dumper = c.pageNames.length === 0;
+  if (dumper) button('Dump', 'dump', GAP + 50, 100);
+  const sx = GAP + (dumper ? 102 : 52);
   add({ maxclass: 'comment', numinlets: 1, numoutlets: 0, varname: 'status', text: 'Loading...', fontsize: 9,
-    patching_rect: [30, 210, 330, 18], presentation: 1, presentation_rect: [GAP + 102, sy, width - 110, 16] });
+    patching_rect: [30, 210, 330, 18], presentation: 1, presentation_rect: [sx, sy, width - sx - GAP, 16] });
 
   const banks = {};
   c.banks.forEach((bank, b) => {

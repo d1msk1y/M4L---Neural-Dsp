@@ -88,7 +88,8 @@ both for the same plugin.
 
 ## Real units and switch names
 
-Press **Dump**, copy everything it prints in the Max console, and save it as
+Load `dist/ParamDump.amxd` on the track (the only device with a Dump button), press
+**Dump**, copy everything it prints in the Max console, and save it as
 `profiles/<profile-name>.dump.txt` (for example `profiles/john-mayer-x.dump.txt`). On the
 next `npm run build` every control is shaped by what the plugin itself reports:
 
