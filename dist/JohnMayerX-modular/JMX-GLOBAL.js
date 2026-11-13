@@ -26,6 +26,7 @@ var PROFILE = {
       "c_6"
     ]
   ],
+  "tables": {},
   "controls": [
     {
       "label": "Input",
@@ -75,6 +76,7 @@ autowatch = 1;
 inlets = 1;
 outlets = 1;
 
+var DUMP_POINTS = 33;
 var TOUCH_MS = 250;   // plugin -> UI updates are held back this long after a hands-on change
 var SETTLE_MS = 1000; // after load, UI output is ignored so restored dial values never overwrite the plugin
 
@@ -122,21 +124,54 @@ function status(text) {
     o.message.apply(o, ["set"].concat(String(text).replace(/,/g, ";").split(" ")));
 }
 
-function uiEps(s) { return s.type === "dial" ? 0.01 : 0.5; }
+function dialLo(s) { return s.def.lo === undefined ? 0 : s.def.lo; }
+function dialHi(s) { return s.def.hi === undefined ? 100 : s.def.hi; }
+
+function uiEps(s) { return s.type === "dial" ? Math.abs(dialHi(s) - dialLo(s)) * 1e-4 : 0.5; }
+
+// Tables hold what the plugin displays at evenly spaced knob positions, so the dial can
+// show the plugin's own numbers even when its response is not linear.
+function tableAt(t, n) {
+    var x = clamp01(n) * (t.length - 1), i = Math.min(Math.floor(x), t.length - 2);
+    return t[i] + (t[i + 1] - t[i]) * (x - i);
+}
+
+function tableFind(t, v) {
+    var last = t.length - 1, up = t[last] >= t[0];
+    if (up ? v <= t[0] : v >= t[0]) return 0;
+    if (up ? v >= t[last] : v <= t[last]) return 1;
+    for (var i = 0; i < last; i++) {
+        var a = t[i], b = t[i + 1];
+        if (up ? (v >= a && v <= b) : (v <= a && v >= b)) return (i + (b === a ? 0 : (v - a) / (b - a))) / last;
+    }
+    return 1;
+}
+
+function tableFor(names) {
+    if (!PROFILE.tables || !names) return null;
+    if (!(names instanceof Array)) names = [names];
+    for (var i = 0; i < names.length; i++) {
+        var t = PROFILE.tables[key(names[i])];
+        if (t) return t;
+    }
+    return null;
+}
 
 function toUi(s, pv) {
     var n = s.max > s.min ? clamp01((pv - s.min) / (s.max - s.min)) : 0;
     if (s.def.invert) n = 1 - n;
     if (s.type === "toggle") return n >= 0.5 ? 1 : 0;
     if (s.type === "menu") return Math.round(n * (s.def.items.length - 1));
-    return n * 100;
+    if (s.table) return tableAt(s.table, n);
+    return dialLo(s) + n * (dialHi(s) - dialLo(s));
 }
 
 function toPlugin(s, v) {
     var n;
     if (s.type === "toggle") n = v ? 1 : 0;
     else if (s.type === "menu") n = s.def.items.length > 1 ? v / (s.def.items.length - 1) : 0;
-    else n = v / 100;
+    else if (s.table) n = tableFind(s.table, v);
+    else n = (v - dialLo(s)) / (dialHi(s) - dialLo(s));
     n = clamp01(n);
     if (s.def.invert) n = 1 - n;
     return s.min + n * (s.max - s.min);
@@ -364,6 +399,7 @@ function bindSlot(s) {
     s.min = num(api.get("min"));
     s.max = num(api.get("max"));
     s.api = api;
+    s.table = s.type === "dial" ? tableFor(s.wanted) : null;
     setActive(s, 1);
     api.property = "value"; // fires once immediately, which pulls the current value onto the control
 }
@@ -479,7 +515,12 @@ function dump() {
     for (var i = 0; i < ids.length; i++) {
         if (ids[i] === "id") continue;
         var p = new LiveAPI("id " + ids[i]);
-        post(str(p.get("name")) + "   [" + num(p.get("min")) + " .. " + num(p.get("max")) + "]   now: " + str(p.call("str_for_value", num(p.get("value")))) + "\n");
+        var lo = num(p.get("min")), hi = num(p.get("max")), shown = [];
+        // What the plugin displays at evenly spaced positions: reveals switch positions, units and ranges.
+        for (var k = 0; k < DUMP_POINTS; k++) {
+            shown.push(str(p.call("str_for_value", lo + (hi - lo) * k / (DUMP_POINTS - 1))));
+        }
+        post("@@ " + str(p.get("name")) + " @@ " + shown.join(" | ") + "\n");
         n++;
     }
     post("---- " + n + " parameters ----\n");

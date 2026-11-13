@@ -241,4 +241,17 @@ test('selecting a tab shows only that page', () => {
   delete w.js.PROFILE.ui;
 });
 
+test('a dial with a display table shows and sends the plugin\'s own units', () => {
+  const w = world();
+  const f = w.addParam('Freq', 0.5); w.addParam('Amp Type', 0);
+  w.js.PROFILE.controls.push({ label: 'Freq', type: 'dial', param: 'Freq', lo: 20, hi: 20000 });
+  w.js.PROFILE.tables = { freq: [20, 200, 2000, 20000] };
+  w.js.init();
+  w.advance(2000);
+  near(w.ui.c_5.value, 1100); // halfway between the 200 and 2000 points
+  w.js.ui(5, 2000);
+  near(w.params[f].value, 2 / 3);
+  w.js.PROFILE.controls.pop(); delete w.js.PROFILE.tables;
+});
+
 console.log(`${passed} tests passed`);

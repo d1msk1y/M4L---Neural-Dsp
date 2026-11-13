@@ -86,9 +86,23 @@ both for the same plugin.
 - Changing only parameter names needs only the rebuilt `.js`; changing labels, banks or
   types needs the rebuilt `.amxd` as well.
 
+## Real units and switch names
+
+Press **Dump**, copy everything it prints in the Max console, and save it as
+`profiles/<profile-name>.dump.txt` (for example `profiles/john-mayer-x.dump.txt`). On the
+next `npm run build` every control is shaped by what the plugin itself reports:
+
+- switches become menus showing the plugin's own position names (Hall, 1/8, Lo), and
+  plain On/Off switches become buttons;
+- knobs show the plugin's unit and range (dB, Hz, ms, s, st, %) and follow its response
+  curve.
+
+Without a dump file, knobs read 0-100 % and control types come from the profile.
+Controls with explicit `"items"` in the profile are never changed.
+
 ## Known limits
 
-- Dials show 0-100 %, not the plugin's own units.
+- Knob values are rebuilt from 33 sample points, so they can differ slightly from the plugin's display. Positions the plugin shows as text (OFF) appear as the nearest number.
 - Push shows the fixed label (`Pres/Bright`); only the dial in Live's device view is
   relabelled per amp.
 - Preset changes may add entries to Live's undo history.

@@ -6,6 +6,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const { parseDump, key } = require('./dump');
+
 const ROOT = path.join(__dirname, '..');
 const DIST = path.join(ROOT, 'dist');
 const ENGINE = fs.readFileSync(path.join(ROOT, 'src', 'engine.js'), 'utf8');
@@ -21,7 +23,9 @@ function fail(msg) { console.error('error: ' + msg); process.exit(1); }
 
 // Profile: pages (tabs in Live) > groups (one panel each) > controls.
 // Each group is one Push bank unless consecutive groups share a "bank" name.
-function compile(profile, file) {
+function compile(profile, file, facts) {
+  facts = facts || {};
+  const tables = {};
   if (!profile.device || !/^[A-Za-z0-9_-]+$/.test(profile.device)) fail(`${file}: "device" must be a simple file name (letters, digits, - _)`);
   const switches = profile.switches || {};
   const controls = [], groups = [], banks = [], seen = {};
@@ -43,17 +47,34 @@ function compile(profile, file) {
         if (!c.label) fail(`${where}: missing "label"`);
         if (seen[c.label]) fail(`${where}: label "${c.label}" is used twice; Live needs unique parameter names`);
         seen[c.label] = true;
-        const type = c.type || 'dial';
+        let type = c.type || 'dial', items = c.items, invert = !!c.invert;
         if (!['dial', 'toggle', 'menu'].includes(type)) fail(`${where}: unknown type "${type}"`);
-        if (type === 'menu' && !(Array.isArray(c.items) && c.items.length >= 2)) fail(`${where}: a menu needs "items"`);
+        // What the plugin itself reports (from a dump) decides the control type, position
+        // names, unit and range. Explicit "items" in the profile are left alone.
+        const names = [].concat.apply([], (c.by ? c.params || [] : [c.param]).map((x) => [].concat(x || [])));
+        const fact = names.map((nm) => facts[key(nm)]).filter((f) => f && f.kind !== 'unknown')[0];
+        let dial = null;
+        if (fact && !c.items) {
+          if (fact.kind === 'steps') {
+            const low = fact.items.map((x) => x.toLowerCase());
+            if (low.length === 2 && low.indexOf('on') >= 0 && low.indexOf('off') >= 0) { type = 'toggle'; invert = low[0] === 'on'; }
+            else { type = 'menu'; items = fact.items; }
+          } else {
+            type = 'dial';
+            dial = { unit: fact.unit, lo: fact.lo, hi: fact.hi, mid: fact.mid };
+            names.forEach((nm) => { const f = facts[key(nm)]; if (f && f.kind === 'cont' && f.table) tables[key(nm)] = f.table; });
+          }
+        }
+        if (type === 'menu' && !(Array.isArray(items) && items.length >= 2)) fail(`${where}: a menu needs "items"`);
         if (bank.labels.length >= 8) fail(`${where}: Push bank "${bank.name}" has more than 8 controls`);
         bank.labels.push(c.label);
         const out = { label: c.label, type, page: p, group: g, pos };
-        if (c.items) out.items = c.items;
-        if (c.invert) out.invert = true;
+        if (items) out.items = items;
+        if (invert) out.invert = true;
+        if (dial) Object.assign(out, dial);
         if (c.sets) {
           if (!switches[c.sets]) fail(`${where}: unknown switch "${c.sets}"`);
-          if (type !== 'menu' || c.items.length !== switches[c.sets].count) fail(`${where}: "sets" needs a menu with ${switches[c.sets].count} items`);
+          if (type !== 'menu' || items.length !== switches[c.sets].count) fail(`${where}: "sets" needs a menu with ${switches[c.sets].count} items`);
           out.sets = c.sets;
         }
         if (c.by) {
@@ -74,7 +95,7 @@ function compile(profile, file) {
   Object.keys(switches).forEach((k) => {
     if (!switches[k].param || !(switches[k].count >= 2)) fail(`${file}: switch "${k}" needs "param" and "count" (2 or more)`);
   });
-  return { device: profile.device, match: profile.match || [], switches, controls, groups, banks, pageNames: pages.map((x) => x.name) };
+  return { device: profile.device, match: profile.match || [], switches, controls, groups, tables, banks, pageNames: pages.map((x) => x.name) };
 }
 
 function buildPatcher(c) {
@@ -125,7 +146,18 @@ function buildPatcher(c) {
     const valueof = { parameter_longname: ctl.label, parameter_shortname: ctl.label, parameter_modmode: 0 };
     let box;
     if (ctl.type === 'dial') {
-      Object.assign(valueof, { parameter_type: 0, parameter_mmin: 0, parameter_mmax: 100, parameter_unitstyle: 5 });
+      const lo = ctl.lo === undefined ? 0 : ctl.lo, hi = ctl.hi === undefined ? 100 : ctl.hi;
+      const unit = ctl.unit === undefined ? '%' : ctl.unit;
+      const style = { dB: 4, Hz: 3, ms: 2, '%': 5, st: 7 }[unit];
+      Object.assign(valueof, { parameter_type: 0, parameter_mmin: Math.min(lo, hi), parameter_mmax: Math.max(lo, hi) });
+      if (style) valueof.parameter_unitstyle = style;
+      else if (unit) Object.assign(valueof, { parameter_unitstyle: 9, parameter_units: '%.2f ' + unit });
+      else valueof.parameter_unitstyle = 1;
+      // Shape the dial like the plugin's own knob, so frequency-style controls are not all bunched at one end.
+      const frac = hi > lo && ctl.mid !== undefined ? (ctl.mid - lo) / (hi - lo) : 0.5;
+      if (frac > 0.02 && frac < 0.98 && Math.abs(frac - 0.5) > 0.05) {
+        valueof.parameter_exponent = Math.round(Math.min(6, Math.max(0.2, Math.log(frac) / Math.log(0.5))) * 100) / 100;
+      }
       box = { maxclass: 'live.dial', numinlets: 1, numoutlets: 2, outlettype: ['', 'float'], activedialcolor: g.rgba,
         patching_rect: [px, py, 44, 48], presentation_rect: [cx + 3, cy, 44, 48] };
     } else if (ctl.type === 'toggle') {
@@ -136,7 +168,9 @@ function buildPatcher(c) {
     } else {
       Object.assign(valueof, { parameter_type: 2, parameter_mmax: ctl.items.length - 1, parameter_enum: ctl.items });
       box = { maxclass: 'live.menu', numinlets: 1, numoutlets: 3, outlettype: ['', '', 'float'],
-        patching_rect: [px, py, 48, 15], presentation_rect: [cx + 1, cy + 16, 48, 15] };
+        patching_rect: [px, py, 48, 15], presentation_rect: [cx + 1, cy + 18, 48, 15] };
+      add(onPage({ maxclass: 'comment', numinlets: 1, numoutlets: 0, text: ctl.label, fontsize: 9, textjustification: 1,
+        patching_rect: [px, py - 18, 60, 18], presentation: 1, presentation_rect: [cx - 4, cy + 1, 58, 16] }, ctl.page, 'c_' + i + '_l'));
     }
     Object.assign(box, { parameter_enable: 1, presentation: 1, saved_attribute_attributes: { valueof } });
     const id = add(onPage(box, ctl.page, 'c_' + i));
@@ -205,10 +239,12 @@ function amxd(json) {
 }
 
 function emit(profile, source, outDir) {
-  const c = compile(profile, source);
+  const dumpFile = path.join(ROOT, 'profiles', source.replace(/\.json$/, '') + '.dump.txt');
+  const facts = fs.existsSync(dumpFile) ? parseDump(fs.readFileSync(dumpFile, 'utf8')) : {};
+  const c = compile(profile, source, facts);
   const built = buildPatcher(c);
-  const runtime = { match: c.match, switches: c.switches, ui: built.ui, controls: c.controls.map((x) => {
-    const o = Object.assign({}, x); delete o.page; delete o.group; delete o.pos; return o;
+  const runtime = { match: c.match, switches: c.switches, ui: built.ui, tables: c.tables, controls: c.controls.map((x) => {
+    const o = Object.assign({}, x); delete o.page; delete o.group; delete o.pos; delete o.unit; delete o.mid; return o;
   }) };
   fs.mkdirSync(outDir, { recursive: true });
   const header = `// GENERATED by tools/build.js from profiles/${source}. Do not edit.\n`;

@@ -3,6 +3,6 @@
   "private": true,
   "scripts": {
     "build": "node tools/build.js",
-    "test": "node test/engine.test.js"
+    "test": "node test/engine.test.js && node test/dump.test.js"
   }
 }
