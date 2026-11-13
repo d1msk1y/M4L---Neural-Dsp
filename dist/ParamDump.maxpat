@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js ParamDump.js main b43d0d2",
+					"text": "js ParamDump.js bec03df",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [

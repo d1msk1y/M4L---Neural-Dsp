@@ -1,45 +1,33 @@
 # Push wrapper for plugins (Max for Live)
 
-A Max for Live audio effect that sits directly next to a VST3/AU plugin (before it is preferred) and gives it
-named, grouped Push pages with two-way sync: Push moves the plugin, and loading a preset
-in the plugin moves Push. One generic engine, one small JSON profile per plugin.
+A Max for Live audio effect that sits on the same track as a VST3/AU plugin and gives it
+named Push pages laid out like the plugin's own interface, with two-way sync: Push moves
+the plugin, and loading a preset in the plugin moves Push. One generic engine, one small
+JSON profile per plugin.
 
-> **Status: untested in Live.** The sync engine passes its tests against a simulated
-> Live (`npm test`), but nothing here has been loaded in Ableton or Max yet. See
-> [First run](#first-run) for what to check, in order.
+The John Mayer X profile has been used in Live 12 with a Push. The engine's sync logic
+is also covered by tests against a simulated Live (`npm test`); those do not exercise
+Max or Push themselves.
 
 ## What is in here
 
 | Path | What it is |
 | --- | --- |
 | `src/engine.js` | The generic engine (discovery, sync, switch-dependent remapping) |
-| `profiles/*.json` | One profile per plugin: banks, labels, parameter names |
+| `profiles/*.json` | One profile per plugin (pages, groups, labels, parameter names) and its parameter dump |
 | `tools/build.js` | Turns a profile into a device |
-| `dist/` | Built devices (`.amxd`) and one script per plugin (`<Name>.js`); keep them together |
-| `test/engine.test.js` | Engine tests against a fake Live |
+| `dist/` | Built devices: each `<Name>.amxd` with its script `<Name>.js` (keep the two together) |
+| `test/` | Engine tests against a fake Live, and dump-parsing tests |
 
 Names, banks and control types are baked in at build time because Live does not reliably
 pick up parameter renames while a device is loaded.
 
-## One device or several
-
-Every profile is built two ways from the same file. Use whichever suits you; do not load
-both for the same plugin.
-
-- **Single:** `dist/<Name>.amxd` holds every page as a tab.
-- **Modular:** one small device per page, in the same folder (for example
-  `JMX-PREFX.amxd`, `JMX-AMP.amxd`). Put any of them on the track before the plugin, in
-  any order. Each shows up as its own device on Push. They all find the plugin by name,
-  so they do not need to sit directly next to it.
-
-All devices for a plugin run the same script, `dist/<Name>.js`. Keep that one file in the
-same folder as the devices.
-
 ## First run
 
 1. **Configure the plugin.** Live only exposes plugin parameters that appear in the
-   plugin's Configure panel. Add every parameter you want to control.
-2. **Load `dist/ParamDump.amxd`** directly before the plugin and press **Dump**. Open the
+   plugin's Configure panel, and allows 128 of them per plugin. Add the ones you want to
+   control, then right-click the plugin's title bar and save it as the default configuration.
+2. **Load `dist/ParamDump.amxd`** on the same track and press **Dump**. Open the
    Max console (right-click the device title bar > Open Max Window) and copy the list.
    If the device does not load, see [If the .amxd does not open](#if-the-amxd-does-not-open).
 3. **Check preset sync is possible.** Switch presets in the plugin and watch the sliders
@@ -48,9 +36,12 @@ same folder as the devices.
 4. **Fix the profile.** Replace any `param` names the status line reports as not found
    with names from the dump, then `npm run build`. `profiles/john-mayer-x.json` already
    uses names taken from a real dump.
-5. **Load `dist/JohnMayerX.amxd`** before the plugin. The status line shows how many
-   controls bound; unresolved names are listed in the Max console and their controls are
-   greyed out.
+5. **Load `dist/JohnMayerX.amxd`** on the same track, before the plugin. The status line
+   says what it connected to; controls whose parameter is not in the Configure list are
+   greyed out and listed in the Max console.
+
+When the layout is final, open the device in Max, press Freeze and save: that packs the
+script into the `.amxd` so it is a single file.
 
 ## Writing a profile
 
@@ -120,8 +111,8 @@ the set loads. Clicking the status line forces a reconnect if it ever gets stuck
 ## Known limits
 
 - Knob values are rebuilt from 33 sample points, so they can differ slightly from the plugin's display. Positions the plugin shows as text (OFF) appear as the nearest number.
-- Push shows the fixed label (`Pres/Bright`); only the dial in Live's device view is
-  relabelled per amp.
+- Parameter names must be unique, so controls that exist once per amp carry a prefix on Push (`SO Volume`, `HH Gain`).
+- A control that follows a switch with `by` keeps one name on Push whatever it is pointed at.
 - Preset changes may add entries to Live's undo history.
 - Automate either the wrapper control or the plugin parameter, not both.
 

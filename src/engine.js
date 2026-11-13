@@ -142,8 +142,8 @@ function init() { guarded(doInit, "starting"); }
 
 // The device passes the stamp it was built with; the script must be from the same build.
 function buildMismatch() {
-    if (typeof BUILD === "undefined" || typeof jsarguments === "undefined" || jsarguments.length < 3) return null;
-    return String(jsarguments[2]) === BUILD ? null : String(jsarguments[2]);
+    if (typeof BUILD === "undefined" || typeof jsarguments === "undefined" || jsarguments.length < 2) return null;
+    return String(jsarguments[1]) === BUILD ? null : String(jsarguments[1]);
 }
 
 function doInit() {
@@ -213,7 +213,7 @@ function matchesProfile(name) {
 
 // Picks the device to control on this track, nearest first and looking right before left:
 // the plugin the profile names, else any third-party plugin, else the direct neighbour.
-// Searching past neighbours lets several wrapper devices sit in a row before one plugin.
+// Searching past neighbours means other devices may sit between the wrapper and the plugin.
 function findTarget(parent, myIndex) {
     var count = Math.floor(new LiveAPI(parent).get("devices").length / 2);
     var order = [], i, pass;
