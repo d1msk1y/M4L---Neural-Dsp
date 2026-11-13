@@ -1,0 +1,583 @@
+{
+  "device": "CoryWongX",
+  "match": [
+    "Cory Wong"
+  ],
+  "switches": {
+    "amp": {
+      "param": "Amp Type",
+      "count": 3
+    }
+  },
+  "pages": [
+    {
+      "name": "WAH",
+      "groups": [
+        {
+          "name": "Wah",
+          "controls": [
+            {
+              "label": "Wah On",
+              "param": "Active Wah Section"
+            },
+            {
+              "label": "Wah Mode",
+              "param": "Wah Mode"
+            },
+            {
+              "label": "Wah Position",
+              "param": "Wah Position"
+            },
+            {
+              "label": "AutoWah Atk",
+              "param": "Auto Wah Attack"
+            },
+            {
+              "label": "AutoWah Rel",
+              "param": "Auto Wah Release"
+            },
+            {
+              "label": "AutoWah Sens",
+              "param": "Auto Wah Sensitivity"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "PRE FX",
+      "selector": "Pedal",
+      "groups": [
+        {
+          "name": "The Postal Service",
+          "controls": [
+            {
+              "label": "Postal On",
+              "param": "The Postal Service Active"
+            },
+            {
+              "label": "Postal Range",
+              "param": "The Postal Service Range"
+            },
+            {
+              "label": "Postal Sens",
+              "param": "The Postal Service Sensitivity"
+            },
+            {
+              "label": "Postal Attack",
+              "param": "The Postal Service Attack"
+            },
+            {
+              "label": "Postal Decay",
+              "param": "The Postal Service Decay"
+            }
+          ],
+          "short": "Postal"
+        },
+        {
+          "name": "The 4th Position Compressor",
+          "controls": [
+            {
+              "label": "Comp On",
+              "param": "The 4th Position Comp Active"
+            },
+            {
+              "label": "Comp Blend",
+              "param": "The 4th Position Comp Blend"
+            },
+            {
+              "label": "Comp Tone",
+              "param": "The 4th Position Comp Tone"
+            },
+            {
+              "label": "Comp Amount",
+              "param": "The 4th Position Comp Compression"
+            },
+            {
+              "label": "Comp Volume",
+              "param": "The 4th Position Comp Volume"
+            }
+          ],
+          "short": "Comp"
+        },
+        {
+          "name": "The Tuber",
+          "controls": [
+            {
+              "label": "Tuber On",
+              "param": "The Tuber Active"
+            },
+            {
+              "label": "Tuber Tone",
+              "param": "The Tuber Tone"
+            },
+            {
+              "label": "Tuber Drive",
+              "param": "The Tuber Drive"
+            },
+            {
+              "label": "Tuber Level",
+              "param": "The Tuber Level"
+            }
+          ],
+          "short": "Tuber"
+        },
+        {
+          "name": "The Big Rig Overdrive",
+          "controls": [
+            {
+              "label": "BigRig On",
+              "param": "The Big Rig Overdrive Active"
+            },
+            {
+              "label": "BigRig Tone",
+              "param": "The Big Rig Overdrive Tone"
+            },
+            {
+              "label": "BigRig Drive",
+              "param": "The Big Rig Overdrive Drive"
+            },
+            {
+              "label": "BigRig Level",
+              "param": "The Big Rig Overdrive Level"
+            }
+          ],
+          "short": "Big Rig"
+        }
+      ]
+    },
+    {
+      "name": "AMP",
+      "switch": "amp",
+      "headName": "Amp",
+      "head": [
+        {
+          "label": "Amp",
+          "type": "menu",
+          "items": [
+            "Funk",
+            "Clean",
+            "Snob"
+          ],
+          "param": "Amp Type",
+          "sets": "amp"
+        },
+        {
+          "label": "Amp On",
+          "param": "Active Amp Section"
+        }
+      ],
+      "groups": [
+        {
+          "name": "D.I. Funk Console",
+          "controls": [
+            {
+              "label": "Funk Comp",
+              "param": "D.I. Funk Console Comp"
+            },
+            {
+              "label": "Funk Attack",
+              "param": "D.I. Funk Console Comp Attack"
+            },
+            {
+              "label": "Funk TubeSat",
+              "param": "D.I. Funk Console Tube Sat"
+            },
+            {
+              "label": "Funk HiPass",
+              "param": "D.I. Funk Console High Pass"
+            },
+            {
+              "label": "Funk LoPass",
+              "param": "D.I. Funk Console Low Pass"
+            },
+            {
+              "label": "Funk Lows",
+              "param": "D.I. Funk Console Lows"
+            },
+            {
+              "label": "Funk LowsFrq",
+              "param": "D.I. Funk Console Lows Freq"
+            },
+            {
+              "label": "Funk Mids",
+              "param": "D.I. Funk Console Mids"
+            },
+            {
+              "label": "Funk MidsFrq",
+              "param": "D.I. Funk Console Mids Freq"
+            },
+            {
+              "label": "Funk Highs",
+              "param": "D.I. Funk Console Highs"
+            },
+            {
+              "label": "Funk HighsFrq",
+              "param": "D.I. Funk Console Highs Freq"
+            },
+            {
+              "label": "Funk Output",
+              "param": "D.I. Funk Console Output",
+              "push": false
+            }
+          ]
+        },
+        {
+          "name": "The Clean Machine",
+          "controls": [
+            {
+              "label": "Cln Volume",
+              "param": "The Clean Machine Volume"
+            },
+            {
+              "label": "Cln Bright",
+              "param": "The Clean Machine Bright"
+            },
+            {
+              "label": "Cln Bass",
+              "param": "The Clean Machine Bass"
+            },
+            {
+              "label": "Cln Middle",
+              "param": "The Clean Machine Middle"
+            },
+            {
+              "label": "Cln Treble",
+              "param": "The Clean Machine Treble"
+            },
+            {
+              "label": "Cln Presence",
+              "param": "The Clean Machine Presence"
+            },
+            {
+              "label": "Cln Output",
+              "param": "The Clean Machine Output"
+            }
+          ]
+        },
+        {
+          "name": "The Amp Snob",
+          "controls": [
+            {
+              "label": "Snob Volume",
+              "param": "The Amp Snob Volume"
+            },
+            {
+              "label": "Snob Bright",
+              "param": "The Amp Snob Bright"
+            },
+            {
+              "label": "Snob Bass",
+              "param": "The Amp Snob Bass"
+            },
+            {
+              "label": "Snob Middle",
+              "param": "The Amp Snob Middle"
+            },
+            {
+              "label": "Snob Treble",
+              "param": "The Amp Snob Treble"
+            },
+            {
+              "label": "Snob Master",
+              "param": "The Amp Snob Master"
+            },
+            {
+              "label": "Snob Presence",
+              "param": "The Amp Snob Presence"
+            },
+            {
+              "label": "Snob Output",
+              "param": "The Amp Snob Output"
+            },
+            {
+              "label": "Snob Drive",
+              "param": "The Amp Snob Drive"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EQ",
+      "selector": "EQ Bands",
+      "head": [
+        {
+          "label": "EQ On",
+          "by": "amp",
+          "params": [
+            "D.I. Funk Console EQ Active",
+            "The Clean Machine EQ Active",
+            "The Amp Snob EQ Active"
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "name": "Low bands",
+          "controls": [
+            {
+              "label": "EQ HPF",
+              "by": "amp",
+              "params": [
+                "D.I. Funk Console EQ High Pass",
+                "The Clean Machine EQ High Pass",
+                "The Amp Snob EQ High Pass"
+              ]
+            },
+            {
+              "label": "EQ 65",
+              "by": "amp",
+              "params": [
+                "D.I. Funk Console EQ 65 Hz",
+                "The Clean Machine EQ 65 Hz",
+                "The Amp Snob EQ 65 Hz"
+              ]
+            },
+            {
+              "label": "EQ 125",
+              "by": "amp",
+              "params": [
+                "D.I. Funk Console EQ 125 Hz",
+                "The Clean Machine EQ 125 Hz",
+                "The Amp Snob EQ 125 Hz"
+              ]
+            },
+            {
+              "label": "EQ 250",
+              "by": "amp",
+              "params": [
+                "D.I. Funk Console EQ 250 Hz",
+                "The Clean Machine EQ 250 Hz",
+                "The Amp Snob EQ 250 Hz"
+              ]
+            },
+            {
+              "label": "EQ 500",
+              "by": "amp",
+              "params": [
+                "D.I. Funk Console EQ 500 Hz",
+                "The Clean Machine EQ 500 Hz",
+                "The Amp Snob EQ 500 Hz"
+              ]
+            },
+            {
+              "label": "EQ 1k",
+              "by": "amp",
+              "params": [
+                "D.I. Funk Console EQ 1 kHz",
+                "The Clean Machine EQ 1 kHz",
+                "The Amp Snob EQ 1 kHz"
+              ]
+            }
+          ],
+          "short": "Low"
+        },
+        {
+          "name": "High bands",
+          "controls": [
+            {
+              "label": "EQ 2k",
+              "by": "amp",
+              "params": [
+                "D.I. Funk Console EQ 2 kHz",
+                "The Clean Machine EQ 2 kHz",
+                "The Amp Snob EQ 2 kHz"
+              ]
+            },
+            {
+              "label": "EQ 4k",
+              "by": "amp",
+              "params": [
+                "D.I. Funk Console EQ 4 kHz",
+                "The Clean Machine EQ 4 kHz",
+                "The Amp Snob EQ 4 kHz"
+              ]
+            },
+            {
+              "label": "EQ 8k",
+              "by": "amp",
+              "params": [
+                "D.I. Funk Console EQ 8 kHz",
+                "The Clean Machine EQ 8 kHz",
+                "The Amp Snob EQ 8 kHz"
+              ]
+            },
+            {
+              "label": "EQ 16k",
+              "by": "amp",
+              "params": [
+                "D.I. Funk Console EQ 16 kHz",
+                "The Clean Machine EQ 16 kHz",
+                "The Amp Snob EQ 16 kHz"
+              ]
+            },
+            {
+              "label": "EQ LPF",
+              "by": "amp",
+              "params": [
+                "D.I. Funk Console EQ Low Pass",
+                "The Clean Machine EQ Low Pass",
+                "The Amp Snob EQ Low Pass"
+              ]
+            }
+          ],
+          "short": "High"
+        }
+      ]
+    },
+    {
+      "name": "POST FX",
+      "selector": "Effect",
+      "groups": [
+        {
+          "name": "The 80s Chorus",
+          "controls": [
+            {
+              "label": "Chorus Mix",
+              "param": "The 80s Chorus Mix"
+            },
+            {
+              "label": "Chorus Rate",
+              "param": "The 80s Chorus Rate"
+            },
+            {
+              "label": "Chorus Width",
+              "param": "The 80s Chorus Width"
+            },
+            {
+              "label": "Chorus On",
+              "param": "The 80s Chorus Active"
+            }
+          ],
+          "short": "Chorus"
+        },
+        {
+          "name": "Delay-y-y",
+          "controls": [
+            {
+              "label": "Dly Sync",
+              "param": "Delay-y-y Sync"
+            },
+            {
+              "label": "Dly Mode",
+              "param": "Delay-y-y Mode"
+            },
+            {
+              "label": "Dly Mix",
+              "param": "Delay-y-y Mix"
+            },
+            {
+              "label": "Dly Fdbk",
+              "param": "Delay-y-y Feedback"
+            },
+            {
+              "label": "Dly HPF",
+              "param": "Delay-y-y HPF"
+            },
+            {
+              "label": "Dly Time L",
+              "param": "Delay-y-y Time L"
+            },
+            {
+              "label": "Dly Time R",
+              "param": "Delay-y-y Time R"
+            },
+            {
+              "label": "Dly LPF",
+              "param": "Delay-y-y LPF"
+            },
+            {
+              "label": "Delay On",
+              "param": "Delay-y-y Active"
+            }
+          ],
+          "short": "Delay"
+        },
+        {
+          "name": "Delay notes",
+          "controls": [
+            {
+              "label": "Dly Note L",
+              "param": "Delay-y-y Note L"
+            },
+            {
+              "label": "Dly Note R",
+              "param": "Delay-y-y Note R"
+            }
+          ],
+          "short": "Dly Notes"
+        },
+        {
+          "name": "The Wash",
+          "controls": [
+            {
+              "label": "Wash Mix",
+              "param": "The Wash Mix"
+            },
+            {
+              "label": "Wash Shimmer",
+              "param": "The Wash Shimmer",
+              "type": "toggle"
+            },
+            {
+              "label": "Wash Decay",
+              "param": "The Wash Decay"
+            },
+            {
+              "label": "Wash LoCut",
+              "param": "The Wash Low Cut"
+            },
+            {
+              "label": "Wash HiCut",
+              "param": "The Wash High Cut"
+            },
+            {
+              "label": "Wash On",
+              "param": "The Wash Active"
+            }
+          ],
+          "short": "Reverb"
+        }
+      ]
+    },
+    {
+      "name": "GLOBAL",
+      "groups": [
+        {
+          "name": "Global",
+          "controls": [
+            {
+              "label": "Input",
+              "param": "Input Gain"
+            },
+            {
+              "label": "Gate On",
+              "param": "Gate Active"
+            },
+            {
+              "label": "Gate Thresh",
+              "param": "Gate Threshold"
+            },
+            {
+              "label": "Transpose",
+              "param": "Transpose"
+            },
+            {
+              "label": "Doubler On",
+              "param": "Doubler Active"
+            },
+            {
+              "label": "Dblr Spread",
+              "param": "Doubler Spread"
+            },
+            {
+              "label": "Output",
+              "param": "Output Gain"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

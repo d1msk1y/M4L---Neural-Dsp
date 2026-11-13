@@ -83,6 +83,7 @@ script into the `.amxd` so it is a single file.
 - `by` makes a control follow a switch: `params` has one entry per switch value, `null`
   where that variant has no such control.
 - `"sets": "amp"` on a menu ties it to a switch, and lets the wrapper drive one the plugin does not expose.
+- `"push": false` keeps a control in Live but off Push, for a view with more knobs than Push has encoders.
 - `labels` must be unique across the device (they become Live's parameter names).
 - Changing only parameter names needs only the rebuilt `.js`; changing labels, banks or
   types needs the rebuilt `.amxd` as well.

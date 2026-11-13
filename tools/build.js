@@ -64,6 +64,7 @@ function compile(profile, file, facts) {
     if (states) out.states = states;
     if (invert) out.invert = true;
     if (dial) Object.assign(out, dial);
+    if (c.push === false) out.offPush = true; // shown in Live only, when a view has more knobs than Push has encoders
     if (c.sets) {
       if (!switches[c.sets]) fail(`${where}: unknown switch "${c.sets}"`);
       if (type !== 'menu' || items.length !== switches[c.sets].count) fail(`${where}: "sets" needs a menu with ${switches[c.sets].count} items`);
@@ -84,7 +85,7 @@ function compile(profile, file, facts) {
     return out;
   }
 
-  const split = (list) => ({ enc: list.filter((x) => x.type !== 'toggle').map((x) => x.label), btn: list.filter((x) => x.type === 'toggle').map((x) => x.label) });
+  const split = (list) => ({ enc: list.filter((x) => x.type !== 'toggle' && !x.offPush).map((x) => x.label), btn: list.filter((x) => x.type === 'toggle' && !x.offPush).map((x) => x.label) });
 
   pages.forEach((page, p) => {
     if (!page.name) fail(`${file}: page ${p + 1} has no name`);
@@ -307,7 +308,7 @@ function build(file) {
   const built = buildPatcher(c, jsFile, stamp);
   const runtime = { match: c.match, switches: c.switches, ui: built.ui, tables: c.tables,
     banks: c.banks.map((b) => ({ by: b.by, exclusive: b.exclusive, views: b.views })),
-    controls: c.controls.map((x) => { const o = Object.assign({}, x); delete o.panel; delete o.pos; delete o.unit; delete o.mid; delete o.states; return o; }) };
+    controls: c.controls.map((x) => { const o = Object.assign({}, x); delete o.panel; delete o.pos; delete o.unit; delete o.mid; delete o.states; delete o.offPush; return o; }) };
   fs.mkdirSync(DIST, { recursive: true });
   const json = JSON.stringify(built.patcher, null, '\t');
   fs.writeFileSync(path.join(DIST, c.device + '.maxpat'), json + '\n');
