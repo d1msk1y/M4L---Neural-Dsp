@@ -1,0 +1,489 @@
+{
+  "device": "MorganAmps",
+  "match": [
+    "Morgan"
+  ],
+  "switches": {
+    "amp": {
+      "param": "Amp Type",
+      "count": 3
+    }
+  },
+  "pages": [
+    {
+      "name": "PRE FX",
+      "selector": "Pedal",
+      "groups": [
+        {
+          "name": "Compressor",
+          "controls": [
+            {
+              "label": "Comp On",
+              "param": "Compressor Active"
+            },
+            {
+              "label": "Comp Amount",
+              "param": "Compressor Compression"
+            },
+            {
+              "label": "Comp Level",
+              "param": "Compressor Level"
+            },
+            {
+              "label": "Comp Mix",
+              "param": "Compressor Mix"
+            },
+            {
+              "label": "Comp Release",
+              "param": "Compressor Release"
+            }
+          ],
+          "short": "Comp"
+        },
+        {
+          "name": "Overdrive 1",
+          "controls": [
+            {
+              "label": "OD1 On",
+              "param": "Overdrive1 Active"
+            },
+            {
+              "label": "OD1 Drive",
+              "param": "Overdrive1 Drive"
+            },
+            {
+              "label": "OD1 Tone",
+              "param": "Overdrive1 Tone"
+            },
+            {
+              "label": "OD1 Level",
+              "param": "Overdrive1 Level"
+            }
+          ],
+          "short": "OD 1"
+        },
+        {
+          "name": "Overdrive 2",
+          "controls": [
+            {
+              "label": "OD2 On",
+              "param": "Overdrive2 Active"
+            },
+            {
+              "label": "OD2 Gain",
+              "param": "Overdrive2 Gain"
+            },
+            {
+              "label": "OD2 Bass",
+              "param": "Overdrive2 Bass"
+            },
+            {
+              "label": "OD2 Treble",
+              "param": "Overdrive2 Treble"
+            },
+            {
+              "label": "OD2 Level",
+              "param": "Overdrive2 Level"
+            }
+          ],
+          "short": "OD 2"
+        },
+        {
+          "name": "Tremolo",
+          "controls": [
+            {
+              "label": "Trem On",
+              "param": "Tremolo Active"
+            },
+            {
+              "label": "Trem Rate",
+              "param": "Tremolo Rate"
+            },
+            {
+              "label": "Trem Depth",
+              "param": "Tremolo Depth"
+            },
+            {
+              "label": "Trem Level",
+              "param": "Tremolo Level"
+            },
+            {
+              "label": "Trem Sync",
+              "param": "Tremolo Sync Mode"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "AMP",
+      "switch": "amp",
+      "headName": "Amp",
+      "head": [
+        {
+          "label": "Amp",
+          "type": "menu",
+          "items": [
+            "AC20",
+            "PR12",
+            "SW50R"
+          ],
+          "param": "Amp Type",
+          "sets": "amp"
+        },
+        {
+          "label": "Amp On",
+          "param": "Active Amp Section"
+        }
+      ],
+      "groups": [
+        {
+          "name": "AC20",
+          "controls": [
+            {
+              "label": "AC Bright",
+              "param": "AC20 Bright"
+            },
+            {
+              "label": "AC Bass Cut",
+              "param": "AC20 Bass Cut"
+            },
+            {
+              "label": "AC Volume",
+              "param": "AC20 Volume"
+            },
+            {
+              "label": "AC Cut",
+              "param": "AC20 Cut"
+            },
+            {
+              "label": "AC Power",
+              "param": "AC20 Power"
+            }
+          ]
+        },
+        {
+          "name": "PR12",
+          "controls": [
+            {
+              "label": "PR Volume",
+              "param": "PR12 Volume"
+            },
+            {
+              "label": "PR Bass",
+              "param": "PR12 Bass"
+            },
+            {
+              "label": "PR Treble",
+              "param": "PR12 Treble"
+            },
+            {
+              "label": "PR Reverb",
+              "param": "PR12 Reverb"
+            },
+            {
+              "label": "PR Dwell",
+              "param": "PR12 Dwell"
+            }
+          ]
+        },
+        {
+          "name": "SW50R",
+          "controls": [
+            {
+              "label": "SW Bright",
+              "param": "SW50R Bright"
+            },
+            {
+              "label": "SW Bass Emph",
+              "param": "SW50R Bass Emphasis"
+            },
+            {
+              "label": "SW Volume",
+              "param": "SW50R Volume"
+            },
+            {
+              "label": "SW Bass",
+              "param": "SW50R Bass"
+            },
+            {
+              "label": "SW Mid",
+              "param": "SW50R Mid"
+            },
+            {
+              "label": "SW Treble",
+              "param": "SW50R Treble"
+            },
+            {
+              "label": "SW Level",
+              "param": "SW50R Level"
+            },
+            {
+              "label": "SW Reverb",
+              "param": "SW50R Reverb"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "EQ",
+      "selector": "EQ Bands",
+      "head": [
+        {
+          "label": "EQ On",
+          "by": "amp",
+          "params": [
+            "AC20 EQ Active",
+            "PR12 EQ Active",
+            "SW50R EQ Active"
+          ]
+        }
+      ],
+      "groups": [
+        {
+          "name": "Low bands",
+          "controls": [
+            {
+              "label": "EQ HPF",
+              "by": "amp",
+              "params": [
+                "AC20 EQ High Pass",
+                "PR12 EQ High Pass",
+                "SW50R EQ High Pass"
+              ]
+            },
+            {
+              "label": "EQ 65",
+              "by": "amp",
+              "params": [
+                "AC20 EQ 65 Hz",
+                "PR12 EQ 65 Hz",
+                "SW50R EQ 65 Hz"
+              ]
+            },
+            {
+              "label": "EQ 125",
+              "by": "amp",
+              "params": [
+                "AC20 EQ 125 Hz",
+                "PR12 EQ 125 Hz",
+                "SW50R EQ 125 Hz"
+              ]
+            },
+            {
+              "label": "EQ 250",
+              "by": "amp",
+              "params": [
+                "AC20 EQ 250 Hz",
+                "PR12 EQ 250 Hz",
+                "SW50R EQ 250 Hz"
+              ]
+            },
+            {
+              "label": "EQ 500",
+              "by": "amp",
+              "params": [
+                "AC20 EQ 500 Hz",
+                "PR12 EQ 500 Hz",
+                "SW50R EQ 500 Hz"
+              ]
+            },
+            {
+              "label": "EQ 1k",
+              "by": "amp",
+              "params": [
+                "AC20 EQ 1 kHz",
+                "PR12 EQ 1 kHz",
+                "SW50R EQ 1 kHz"
+              ]
+            }
+          ],
+          "short": "Low"
+        },
+        {
+          "name": "High bands",
+          "controls": [
+            {
+              "label": "EQ 2k",
+              "by": "amp",
+              "params": [
+                "AC20 EQ 2 kHz",
+                "PR12 EQ 2 kHz",
+                "SW50R EQ 2 kHz"
+              ]
+            },
+            {
+              "label": "EQ 4k",
+              "by": "amp",
+              "params": [
+                "AC20 EQ 4 kHz",
+                "PR12 EQ 4 kHz",
+                "SW50R EQ 4 kHz"
+              ]
+            },
+            {
+              "label": "EQ 8k",
+              "by": "amp",
+              "params": [
+                "AC20 EQ 8 kHz",
+                "PR12 EQ 8 kHz",
+                "SW50R EQ 8 kHz"
+              ]
+            },
+            {
+              "label": "EQ 16k",
+              "by": "amp",
+              "params": [
+                "AC20 EQ 16 kHz",
+                "PR12 EQ 16 kHz",
+                "SW50R EQ 16 kHz"
+              ]
+            },
+            {
+              "label": "EQ LPF",
+              "by": "amp",
+              "params": [
+                "AC20 EQ Low Pass",
+                "PR12 EQ Low Pass",
+                "SW50R EQ Low Pass"
+              ]
+            }
+          ],
+          "short": "High"
+        }
+      ]
+    },
+    {
+      "name": "POST FX",
+      "selector": "Effect",
+      "groups": [
+        {
+          "name": "Delay",
+          "controls": [
+            {
+              "label": "Dly Sync",
+              "param": "Delay Sync Mode"
+            },
+            {
+              "label": "Dly PingPong",
+              "param": "Delay Ping Pong"
+            },
+            {
+              "label": "Dly Mix",
+              "param": "Delay Mix"
+            },
+            {
+              "label": "Dly Fdbk",
+              "param": "Delay Feedback"
+            },
+            {
+              "label": "Dly Time",
+              "param": [
+                "Delay Time",
+                "Delay Time Ms"
+              ]
+            },
+            {
+              "label": "Dly Note",
+              "param": "Delay Sync Note"
+            },
+            {
+              "label": "Delay On",
+              "param": "Delay Active"
+            }
+          ]
+        },
+        {
+          "name": "Delay Tone",
+          "controls": [
+            {
+              "label": "Dly Drive",
+              "param": "Delay Tape Drive"
+            },
+            {
+              "label": "Dly Width",
+              "param": "Delay Width"
+            },
+            {
+              "label": "Dly HPF",
+              "param": "Delay HPF"
+            },
+            {
+              "label": "Dly LPF",
+              "param": "Delay LPF"
+            }
+          ],
+          "short": "Dly Tone"
+        },
+        {
+          "name": "Reverb",
+          "controls": [
+            {
+              "label": "Rev Mix",
+              "param": "Reverb Mix"
+            },
+            {
+              "label": "Rev PreDly",
+              "param": "Reverb Pre Delay"
+            },
+            {
+              "label": "Rev Decay",
+              "param": "Reverb Decay"
+            },
+            {
+              "label": "Rev LoCut",
+              "param": "Reverb Low Cut"
+            },
+            {
+              "label": "Rev HiCut",
+              "param": "Reverb High Cut"
+            },
+            {
+              "label": "Reverb On",
+              "param": "Reverb Active"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "GLOBAL",
+      "groups": [
+        {
+          "name": "Global",
+          "controls": [
+            {
+              "label": "Input",
+              "param": "Input Gain"
+            },
+            {
+              "label": "Gate On",
+              "param": "Gate Active"
+            },
+            {
+              "label": "Gate Thresh",
+              "param": "Gate Threshold"
+            },
+            {
+              "label": "Transpose",
+              "param": "Transpose"
+            },
+            {
+              "label": "Doubler On",
+              "param": "Doubler Active"
+            },
+            {
+              "label": "Dblr Spread",
+              "param": "Doubler Spread"
+            },
+            {
+              "label": "Output",
+              "param": "Output Gain"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
