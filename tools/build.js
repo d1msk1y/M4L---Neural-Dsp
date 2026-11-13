@@ -204,7 +204,7 @@ function buildPatcher(c) {
   const dumper = c.pageNames.length === 0;
   if (dumper) button('Dump', 'dump', GAP, 100);
   const sx = GAP + (dumper ? 52 : 0);
-  add({ maxclass: 'comment', numinlets: 1, numoutlets: 0, varname: 'status', text: 'Loading...', fontsize: 9,
+  add({ maxclass: 'comment', numinlets: 1, numoutlets: 0, varname: 'status', text: `Script not running: keep ${jsFile} in the same folder as this device`, fontsize: 9,
     patching_rect: [30, 210, 330, 18], presentation: 1, presentation_rect: [sx, sy, width - sx - GAP, 16] });
   // The wrapper reconnects by itself; clicking the status line forces it, as a fallback.
   const again = add({ maxclass: 'ubutton', numinlets: 1, numoutlets: 4, outlettype: ['bang', 'bang', '', 'int'],

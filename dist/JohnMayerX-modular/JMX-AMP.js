@@ -334,7 +334,9 @@ function resolve(names) {
 
 function bang() { init(); }
 
-function init() {
+function init() { guarded(doInit, "starting"); }
+
+function doInit() {
     var i;
     ready = false;
     unbindAll();
@@ -415,7 +417,18 @@ function findTarget(parent, myIndex) {
 }
 
 // Finds the plugin, maps its parameter names, binds everything.
-function rescan() {
+// Any failure is shown on the device itself instead of leaving it silently stuck.
+function guarded(fn, what) {
+    try { fn(); } catch (e) {
+        ready = false;
+        post("PushWrapper: " + what + " failed: " + e + "\n");
+        status("Problem while " + what + ": " + e);
+    }
+}
+
+function rescan() { guarded(doRescan, "connecting"); }
+
+function doRescan() {
     var i, name;
     ready = false;
     unbindAll();

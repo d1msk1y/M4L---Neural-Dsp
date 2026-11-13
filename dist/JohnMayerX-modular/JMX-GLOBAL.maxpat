@@ -747,7 +747,7 @@
 					"numinlets": 1,
 					"numoutlets": 0,
 					"varname": "status",
-					"text": "Loading...",
+					"text": "Script not running: keep JMX-GLOBAL.js in the same folder as this device",
 					"fontsize": 9,
 					"patching_rect": [
 						30,
