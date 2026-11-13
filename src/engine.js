@@ -162,12 +162,17 @@ function rescan() {
         trackObs.property = "devices";
     }
 
+    // Prefer the device to the right; fall back to the one on the left.
     var tpath = parent + " devices " + (myIndex + 1);
     var dev = new LiveAPI(tpath);
+    if (!valid(dev) && myIndex > 0) {
+        tpath = parent + " devices " + (myIndex - 1);
+        dev = new LiveAPI(tpath);
+    }
     if (!valid(dev)) {
         muteStructure = false;
         setAllActive(0);
-        status("No device to the right of this one");
+        status("No device next to this one");
         return;
     }
 
@@ -358,9 +363,11 @@ function ui(i, v) {
 function dump() {
     var me = new LiveAPI("this_device");
     var toks = cleanPath(me.path).split(" ");
-    toks[toks.length - 1] = parseInt(toks[toks.length - 1], 10) + 1;
+    var mine = parseInt(toks[toks.length - 1], 10);
+    toks[toks.length - 1] = mine + 1;
     var dev = new LiveAPI(toks.join(" "));
-    if (!valid(dev)) { post("PushWrapper: no device to the right\n"); return; }
+    if (!valid(dev) && mine > 0) { toks[toks.length - 1] = mine - 1; dev = new LiveAPI(toks.join(" ")); }
+    if (!valid(dev)) { post("PushWrapper: no device next to this one\n"); return; }
     var ids = dev.get("parameters"), n = 0;
     post("---- " + str(dev.get("name")) + " ----\n");
     for (var i = 0; i < ids.length; i++) {

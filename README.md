@@ -1,6 +1,6 @@
 # Push wrapper for plugins (Max for Live)
 
-A Max for Live audio effect that sits directly **before** a VST3/AU plugin and gives it
+A Max for Live audio effect that sits directly next to a VST3/AU plugin (before it is preferred) and gives it
 named, grouped Push pages with two-way sync: Push moves the plugin, and loading a preset
 in the plugin moves Push. One generic engine, one small JSON profile per plugin.
 
