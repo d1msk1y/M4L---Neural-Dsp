@@ -105,7 +105,6 @@ function world() {
     Date: function () { this.getTime = () => clock; },
     patcher: { getnamed: named },
   };
-  sandbox.this = sandbox;
   vm.createContext(sandbox);
   vm.runInContext(engine, sandbox);
   w.js = sandbox;

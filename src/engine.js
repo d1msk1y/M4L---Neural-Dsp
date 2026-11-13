@@ -8,6 +8,10 @@ autowatch = 1;
 inlets = 1;
 outlets = 1;
 
+// The script object itself. Captured here because inside helper functions `this` is not
+// reliably the script object, and everything that touches the patcher needs it.
+var ME = this;
+
 var DUMP_POINTS = 33;
 var TOUCH_MS = 250;   // plugin -> UI updates are held back this long after a hands-on change
 var SETTLE_MS = 1000; // after load, UI output is ignored so restored dial values never overwrite the plugin
@@ -54,7 +58,7 @@ function valid(api) { return api && parseInt(api.id, 10) !== 0; }
 function clamp01(n) { return n < 0 ? 0 : (n > 1 ? 1 : n); }
 
 function status(text) {
-    var o = this.patcher.getnamed("status");
+    var o = ME.patcher.getnamed("status");
     if (!o) return;
     o.message.apply(o, ["set"].concat(String(text).replace(/,/g, ";").split(" ")));
 }
@@ -155,14 +159,14 @@ function doInit() {
         var def = PROFILE.controls[i];
         slots.push({
             i: i, def: def, type: def.type,
-            obj: this.patcher.getnamed("c_" + i),
+            obj: ME.patcher.getnamed("c_" + i),
             api: null, min: 0, max: 1,
             wanted: null, pv: null, dirty: false, uiVal: null, touched: 0
         });
     }
-    if (!flushTask) flushTask = new Task(flush, this);
-    if (!rescanTask) rescanTask = new Task(rescan, this);
-    if (!rebindTask) rebindTask = new Task(rebind, this);
+    if (!flushTask) flushTask = new Task(flush, ME);
+    if (!rescanTask) rescanTask = new Task(rescan, ME);
+    if (!rebindTask) rebindTask = new Task(rebind, ME);
     showTab();
     ignoreUntil = now() + SETTLE_MS;
     rescanTask.schedule(1);
@@ -454,7 +458,7 @@ function showTab() {
     if (!PROFILE.ui) return;
     for (var p = 0; p < PROFILE.ui.length; p++) {
         for (var k = 0; k < PROFILE.ui[p].length; k++) {
-            var o = this.patcher.getnamed(PROFILE.ui[p][k]);
+            var o = ME.patcher.getnamed(PROFILE.ui[p][k]);
             if (o) o.message("hidden", p === curTab ? 0 : 1);
         }
     }
