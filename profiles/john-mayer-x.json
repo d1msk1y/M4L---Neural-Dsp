@@ -352,10 +352,9 @@
     },
     {
       "name": "EQ/COMP",
-      "selector": "EQ View",
       "groups": [
         {
-          "name": "EQ Frequencies",
+          "name": "EQ",
           "controls": [
             {
               "label": "EQ HPF",
@@ -367,62 +366,6 @@
                 "Three-In-One EQ HPF"
               ]
             },
-            {
-              "label": "Low Freq",
-              "by": "amp",
-              "params": [
-                "Smooth Operator EQ Lo Freq",
-                "Headroom Hero EQ Lo Freq",
-                "Signature 83 EQ Lo Freq",
-                "Three-In-One EQ Lo Freq"
-              ]
-            },
-            {
-              "label": "LoMid Freq",
-              "by": "amp",
-              "params": [
-                "Smooth Operator EQ Lo-Mid Freq",
-                "Headroom Hero EQ Lo-Mid Freq",
-                "Signature 83 EQ Lo-Mid Freq",
-                "Three-In-One EQ Lo-Mid Freq"
-              ]
-            },
-            {
-              "label": "HiMid Freq",
-              "by": "amp",
-              "params": [
-                "Smooth Operator EQ Hi-Mid Freq",
-                "Headroom Hero EQ Hi-Mid Freq",
-                "Signature 83 EQ Hi-Mid Freq",
-                "Three-In-One EQ Hi-Mid Freq"
-              ]
-            },
-            {
-              "label": "High Freq",
-              "by": "amp",
-              "params": [
-                "Smooth Operator EQ Hi Freq",
-                "Headroom Hero EQ Hi Freq",
-                "Signature 83 EQ Hi Freq",
-                "Three-In-One EQ Hi Freq"
-              ]
-            },
-            {
-              "label": "EQ LPF",
-              "by": "amp",
-              "params": [
-                "Smooth Operator EQ LPF",
-                "Headroom Hero EQ LPF",
-                "Signature 83 EQ LPF",
-                "Three-In-One EQ LPF"
-              ]
-            }
-          ],
-          "short": "Freq"
-        },
-        {
-          "name": "EQ Gains + Compressor",
-          "controls": [
             {
               "label": "EQ Low",
               "by": "amp",
@@ -464,6 +407,16 @@
               ]
             },
             {
+              "label": "EQ LPF",
+              "by": "amp",
+              "params": [
+                "Smooth Operator EQ LPF",
+                "Headroom Hero EQ LPF",
+                "Signature 83 EQ LPF",
+                "Three-In-One EQ LPF"
+              ]
+            },
+            {
               "label": "EQ On",
               "by": "amp",
               "params": [
@@ -472,7 +425,12 @@
                 "Signature 83 EQ Active",
                 "Three-In-One EQ Active"
               ]
-            },
+            }
+          ]
+        },
+        {
+          "name": "Compressor",
+          "controls": [
             {
               "label": "Comp In",
               "by": "amp",
@@ -503,8 +461,7 @@
                 "Three-In-One Compressor Active"
               ]
             }
-          ],
-          "short": "Gain/Comp"
+          ]
         }
       ]
     },
