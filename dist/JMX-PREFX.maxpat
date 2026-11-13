@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js JohnMayerX.js PREFX",
+					"text": "js JohnMayerX.js PREFX bc8b672",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [

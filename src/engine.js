@@ -134,7 +134,19 @@ function bang() { init(); }
 
 function init() { guarded(doInit, "starting"); }
 
+// The device passes the stamp it was built with; the script must be from the same build.
+function buildMismatch() {
+    if (typeof BUILD === "undefined" || typeof jsarguments === "undefined" || jsarguments.length < 3) return null;
+    return String(jsarguments[2]) === BUILD ? null : String(jsarguments[2]);
+}
+
 function doInit() {
+    var other = buildMismatch();
+    if (other) {
+        post("PushWrapper: device is build " + other + " but the script Max loaded is build " + BUILD + "\n");
+        status("Device and script are from different downloads (" + other + " / " + BUILD + "): remove older copies of the script file");
+        return;
+    }
     var i;
     ready = false;
     unbindAll();
@@ -298,6 +310,7 @@ function doRescan() {
 
 function report() {
     var i, text = "Connected to " + target.name;
+    var stamp = typeof BUILD === "undefined" ? "" : "   [" + BUILD + "]";
     if (target.count <= 1) {
         text = target.name + " shows no parameters yet: add them with Configure on the plugin";
     } else if (missing.length) {
@@ -308,7 +321,7 @@ function report() {
     if (PROFILE.match && PROFILE.match.length && !matchesProfile(target.name)) {
         text = "Made for " + PROFILE.match[0] + " but found " + target.name;
     }
-    status(text);
+    status(text + stamp);
 }
 
 // ---------- binding ----------

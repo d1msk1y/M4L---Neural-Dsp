@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js JohnMayerX.js EQCOMP",
+					"text": "js JohnMayerX.js EQCOMP bc8b672",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
