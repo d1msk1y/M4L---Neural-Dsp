@@ -14,9 +14,9 @@ Max or Push themselves.
 | Path | What it is |
 | --- | --- |
 | `src/engine.js` | The generic engine (discovery, sync, switch-dependent remapping) |
-| `profiles/*.json` | One profile per plugin (pages, groups, labels, parameter names) and its parameter dump |
+| `profiles/<plugin>/` | One folder per plugin: `profile.json` (pages, groups, labels, parameter names) and `dump.txt` (its parameter dump) |
 | `tools/build.js` | Turns a profile into a device |
-| `dist/` | Built devices: each `<Name>.amxd` with its script `<Name>.js` (keep the two together) |
+| `dist/<Device>/` | One folder per built device: `<Device>.amxd` with its script `<Device>.js` (keep the two together) |
 | `test/` | Engine tests against a fake Live, and dump-parsing tests |
 
 Names, banks and control types are baked in at build time because Live does not reliably
@@ -27,16 +27,16 @@ pick up parameter renames while a device is loaded.
 1. **Configure the plugin.** Live only exposes plugin parameters that appear in the
    plugin's Configure panel, and allows 128 of them per plugin. Add the ones you want to
    control, then right-click the plugin's title bar and save it as the default configuration.
-2. **Load `dist/ParamDump.amxd`** on the same track and press **Dump**. Open the
+2. **Load `dist/ParamDump/ParamDump.amxd`** on the same track and press **Dump**. Open the
    Max console (right-click the device title bar > Open Max Window) and copy the list.
    If the device does not load, see [If the .amxd does not open](#if-the-amxd-does-not-open).
 3. **Check preset sync is possible.** Switch presets in the plugin and watch the sliders
    in Live's Configure panel. If they do not move, the plugin is not telling Live about
    preset changes and no wrapper can follow them.
 4. **Fix the profile.** Replace any `param` names the status line reports as not found
-   with names from the dump, then `npm run build`. `profiles/john-mayer-x.json` already
-   uses names taken from a real dump.
-5. **Load `dist/JohnMayerX.amxd`** on the same track, before the plugin. The status line
+   with names from the dump, then `npm run build`. The profiles in this repo already
+   use names taken from real dumps.
+5. **Load the device** (for example `dist/JohnMayerX/JohnMayerX.amxd`) on the same track, before the plugin. The status line
    says what it connected to; controls whose parameter is not in the Configure list are
    greyed out and listed in the Max console.
 
@@ -90,9 +90,9 @@ script into the `.amxd` so it is a single file.
 
 ## Real units and switch names
 
-Load `dist/ParamDump.amxd` on the track (the only device with a Dump button), press
+Load `dist/ParamDump/ParamDump.amxd` on the track (the only device with a Dump button), press
 **Dump**, copy everything it prints in the Max console, and save it as
-`profiles/<profile-name>.dump.txt` (for example `profiles/john-mayer-x.dump.txt`). On the
+`dump.txt` in the plugin's folder (for example `profiles/john-mayer-x/dump.txt`). On the
 next `npm run build` every control is shaped by what the plugin itself reports:
 
 - switches become menus showing the plugin's own position names (Hall, 1/8, Lo), and
@@ -121,5 +121,5 @@ the set loads. Clicking the status line forces a reconnect if it ever gets stuck
 
 The `.amxd` container is written by hand from its documented-by-reverse-engineering
 layout. If Live rejects it: create an empty Max Audio Effect, open it in the Max editor,
-open `dist/<Name>.maxpat` alongside, copy everything across, and save the device into the
+open `dist/<Name>/<Name>.maxpat` alongside, copy everything across, and save the device into the
 same folder as `<Name>.js`.
