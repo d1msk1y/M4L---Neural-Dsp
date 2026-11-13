@@ -2316,14 +2316,17 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "live.text",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"float"
+						""
 					],
-					"activedialcolor": [
+					"mode": 1,
+					"text": "Amp EQ",
+					"texton": "Amp EQ",
+					"activebgoncolor": [
 						0.55,
 						0.8,
 						0.4,
@@ -2332,14 +2335,14 @@
 					"patching_rect": [
 						1275,
 						80,
-						44,
-						48
+						48,
+						18
 					],
 					"presentation_rect": [
-						811,
-						22,
-						44,
-						48
+						809,
+						36,
+						48,
+						18
 					],
 					"varname": "c_27",
 					"parameter_enable": 1,
@@ -2349,10 +2352,12 @@
 							"parameter_longname": "Amp EQ",
 							"parameter_shortname": "Amp EQ",
 							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
+							"parameter_type": 2,
+							"parameter_mmax": 1,
+							"parameter_enum": [
+								"Off",
+								"On"
+							]
 						}
 					},
 					"id": "obj-75"

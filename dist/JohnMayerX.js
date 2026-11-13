@@ -5,12 +5,7 @@ var PROFILE = {
   ],
   "switches": {
     "amp": {
-      "param": [
-        "selectedAmp",
-        "Amp",
-        "Amp Type",
-        "Selected Amp"
-      ],
+      "param": "Amp Type",
       "count": 4
     }
   },
@@ -18,82 +13,82 @@ var PROFILE = {
     {
       "label": "Teal On",
       "type": "toggle",
-      "param": "overdriveActive"
+      "param": "Tealbreaker Active"
     },
     {
       "label": "Teal Gain",
       "type": "dial",
-      "param": "overdriveGain"
+      "param": "Tealbreaker Gain"
     },
     {
       "label": "Teal Tone",
       "type": "dial",
-      "param": "overdriveTone"
+      "param": "Tealbreaker Tone"
     },
     {
       "label": "Teal Level",
       "type": "dial",
-      "param": "overdriveLevel"
+      "param": "Tealbreaker Level"
     },
     {
       "label": "Halfman On",
       "type": "toggle",
-      "param": "centaurActive"
+      "param": "Halfman OD Active"
     },
     {
       "label": "Halfman Gain",
       "type": "dial",
-      "param": "centaurGain"
+      "param": "Halfman OD Gain"
     },
     {
       "label": "Halfman Treb",
       "type": "dial",
-      "param": "centaurTreble"
+      "param": "Halfman OD Treble"
     },
     {
       "label": "Halfman Lvl",
       "type": "dial",
-      "param": "centaurLevel"
+      "param": "Halfman OD Level"
     },
     {
       "label": "Filter On",
       "type": "toggle",
-      "param": "qTronActive"
+      "param": "Antelope Filter Active"
     },
     {
       "label": "Filter Gain",
       "type": "dial",
-      "param": "qTronGain"
+      "param": "Antelope Filter Gain"
     },
     {
       "label": "Filter Peak",
       "type": "dial",
-      "param": "qTronPeak"
+      "param": "Antelope Filter Peak"
     },
     {
       "label": "Boost On",
       "type": "toggle",
-      "param": "katanaActive"
+      "param": "Justa Boost Active"
     },
     {
       "label": "Boost Out",
       "type": "dial",
-      "param": "katanaOutput"
+      "param": "Justa Boost Output"
     },
     {
       "label": "Milli On",
       "type": "toggle",
-      "param": "aquapussActive"
+      "param": "Millipede Delay Active"
     },
     {
       "label": "Milli Blend",
       "type": "dial",
-      "param": "aquapussBlend"
+      "param": "Millipede Delay Blend"
     },
     {
       "label": "Milli Time",
       "type": "dial",
-      "param": "aquapussTime"
+      "param": "Millipede Delay Time"
     },
     {
       "label": "Amp",
@@ -105,26 +100,21 @@ var PROFILE = {
         "3-in-1"
       ],
       "sets": "amp",
-      "param": [
-        "selectedAmp",
-        "Amp",
-        "Amp Type",
-        "Selected Amp"
-      ]
+      "param": "Amp Type"
     },
     {
       "label": "Gain",
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleGain",
-        "vibroverbVolume",
-        "twoRockGain",
-        "threeInOneGain"
+        "Smooth Operator Volume",
+        "Headroom Hero Gain",
+        "Signature 83 Gain",
+        "Three-In-One Amp Gain"
       ],
       "labels": [
-        "Gain",
         "Volume",
+        "Gain",
         "Gain",
         "Gain"
       ]
@@ -134,9 +124,9 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleBass",
-        "vibroverbBass",
-        "twoRockBass",
+        "Smooth Operator Bass",
+        "Headroom Hero Bass",
+        "Signature 83 Bass",
         null
       ]
     },
@@ -145,9 +135,9 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleMid",
         null,
-        "twoRockMid",
+        "Headroom Hero Middle",
+        "Signature 83 Mid",
         null
       ]
     },
@@ -156,9 +146,9 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleTreble",
-        "vibroverbTreble",
-        "twoRockTreble",
+        "Smooth Operator Treble",
+        "Headroom Hero Treble",
+        "Signature 83 Treble",
         null
       ]
     },
@@ -169,7 +159,7 @@ var PROFILE = {
       "params": [
         null,
         null,
-        "twoRockPresence",
+        "Signature 83 Presence",
         null
       ]
     },
@@ -178,9 +168,9 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleMaster",
         null,
-        "twoRockMaster",
+        "Headroom Hero Master",
+        "Signature 83 Master",
         null
       ]
     },
@@ -189,10 +179,10 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleOutput",
-        "vibroverbOutput",
-        "twoRockOutput",
-        "threeInOneOutput"
+        "Smooth Operator Output",
+        "Headroom Hero Output",
+        "Signature 83 Output",
+        "Three-In-One Amp Output"
       ]
     },
     {
@@ -200,9 +190,9 @@ var PROFILE = {
       "type": "toggle",
       "by": "amp",
       "params": [
-        "dumbleBright",
-        "vibroverbBright",
-        "twoRockBright",
+        "Smooth Operator Bright",
+        "Headroom Hero Bright",
+        "Signature 83 Bright",
         null
       ]
     },
@@ -211,8 +201,8 @@ var PROFILE = {
       "type": "toggle",
       "by": "amp",
       "params": [
-        "dumbleMidBoost",
         null,
+        "Headroom Hero Mid Boost",
         null,
         null
       ]
@@ -222,92 +212,95 @@ var PROFILE = {
       "type": "toggle",
       "by": "amp",
       "params": [
-        "dumbleInputJack",
         null,
+        "Headroom Hero Input Jack",
         null,
         null
       ]
     },
     {
       "label": "Amp EQ",
-      "type": "dial",
+      "type": "toggle",
       "by": "amp",
       "params": [
         null,
         null,
-        "twoRockEQ",
+        "Signature 83 EQ",
         null
       ]
     },
     {
       "label": "3in1 SmOp",
       "type": "dial",
-      "param": "threeInOneDumbleOutput"
+      "param": "Three-In-One Amp Smooth Operator Output"
     },
     {
       "label": "3in1 Headrm",
       "type": "dial",
-      "param": "threeInOneVibroverbOutput"
+      "param": "Three-In-One Amp Headroom Hero Output"
     },
     {
       "label": "3in1 Sig83",
       "type": "dial",
-      "param": "threeInOneTwoRockOutput"
+      "param": "Three-In-One Amp Signature 83 Output"
     },
     {
       "label": "3in1 Room",
       "type": "dial",
-      "param": "threeInOneRoomSend"
+      "param": "Three-In-One Amp Room Send"
     },
     {
       "label": "Spring On",
       "type": "toggle",
-      "param": "springReverbActive"
+      "param": "Spring Reverb Active"
     },
     {
       "label": "Spring Mix",
       "type": "dial",
-      "param": "springReverbMix"
+      "param": "Spring Reverb Mix"
     },
     {
       "label": "Spring Tone",
       "type": "dial",
-      "param": "springReverbTone"
+      "param": "Spring Reverb Tone"
     },
     {
       "label": "Spring Decay",
       "type": "dial",
-      "param": "springReverbDecay"
+      "param": "Spring Reverb Decay"
     },
     {
       "label": "Trem On",
       "type": "toggle",
-      "param": "reverberatoActive"
+      "param": "Harmonic Tremolo Active"
     },
     {
       "label": "Trem Speed",
       "type": "dial",
-      "param": "reverberatoSpeed"
+      "param": [
+        "Harmonic Tremolo Speed",
+        "Harmonic Tremolo Rate"
+      ]
     },
     {
       "label": "Trem Intens",
       "type": "dial",
-      "param": "reverberatoIntensity"
+      "param": "Harmonic Tremolo Intensity"
     },
     {
       "label": "Trem Sync",
       "type": "toggle",
-      "param": "reverberatoSync"
+      "param": "Harmonic Tremolo Sync"
     },
     {
       "label": "EQ On",
       "type": "toggle",
       "by": "amp",
       "params": [
-        "dumbleEQActive",
-        "vibroverbEQActive",
-        "twoRockEQActive",
-        "threeInOneEQActive"
+        "Smooth Operator EQ Active",
+        "Headroom Hero EQ Active",
+        "Signature 83 EQ Active",
+        "Three-In-One EQ Active"
       ]
     },
     {
@@ -315,10 +308,10 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleLowGain",
-        "vibroverbLowGain",
-        "twoRockLowGain",
-        "threeInOneLowGain"
+        "Smooth Operator EQ Lo Gain",
+        "Headroom Hero EQ Lo Gain",
+        "Signature 83 EQ Lo Gain",
+        "Three-In-One EQ Lo Gain"
       ]
     },
     {
@@ -326,10 +319,10 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleLowMidGain",
-        "vibroverbLowMidGain",
-        "twoRockLowMidGain",
-        "threeInOneLowMidGain"
+        "Smooth Operator EQ Lo-Mid Gain",
+        "Headroom Hero EQ Lo-Mid Gain",
+        "Signature 83 EQ Lo-Mid Gain",
+        "Three-In-One EQ Lo-Mid Gain"
       ]
     },
     {
@@ -337,10 +330,10 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleHighMidGain",
-        "vibroverbHighMidGain",
-        "twoRockHighMidGain",
-        "threeInOneHighMidGain"
+        "Smooth Operator EQ Hi-Mid Gain",
+        "Headroom Hero EQ Hi-Mid Gain",
+        "Signature 83 EQ Hi-Mid Gain",
+        "Three-In-One EQ Hi-Mid Gain"
       ]
     },
     {
@@ -348,10 +341,10 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleHighGain",
-        "vibroverbHighGain",
-        "twoRockHighGain",
-        "threeInOneHighGain"
+        "Smooth Operator EQ Hi Gain",
+        "Headroom Hero EQ Hi Gain",
+        "Signature 83 EQ Hi Gain",
+        "Three-In-One EQ Hi Gain"
       ]
     },
     {
@@ -359,10 +352,10 @@ var PROFILE = {
       "type": "toggle",
       "by": "amp",
       "params": [
-        "dumbleCompressorActive",
-        "vibroverbCompressorActive",
-        "twoRockCompressorActive",
-        "threeInOneCompressorActive"
+        "Smooth Operator Compressor Active",
+        "Headroom Hero Compressor Active",
+        "Signature 83 Compressor Active",
+        "Three-In-One Compressor Active"
       ]
     },
     {
@@ -370,10 +363,10 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleCompressorInput",
-        "vibroverbCompressorInput",
-        "twoRockCompressorInput",
-        "threeInOneCompressorInput"
+        "Smooth Operator Compressor Input",
+        "Headroom Hero Compressor Input",
+        "Signature 83 Compressor Input",
+        "Three-In-One Compressor Input"
       ]
     },
     {
@@ -381,86 +374,86 @@ var PROFILE = {
       "type": "dial",
       "by": "amp",
       "params": [
-        "dumbleCompressorOutput",
-        "vibroverbCompressorOutput",
-        "twoRockCompressorOutput",
-        "threeInOneCompressorOutput"
+        "Smooth Operator Compressor Output",
+        "Headroom Hero Compressor Output",
+        "Signature 83 Compressor Output",
+        "Three-In-One Compressor Output"
       ]
     },
     {
       "label": "Delay On",
       "type": "toggle",
-      "param": "delayActive"
+      "param": "Dream Delay Active"
     },
     {
       "label": "Dly Mix",
       "type": "dial",
-      "param": "delayMix"
+      "param": "Dream Delay Mix"
     },
     {
       "label": "Dly Fdbk",
       "type": "dial",
-      "param": "delayFeedback"
+      "param": "Dream Delay Feedback"
     },
     {
       "label": "Dly Time",
       "type": "dial",
-      "param": "delayTime"
+      "param": "Dream Delay Time"
     },
     {
       "label": "Reverb On",
       "type": "toggle",
-      "param": "reverbActive"
+      "param": "Studio Verb Active"
     },
     {
       "label": "Rev Mix",
       "type": "dial",
-      "param": "reverbMix"
+      "param": "Studio Verb Mix"
     },
     {
       "label": "Rev Decay",
       "type": "dial",
-      "param": "reverbDecay"
+      "param": "Studio Verb Decay"
     },
     {
       "label": "Rev PreDly",
       "type": "dial",
-      "param": "reverbPreDelay"
+      "param": "Studio Verb Pre-Delay"
     },
     {
       "label": "Input",
       "type": "dial",
-      "param": "inputGain"
+      "param": "Input Gain"
     },
     {
       "label": "Output",
       "type": "dial",
-      "param": "outputGain"
+      "param": "Output Gain"
     },
     {
       "label": "Gate On",
       "type": "toggle",
-      "param": "gateActive"
+      "param": "Gate Active"
     },
     {
       "label": "Gate Thresh",
       "type": "dial",
-      "param": "gateThreshold"
+      "param": "Gate Threshold"
     },
     {
       "label": "Transpose",
       "type": "dial",
-      "param": "transpose"
+      "param": "Transpose"
     },
     {
       "label": "Doubler On",
       "type": "toggle",
-      "param": "doublerActive"
+      "param": "Doubler Active"
     },
     {
       "label": "Dblr Spread",
       "type": "dial",
-      "param": "doublerSpread"
+      "param": "Doubler Spread"
     }
   ]
 };
