@@ -1,0 +1,73 @@
+{
+  "device": "JohnMayerX",
+  "match": ["John Mayer"],
+  "switches": {
+    "amp": { "param": "Amp Type", "count": 3 }
+  },
+  "banks": [
+    {
+      "name": "PRE FX",
+      "controls": [
+        { "label": "Filter On", "type": "toggle", "param": "Filter Active" },
+        { "label": "Filter Sens", "param": "Filter Sensitivity" },
+        { "label": "Boost On", "type": "toggle", "param": "Boost Active" },
+        { "label": "Boost Lvl", "param": "Boost Level" },
+        { "label": "OD1 On", "type": "toggle", "param": "Overdrive 1 Active" },
+        { "label": "OD1 Drive", "param": "Overdrive 1 Drive" },
+        { "label": "OD2 On", "type": "toggle", "param": "Overdrive 2 Active" },
+        { "label": "OD2 Drive", "param": "Overdrive 2 Drive" }
+      ]
+    },
+    {
+      "name": "AMP",
+      "controls": [
+        { "label": "Amp Type", "type": "menu", "items": ["Smooth Op", "Headroom", "Sig 83"], "param": "Amp Type" },
+        { "label": "Gain", "by": "amp", "params": ["Smooth Operator Gain", "Headroom Gain", "Signature 83 Gain"] },
+        { "label": "Bass", "by": "amp", "params": ["Smooth Operator Bass", "Headroom Bass", "Signature 83 Bass"] },
+        { "label": "Mid", "by": "amp", "params": ["Smooth Operator Mid", "Headroom Mid", "Signature 83 Mid"] },
+        { "label": "Treble", "by": "amp", "params": ["Smooth Operator Treble", "Headroom Treble", "Signature 83 Treble"] },
+        { "label": "Pres/Bright", "by": "amp", "params": ["Smooth Operator Bright", "Headroom Bright", "Signature 83 Presence"], "labels": ["Bright", "Bright", "Presence"] },
+        { "label": "Master", "by": "amp", "params": ["Smooth Operator Master", "Headroom Master", "Signature 83 Master"] },
+        { "label": "Amp Boost", "by": "amp", "params": ["Smooth Operator Boost", "Headroom Boost", "Signature 83 Boost"] }
+      ]
+    },
+    {
+      "name": "VERB/TREM",
+      "controls": [
+        { "label": "Spring On", "type": "toggle", "param": "Spring Reverb Active" },
+        { "label": "Spring Mix", "param": "Spring Reverb Mix" },
+        { "label": "Spring Dwell", "param": "Spring Reverb Dwell" },
+        { "label": "Spring Tone", "param": "Spring Reverb Tone" },
+        { "label": "Trem On", "type": "toggle", "param": "Tremolo Active" },
+        { "label": "Trem Speed", "param": "Tremolo Speed" },
+        { "label": "Trem Depth", "param": "Tremolo Depth" }
+      ]
+    },
+    {
+      "name": "EQ/COMP",
+      "controls": [
+        { "label": "EQ On", "type": "toggle", "param": "EQ Active" },
+        { "label": "EQ Low", "param": "EQ Low" },
+        { "label": "EQ LoMid", "param": "EQ Low Mid" },
+        { "label": "EQ HiMid", "param": "EQ High Mid" },
+        { "label": "EQ High", "param": "EQ High" },
+        { "label": "Comp On", "type": "toggle", "param": "Compressor Active" },
+        { "label": "Comp Amt", "param": "Compressor Compression" },
+        { "label": "Comp Lvl", "param": "Compressor Level" }
+      ]
+    },
+    {
+      "name": "POST FX",
+      "controls": [
+        { "label": "Delay On", "type": "toggle", "param": "Delay Active" },
+        { "label": "Dly Mix", "param": "Delay Mix" },
+        { "label": "Dly Fdbk", "param": "Delay Feedback" },
+        { "label": "Dly Time", "param": "Delay Time" },
+        { "label": "Reverb On", "type": "toggle", "param": "Reverb Active" },
+        { "label": "Rev Mix", "param": "Reverb Mix" },
+        { "label": "Rev Decay", "param": "Reverb Decay" },
+        { "label": "Rev PreDly", "param": "Reverb Pre Delay" }
+      ]
+    }
+  ]
+}
