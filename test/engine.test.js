@@ -57,7 +57,9 @@ function world() {
     });
   }
   LiveAPI.prototype.get = function (what) {
+    if (this.kind === 'track' && what === 'devices') return w.hasTarget ? ['id', 1, 'id', 3] : ['id', 1];
     if (this.kind === 'dev' && what === 'name') return ['Fake', 'Plugin'];
+    if (this.kind === 'dev' && what === 'class_name') return ['PluginDevice'];
     if (this.kind === 'dev' && what === 'parameters') return order.reduce((a, id) => a.concat(['id', id]), []);
     if (this.kind === 'param') return [params[this.pid][what]];
     return [0];
@@ -210,7 +212,7 @@ test('no device to the right is reported, not thrown', () => {
   w.hasTarget = false;
   w.js.init();
   w.advance(50);
-  assert.ok(/No device/.test(w.ui.status.value));
+  assert.ok(/No plugin/.test(w.ui.status.value));
 });
 
 test('a switch the plugin does not expose is driven from the wrapper menu', () => {

@@ -21,6 +21,17 @@ in the plugin moves Push. One generic engine, one small JSON profile per plugin.
 Names, banks and control types are baked in at build time because Live does not reliably
 pick up parameter renames while a device is loaded.
 
+## One device or several
+
+Every profile is built two ways from the same file. Use whichever suits you; do not load
+both for the same plugin.
+
+- **Single:** `dist/<Name>.amxd` holds every page as a tab.
+- **Modular:** `dist/<Name>-modular/` holds one small device per page (for example
+  `JMX-PREFX`, `JMX-AMP`). Put any of them on the track before the plugin, in any order.
+  Each shows up as its own device on Push. They all find the plugin by name, so they do
+  not need to sit directly next to it.
+
 ## First run
 
 1. **Configure the plugin.** Live only exposes plugin parameters that appear in the

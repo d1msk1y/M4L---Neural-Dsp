@@ -867,7 +867,37 @@ function onStructureChanged() {
     rescanTask.schedule(100);
 }
 
-// Finds the device immediately to the right, maps its parameter names, binds everything.
+function matchesProfile(name) {
+    if (!PROFILE.match) return false;
+    for (var i = 0; i < PROFILE.match.length; i++) {
+        if (key(name).indexOf(key(PROFILE.match[i])) >= 0) return true;
+    }
+    return false;
+}
+
+// Picks the device to control on this track, nearest first and looking right before left:
+// the plugin the profile names, else any third-party plugin, else the direct neighbour.
+// Searching past neighbours lets several wrapper devices sit in a row before one plugin.
+function findTarget(parent, myIndex) {
+    var count = Math.floor(new LiveAPI(parent).get("devices").length / 2);
+    var order = [], i, pass;
+    for (i = myIndex + 1; i < count; i++) order.push(i);
+    for (i = myIndex - 1; i >= 0; i--) order.push(i);
+    for (pass = 0; pass < 3; pass++) {
+        for (i = 0; i < order.length; i++) {
+            var path = parent + " devices " + order[i];
+            var d = new LiveAPI(path);
+            if (!valid(d)) continue;
+            var cls = str(d.get("class_name"));
+            if (pass === 0 && cls.indexOf("Mx") !== 0 && matchesProfile(str(d.get("name")))) return path;
+            if (pass === 1 && cls.indexOf("PluginDevice") >= 0) return path;
+            if (pass === 2 && Math.abs(order[i] - myIndex) === 1) return path;
+        }
+    }
+    return null;
+}
+
+// Finds the plugin, maps its parameter names, binds everything.
 function rescan() {
     var i, name;
     ready = false;
@@ -887,17 +917,12 @@ function rescan() {
         trackObs.property = "devices";
     }
 
-    // Prefer the device to the right; fall back to the one on the left.
-    var tpath = parent + " devices " + (myIndex + 1);
-    var dev = new LiveAPI(tpath);
-    if (!valid(dev) && myIndex > 0) {
-        tpath = parent + " devices " + (myIndex - 1);
-        dev = new LiveAPI(tpath);
-    }
-    if (!valid(dev)) {
+    var tpath = findTarget(parent, myIndex);
+    var dev = tpath ? new LiveAPI(tpath) : null;
+    if (!dev) {
         muteStructure = false;
         setAllActive(0);
-        status("No device next to this one");
+        status("No plugin found on this track");
         return;
     }
 
@@ -956,11 +981,7 @@ function report() {
         for (i = 0; i < missing.length; i++) post("   " + missing[i] + "\n");
     }
     if (PROFILE.match && PROFILE.match.length) {
-        var ok = false;
-        for (i = 0; i < PROFILE.match.length; i++) {
-            if (key(target.name).indexOf(key(PROFILE.match[i])) >= 0) ok = true;
-        }
-        if (!ok) text = "Profile is for " + PROFILE.match[0] + " but found " + text;
+        if (!matchesProfile(target.name)) text = "Profile is for " + PROFILE.match[0] + " but found " + text;
     }
     status(text);
 }
@@ -1106,11 +1127,9 @@ function showTab() {
 function dump() {
     var me = new LiveAPI("this_device");
     var toks = cleanPath(me.path).split(" ");
-    var mine = parseInt(toks[toks.length - 1], 10);
-    toks[toks.length - 1] = mine + 1;
-    var dev = new LiveAPI(toks.join(" "));
-    if (!valid(dev) && mine > 0) { toks[toks.length - 1] = mine - 1; dev = new LiveAPI(toks.join(" ")); }
-    if (!valid(dev)) { post("PushWrapper: no device next to this one\n"); return; }
+    var found = findTarget(toks.slice(0, toks.length - 2).join(" "), parseInt(toks[toks.length - 1], 10));
+    if (!found) { post("PushWrapper: no plugin found on this track\n"); return; }
+    var dev = new LiveAPI(found);
     var ids = dev.get("parameters"), n = 0;
     post("---- " + str(dev.get("name")) + " ----\n");
     for (var i = 0; i < ids.length; i++) {
