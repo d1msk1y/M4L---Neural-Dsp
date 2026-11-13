@@ -233,11 +233,51 @@ test('a switch the plugin does not expose is driven from the wrapper menu', () =
 
 test('selecting a tab shows only that page', () => {
   const { w } = setup();
-  w.js.PROFILE.ui = [['c_0', 'c_1'], ['c_3']];
+  w.js.PROFILE.ui = [{ page: 0, bank: 0, view: -1, names: ['c_0', 'c_1'] }, { page: 1, bank: 1, view: -1, names: ['c_3'] }];
   w.js.tab(1);
   assert.deepStrictEqual(w.ui.c_0.log.pop(), ['hidden', 1]);
   assert.deepStrictEqual(w.ui.c_3.log.pop(), ['hidden', 0]);
   delete w.js.PROFILE.ui;
+});
+
+test('a Push page follows its switch: encoders and buttons are re-pointed, and Live shows only that view', () => {
+  const w = world();
+  const id = { amp: w.addParam('Amp Type', 0), a: w.addParam('A Gain', 0.2), c: w.addParam('C Gain', 0.9) };
+  w.js.PROFILE.banks = [{ by: 'amp', exclusive: true, views: [
+    { enc: ['Amp', 'A Gain'], btn: ['A Bright'] }, { enc: ['Amp'], btn: [] }, { enc: ['Amp', 'C Gain', 'C Pres'], btn: [] }] }];
+  w.js.PROFILE.ui = [{ page: 0, bank: 0, view: 0, names: ['c_1'] }, { page: 0, bank: 0, view: 2, names: ['c_2'] }];
+  w.js.init();
+  w.advance(2000);
+  const edits = () => w.ui.banks.log.filter((m) => m[0] === 'edit');
+  assert.deepStrictEqual(edits().pop(), ['edit', 0, '-', 0, 'Amp', 1, 'A Gain', 2, '-', 3, '-', 4, '-', 5, '-', 6, '-', 7, '-',
+    '@buttons', 0, 'A Bright', 1, '-', 2, '-', 3, '-', 4, '-', 5, '-', 6, '-', 7, '-']);
+  const before = edits().length;
+  w.pluginSet(id.amp, 1); // the plugin (or a preset) switches to the third amp
+  w.advance(10);
+  assert.strictEqual(edits().length, before + 1);
+  assert.deepStrictEqual(edits().pop().slice(3, 9), [0, 'Amp', 1, 'C Gain', 2, 'C Pres']);
+  assert.deepStrictEqual(w.ui.c_1.log.filter((m) => m[0] === 'hidden').pop(), ['hidden', 1]);
+  assert.deepStrictEqual(w.ui.c_2.log.filter((m) => m[0] === 'hidden').pop(), ['hidden', 0]);
+  w.pluginSet(id.c, 0.5); // ordinary value changes must not touch the banks
+  w.advance(10);
+  assert.strictEqual(edits().length, before + 1);
+  delete w.js.PROFILE.banks; delete w.js.PROFILE.ui;
+});
+
+test('a wrapper-only selector switches the Push view without touching the plugin', () => {
+  const w = world();
+  w.addParam('Amp Type', 0); w.addParam('A Gain', 0.2);
+  w.js.PROFILE.switches.view0 = { param: null, count: 2 };
+  w.js.PROFILE.controls.push({ label: 'Pedal', type: 'menu', items: ['X', 'Y'], sets: 'view0' });
+  w.js.PROFILE.banks = [{ by: 'view0', exclusive: false, views: [{ enc: ['Pedal', 'X Gain'], btn: ['X On'] }, { enc: ['Pedal', 'Y Gain'], btn: [] }] }];
+  w.js.init();
+  w.advance(2000);
+  assert.strictEqual(w.ui.c_5.active, 1);
+  w.js.ui(5, 1);
+  w.advance(10);
+  assert.deepStrictEqual(w.ui.banks.log.filter((m) => m[0] === 'edit').pop().slice(3, 7), [0, 'Pedal', 1, 'Y Gain']);
+  assert.strictEqual(w.sets.length, 0);
+  w.js.PROFILE.controls.pop(); delete w.js.PROFILE.switches.view0; delete w.js.PROFILE.banks;
 });
 
 test('a dial with a display table shows and sends the plugin\'s own units', () => {

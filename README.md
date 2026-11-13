@@ -58,33 +58,39 @@ same folder as the devices.
 {
   "device": "MyPlugin",
   "match": ["My Plugin"],
-  "switches": { "amp": { "param": "Amp Type", "count": 3 } },
+  "switches": { "amp": { "param": "Amp Type", "count": 2 } },
   "pages": [
-    { "name": "AMP", "groups": [
-      { "name": "Amp", "controls": [
-        { "label": "Amp Type", "type": "menu", "items": ["A", "B", "C"], "param": "Amp Type", "sets": "amp" },
-        { "label": "Gain", "by": "amp", "params": ["A Gain", "B Gain", "C Gain"] },
-        { "label": "Pres/Bright", "by": "amp",
-          "params": ["A Bright", null, "C Presence"], "labels": ["Bright", "-", "Presence"] }
+    { "name": "PRE FX", "selector": "Pedal", "groups": [
+      { "name": "Overdrive", "short": "OD", "controls": [
+        { "label": "OD On", "param": "Overdrive Active" },
+        { "label": "OD Gain", "param": "Overdrive Gain" }
       ] },
-      { "name": "Boost", "bank": "AMP 2", "controls": [
-        { "label": "Boost On", "type": "toggle", "param": "Boost Active" }
+      { "name": "Delay", "controls": [ { "label": "Dly Mix", "param": "Delay Mix" } ] }
+    ] },
+    { "name": "AMP", "switch": "amp", "headName": "Amp",
+      "head": [ { "label": "Amp", "type": "menu", "items": ["Clean", "Lead"], "param": "Amp Type", "sets": "amp" } ],
+      "groups": [
+        { "name": "Clean", "controls": [ { "label": "Cl Gain", "param": "Clean Gain" } ] },
+        { "name": "Lead", "controls": [ { "label": "Ld Gain", "param": "Lead Gain" } ] }
       ] }
-    ] }
   ]
 }
 ```
 
-- A **page** is a tab in the device in Live. A **group** is one coloured panel on that
-  page, with up to 8 controls.
-- On Push each group is its own bank, named after the group. Give consecutive groups the
-  same `"bank"` name to merge them into one bank of up to 8.
+- In Live, a **page** is a tab and a **group** is one coloured panel (up to 8 controls).
+- On Push, a **page is one bank**. Knobs and menus go on the eight encoders; two-state
+  switches go on the eight buttons above the display.
+- If a page's groups do not all fit, the first encoder becomes a selector (named by
+  `"selector"`) and the other seven show the selected group, like the oscillator page
+  of a Live synth. `"short"` is the group's name in that selector.
+- A page with `"switch"` follows a plugin switch instead: one group per position, and
+  `"head"` holds the controls that stay put (normally the menu for that switch).
 - `type` is `dial` (default), `toggle` or `menu`. Add `"invert": true` for bypass-style switches.
 - `param` is the plugin's parameter name. Matching ignores case and punctuation. A list
   of names is tried in order.
 - `by` makes a control follow a switch: `params` has one entry per switch value, `null`
   where that variant has no such control.
-- `"sets": "amp"` on a menu lets the wrapper drive a switch the plugin does not expose.
+- `"sets": "amp"` on a menu ties it to a switch, and lets the wrapper drive one the plugin does not expose.
 - `labels` must be unique across the device (they become Live's parameter names).
 - Changing only parameter names needs only the rebuilt `.js`; changing labels, banks or
   types needs the rebuilt `.amxd` as well.

@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js ParamDump.js main b3f6923",
+					"text": "js ParamDump.js main b464d0c",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
@@ -75,7 +75,7 @@
 					"patching_rect": [
 						200,
 						110,
-						160,
+						200,
 						22
 					],
 					"saved_object_attributes": {
@@ -107,6 +107,25 @@
 			},
 			{
 				"box": {
+					"maxclass": "newobj",
+					"text": "live.banks",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						200,
+						70,
+						70,
+						22
+					],
+					"varname": "banks",
+					"id": "obj-5"
+				}
+			},
+			{
+				"box": {
 					"maxclass": "textbutton",
 					"numinlets": 1,
 					"numoutlets": 3,
@@ -130,7 +149,7 @@
 						46,
 						15
 					],
-					"id": "obj-5"
+					"id": "obj-6"
 				}
 			},
 			{
@@ -148,7 +167,7 @@
 						50,
 						22
 					],
-					"id": "obj-6"
+					"id": "obj-7"
 				}
 			},
 			{
@@ -172,7 +191,7 @@
 						270,
 						16
 					],
-					"id": "obj-7"
+					"id": "obj-8"
 				}
 			},
 			{
@@ -201,7 +220,7 @@
 						270,
 						16
 					],
-					"id": "obj-8"
+					"id": "obj-9"
 				}
 			}
 		],
@@ -245,11 +264,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-5",
+						"obj-6",
 						0
 					],
 					"destination": [
-						"obj-6",
+						"obj-7",
 						0
 					]
 				}
@@ -257,7 +276,7 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-6",
+						"obj-7",
 						0
 					],
 					"destination": [
@@ -269,7 +288,7 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-8",
+						"obj-9",
 						0
 					],
 					"destination": [

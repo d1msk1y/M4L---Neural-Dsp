@@ -16,7 +16,7 @@
 			700
 		],
 		"openinpresentation": 1,
-		"devicewidth": 452,
+		"devicewidth": 386,
 		"default_fontsize": 10,
 		"default_fontface": 0,
 		"default_fontname": "Arial Bold",
@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js JohnMayerX.js AMP b89d807",
+					"text": "js JohnMayerX.js AMP be10769",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
@@ -75,7 +75,7 @@
 					"patching_rect": [
 						200,
 						110,
-						160,
+						200,
 						22
 					],
 					"saved_object_attributes": {
@@ -107,6 +107,25 @@
 			},
 			{
 				"box": {
+					"maxclass": "newobj",
+					"text": "live.banks",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						200,
+						70,
+						70,
+						22
+					],
+					"varname": "banks",
+					"id": "obj-5"
+				}
+			},
+			{
+				"box": {
 					"maxclass": "panel",
 					"numinlets": 1,
 					"numoutlets": 0,
@@ -129,18 +148,18 @@
 					"patching_rect": [
 						34,
 						260,
-						212,
+						112,
 						16
 					],
 					"presentation": 1,
 					"presentation_rect": [
 						4,
 						4,
-						212,
+						112,
 						145
 					],
 					"varname": "g_0_p",
-					"id": "obj-5"
+					"id": "obj-6"
 				}
 			},
 			{
@@ -155,82 +174,82 @@
 					"patching_rect": [
 						34,
 						278,
-						212,
+						112,
 						18
 					],
 					"presentation": 1,
 					"presentation_rect": [
 						4,
 						5,
-						212,
+						112,
 						16
 					],
 					"varname": "g_0_t",
-					"id": "obj-6"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "panel",
-					"numinlets": 1,
-					"numoutlets": 0,
-					"mode": 0,
-					"rounded": 6,
-					"background": 1,
-					"bgcolor": [
-						0.9,
-						0.3,
-						0.28,
-						0.16
-					],
-					"border": 1,
-					"bordercolor": [
-						0.9,
-						0.3,
-						0.28,
-						0.7
-					],
-					"patching_rect": [
-						250,
-						260,
-						112,
-						16
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						220,
-						4,
-						112,
-						145
-					],
-					"varname": "g_1_p",
 					"id": "obj-7"
 				}
 			},
 			{
 				"box": {
+					"maxclass": "panel",
+					"numinlets": 1,
+					"numoutlets": 0,
+					"mode": 0,
+					"rounded": 6,
+					"background": 1,
+					"bgcolor": [
+						0.9,
+						0.3,
+						0.28,
+						0.16
+					],
+					"border": 1,
+					"bordercolor": [
+						0.9,
+						0.3,
+						0.28,
+						0.7
+					],
+					"patching_rect": [
+						150,
+						260,
+						162,
+						16
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						120,
+						4,
+						162,
+						145
+					],
+					"varname": "g_1_p",
+					"id": "obj-8"
+				}
+			},
+			{
+				"box": {
 					"maxclass": "comment",
 					"numinlets": 1,
 					"numoutlets": 0,
-					"text": "Amp Switches",
+					"text": "Smooth Operator",
 					"fontface": 1,
 					"fontsize": 10,
 					"textjustification": 1,
 					"patching_rect": [
-						250,
+						150,
 						278,
-						112,
+						162,
 						18
 					],
 					"presentation": 1,
 					"presentation_rect": [
-						220,
+						120,
 						5,
-						112,
+						162,
 						16
 					],
 					"varname": "g_1_t",
-					"id": "obj-8"
+					"id": "obj-9"
 				}
 			},
 			{
@@ -255,20 +274,21 @@
 						0.7
 					],
 					"patching_rect": [
-						366,
+						150,
 						260,
-						112,
+						262,
 						16
 					],
 					"presentation": 1,
 					"presentation_rect": [
-						336,
+						120,
 						4,
-						112,
+						262,
 						145
 					],
 					"varname": "g_2_p",
-					"id": "obj-9"
+					"hidden": 1,
+					"id": "obj-10"
 				}
 			},
 			{
@@ -276,25 +296,158 @@
 					"maxclass": "comment",
 					"numinlets": 1,
 					"numoutlets": 0,
-					"text": "Three-In-One Mix",
+					"text": "Headroom Hero",
 					"fontface": 1,
 					"fontsize": 10,
 					"textjustification": 1,
 					"patching_rect": [
-						366,
+						150,
 						278,
-						112,
+						262,
 						18
 					],
 					"presentation": 1,
 					"presentation_rect": [
-						336,
+						120,
 						5,
-						112,
+						262,
 						16
 					],
 					"varname": "g_2_t",
-					"id": "obj-10"
+					"hidden": 1,
+					"id": "obj-11"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "panel",
+					"numinlets": 1,
+					"numoutlets": 0,
+					"mode": 0,
+					"rounded": 6,
+					"background": 1,
+					"bgcolor": [
+						0.55,
+						0.8,
+						0.4,
+						0.16
+					],
+					"border": 1,
+					"bordercolor": [
+						0.55,
+						0.8,
+						0.4,
+						0.7
+					],
+					"patching_rect": [
+						150,
+						260,
+						262,
+						16
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						120,
+						4,
+						262,
+						145
+					],
+					"varname": "g_3_p",
+					"hidden": 1,
+					"id": "obj-12"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "comment",
+					"numinlets": 1,
+					"numoutlets": 0,
+					"text": "Signature 83",
+					"fontface": 1,
+					"fontsize": 10,
+					"textjustification": 1,
+					"patching_rect": [
+						150,
+						278,
+						262,
+						18
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						120,
+						5,
+						262,
+						16
+					],
+					"varname": "g_3_t",
+					"hidden": 1,
+					"id": "obj-13"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "panel",
+					"numinlets": 1,
+					"numoutlets": 0,
+					"mode": 0,
+					"rounded": 6,
+					"background": 1,
+					"bgcolor": [
+						0.72,
+						0.52,
+						0.9,
+						0.16
+					],
+					"border": 1,
+					"bordercolor": [
+						0.72,
+						0.52,
+						0.9,
+						0.7
+					],
+					"patching_rect": [
+						150,
+						260,
+						162,
+						16
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						120,
+						4,
+						162,
+						145
+					],
+					"varname": "g_4_p",
+					"hidden": 1,
+					"id": "obj-14"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "comment",
+					"numinlets": 1,
+					"numoutlets": 0,
+					"text": "Three-In-One",
+					"fontface": 1,
+					"fontsize": 10,
+					"textjustification": 1,
+					"patching_rect": [
+						150,
+						278,
+						162,
+						18
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						120,
+						5,
+						162,
+						16
+					],
+					"varname": "g_4_t",
+					"hidden": 1,
+					"id": "obj-15"
 				}
 			},
 			{
@@ -319,7 +472,7 @@
 						16
 					],
 					"varname": "c_0_l",
-					"id": "obj-11"
+					"id": "obj-16"
 				}
 			},
 			{
@@ -348,21 +501,21 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Amp",
-							"parameter_shortname": "Amp",
-							"parameter_modmode": 0,
-							"parameter_type": 2,
-							"parameter_mmax": 3,
 							"parameter_enum": [
 								"Smooth Op",
 								"Headroom",
 								"Sig 83",
 								"3-in-1"
-							]
+							],
+							"parameter_longname": "Amp",
+							"parameter_mmax": 3,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Amp",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_0",
-					"id": "obj-12"
+					"id": "obj-17"
 				}
 			},
 			{
@@ -380,7 +533,7 @@
 						52,
 						22
 					],
-					"id": "obj-13"
+					"id": "obj-18"
 				}
 			},
 			{
@@ -393,19 +546,19 @@
 						"float"
 					],
 					"activedialcolor": [
-						0.96,
-						0.62,
-						0.2,
+						0.9,
+						0.3,
+						0.28,
 						1
 					],
 					"patching_rect": [
-						90,
+						156,
 						300,
 						44,
 						48
 					],
 					"presentation_rect": [
-						63,
+						129,
 						21,
 						44,
 						48
@@ -414,17 +567,17 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Gain",
-							"parameter_shortname": "Gain",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
+							"parameter_longname": "SO Volume",
 							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "SO Volume",
+							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_1",
-					"id": "obj-14"
+					"id": "obj-19"
 				}
 			},
 			{
@@ -437,12 +590,12 @@
 						""
 					],
 					"patching_rect": [
-						90,
+						156,
 						354,
 						52,
 						22
 					],
-					"id": "obj-15"
+					"id": "obj-20"
 				}
 			},
 			{
@@ -455,19 +608,19 @@
 						"float"
 					],
 					"activedialcolor": [
-						0.96,
-						0.62,
-						0.2,
+						0.9,
+						0.3,
+						0.28,
 						1
 					],
 					"patching_rect": [
-						140,
+						206,
 						300,
 						44,
 						48
 					],
 					"presentation_rect": [
-						113,
+						179,
 						21,
 						44,
 						48
@@ -476,17 +629,17 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Bass",
-							"parameter_shortname": "Bass",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
+							"parameter_longname": "SO Bass",
 							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "SO Bass",
+							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_2",
-					"id": "obj-16"
+					"id": "obj-21"
 				}
 			},
 			{
@@ -499,12 +652,12 @@
 						""
 					],
 					"patching_rect": [
-						140,
+						206,
 						354,
 						52,
 						22
 					],
-					"id": "obj-17"
+					"id": "obj-22"
 				}
 			},
 			{
@@ -517,19 +670,19 @@
 						"float"
 					],
 					"activedialcolor": [
-						0.96,
-						0.62,
-						0.2,
+						0.9,
+						0.3,
+						0.28,
 						1
 					],
 					"patching_rect": [
-						190,
+						256,
 						300,
 						44,
 						48
 					],
 					"presentation_rect": [
-						163,
+						229,
 						21,
 						44,
 						48
@@ -538,17 +691,17 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Mid",
-							"parameter_shortname": "Mid",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
+							"parameter_longname": "SO Treble",
 							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "SO Treble",
+							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_3",
-					"id": "obj-18"
+					"id": "obj-23"
 				}
 			},
 			{
@@ -561,12 +714,12 @@
 						""
 					],
 					"patching_rect": [
-						190,
+						256,
 						354,
 						52,
 						22
 					],
-					"id": "obj-19"
+					"id": "obj-24"
 				}
 			},
 			{
@@ -579,19 +732,19 @@
 						"float"
 					],
 					"activedialcolor": [
-						0.96,
-						0.62,
-						0.2,
+						0.9,
+						0.3,
+						0.28,
 						1
 					],
 					"patching_rect": [
-						40,
+						156,
 						400,
 						44,
 						48
 					],
 					"presentation_rect": [
-						13,
+						129,
 						76,
 						44,
 						48
@@ -600,17 +753,17 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Treble",
-							"parameter_shortname": "Treble",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
+							"parameter_longname": "SO Output",
 							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "SO Output",
+							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_4",
-					"id": "obj-20"
+					"id": "obj-25"
 				}
 			},
 			{
@@ -623,198 +776,12 @@
 						""
 					],
 					"patching_rect": [
-						40,
+						156,
 						454,
 						52,
 						22
 					],
-					"id": "obj-21"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.96,
-						0.62,
-						0.2,
-						1
-					],
-					"patching_rect": [
-						90,
-						400,
-						44,
-						48
-					],
-					"presentation_rect": [
-						63,
-						76,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_longname": "Presence",
-							"parameter_shortname": "Presence",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
-						}
-					},
-					"varname": "c_5",
-					"id": "obj-22"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 5",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						90,
-						454,
-						52,
-						22
-					],
-					"id": "obj-23"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.96,
-						0.62,
-						0.2,
-						1
-					],
-					"patching_rect": [
-						140,
-						400,
-						44,
-						48
-					],
-					"presentation_rect": [
-						113,
-						76,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_longname": "Master",
-							"parameter_shortname": "Master",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
-						}
-					},
-					"varname": "c_6",
-					"id": "obj-24"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 6",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						140,
-						454,
-						52,
-						22
-					],
-					"id": "obj-25"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.96,
-						0.62,
-						0.2,
-						1
-					],
-					"patching_rect": [
-						190,
-						400,
-						44,
-						48
-					],
-					"presentation_rect": [
-						163,
-						76,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_longname": "Amp Out",
-							"parameter_shortname": "Amp Out",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
-						}
-					},
-					"varname": "c_7",
 					"id": "obj-26"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 7",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						190,
-						454,
-						52,
-						22
-					],
-					"id": "obj-27"
 				}
 			},
 			{
@@ -827,8 +794,8 @@
 						""
 					],
 					"mode": 1,
-					"text": "Bright",
-					"texton": "Bright",
+					"text": "SO Bright",
+					"texton": "SO Bright",
 					"activebgoncolor": [
 						0.9,
 						0.3,
@@ -836,14 +803,14 @@
 						1
 					],
 					"patching_rect": [
-						256,
-						300,
+						206,
+						400,
 						48,
 						18
 					],
 					"presentation_rect": [
-						227,
-						35,
+						177,
+						90,
 						48,
 						18
 					],
@@ -851,19 +818,208 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Bright",
-							"parameter_shortname": "Bright",
-							"parameter_modmode": 0,
-							"parameter_type": 2,
-							"parameter_mmax": 1,
 							"parameter_enum": [
 								"Off",
 								"On"
-							]
+							],
+							"parameter_longname": "SO Bright",
+							"parameter_mmax": 1,
+							"parameter_modmode": 0,
+							"parameter_shortname": "SO Bright",
+							"parameter_type": 2
+						}
+					},
+					"varname": "c_5",
+					"id": "obj-27"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 5",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						206,
+						454,
+						52,
+						22
+					],
+					"id": "obj-28"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.35,
+						0.72,
+						0.85,
+						1
+					],
+					"patching_rect": [
+						156,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						129,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "HH Gain",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "HH Gain",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_6",
+					"hidden": 1,
+					"id": "obj-29"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 6",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						156,
+						354,
+						52,
+						22
+					],
+					"id": "obj-30"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.35,
+						0.72,
+						0.85,
+						1
+					],
+					"patching_rect": [
+						206,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						179,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "HH Bass",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "HH Bass",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_7",
+					"hidden": 1,
+					"id": "obj-31"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 7",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						206,
+						354,
+						52,
+						22
+					],
+					"id": "obj-32"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.35,
+						0.72,
+						0.85,
+						1
+					],
+					"patching_rect": [
+						256,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						229,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "HH Middle",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "HH Middle",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_8",
-					"id": "obj-28"
+					"hidden": 1,
+					"id": "obj-33"
 				}
 			},
 			{
@@ -881,56 +1037,52 @@
 						52,
 						22
 					],
-					"id": "obj-29"
+					"id": "obj-34"
 				}
 			},
 			{
 				"box": {
-					"maxclass": "live.text",
+					"maxclass": "live.dial",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						""
+						"float"
 					],
-					"mode": 1,
-					"text": "Mid Boost",
-					"texton": "Mid Boost",
-					"activebgoncolor": [
-						0.9,
-						0.3,
-						0.28,
+					"activedialcolor": [
+						0.35,
+						0.72,
+						0.85,
 						1
 					],
 					"patching_rect": [
 						306,
 						300,
-						48,
-						18
+						44,
+						48
 					],
 					"presentation_rect": [
-						277,
-						35,
-						48,
-						18
+						279,
+						21,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Mid Boost",
-							"parameter_shortname": "Mid Boost",
+							"parameter_longname": "HH Treble",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_type": 2,
-							"parameter_mmax": 1,
-							"parameter_enum": [
-								"Off",
-								"On"
-							]
+							"parameter_shortname": "HH Treble",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_9",
-					"id": "obj-30"
+					"hidden": 1,
+					"id": "obj-35"
 				}
 			},
 			{
@@ -948,73 +1100,52 @@
 						52,
 						22
 					],
-					"id": "obj-31"
+					"id": "obj-36"
 				}
 			},
 			{
 				"box": {
-					"maxclass": "comment",
+					"maxclass": "live.dial",
 					"numinlets": 1,
-					"numoutlets": 0,
-					"text": "Input Jack",
-					"fontsize": 9,
-					"textjustification": 1,
-					"patching_rect": [
-						256,
-						382,
-						60,
-						18
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						222,
-						77,
-						58,
-						16
-					],
-					"varname": "c_10_l",
-					"id": "obj-32"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.menu",
-					"numinlets": 1,
-					"numoutlets": 3,
+					"numoutlets": 2,
 					"outlettype": [
-						"",
 						"",
 						"float"
 					],
+					"activedialcolor": [
+						0.35,
+						0.72,
+						0.85,
+						1
+					],
 					"patching_rect": [
-						256,
-						400,
-						48,
-						15
+						356,
+						300,
+						44,
+						48
 					],
 					"presentation_rect": [
-						227,
-						94,
-						48,
-						15
+						329,
+						21,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Input Jack",
-							"parameter_shortname": "Input Jack",
+							"parameter_longname": "HH Master",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_type": 2,
-							"parameter_mmax": 1,
-							"parameter_enum": [
-								"Normal",
-								"FET"
-							]
+							"parameter_shortname": "HH Master",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_10",
-					"id": "obj-33"
+					"hidden": 1,
+					"id": "obj-37"
 				}
 			},
 			{
@@ -1027,12 +1158,211 @@
 						""
 					],
 					"patching_rect": [
+						356,
+						354,
+						52,
+						22
+					],
+					"id": "obj-38"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.35,
+						0.72,
+						0.85,
+						1
+					],
+					"patching_rect": [
+						156,
+						400,
+						44,
+						48
+					],
+					"presentation_rect": [
+						129,
+						76,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "HH Output",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "HH Output",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_11",
+					"hidden": 1,
+					"id": "obj-39"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 11",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						156,
+						454,
+						52,
+						22
+					],
+					"id": "obj-40"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.text",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						""
+					],
+					"mode": 1,
+					"text": "HH Bright",
+					"texton": "HH Bright",
+					"activebgoncolor": [
+						0.35,
+						0.72,
+						0.85,
+						1
+					],
+					"patching_rect": [
+						206,
+						400,
+						48,
+						18
+					],
+					"presentation_rect": [
+						177,
+						90,
+						48,
+						18
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "HH Bright",
+							"parameter_mmax": 1,
+							"parameter_modmode": 0,
+							"parameter_shortname": "HH Bright",
+							"parameter_type": 2
+						}
+					},
+					"varname": "c_12",
+					"hidden": 1,
+					"id": "obj-41"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 12",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						206,
+						454,
+						52,
+						22
+					],
+					"id": "obj-42"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.text",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						""
+					],
+					"mode": 1,
+					"text": "HH Mid Boost",
+					"texton": "HH Mid Boost",
+					"activebgoncolor": [
+						0.35,
+						0.72,
+						0.85,
+						1
+					],
+					"patching_rect": [
+						256,
+						400,
+						48,
+						18
+					],
+					"presentation_rect": [
+						227,
+						90,
+						48,
+						18
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "HH Mid Boost",
+							"parameter_mmax": 1,
+							"parameter_modmode": 0,
+							"parameter_shortname": "HH Mid Boost",
+							"parameter_type": 2
+						}
+					},
+					"varname": "c_13",
+					"hidden": 1,
+					"id": "obj-43"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 13",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
 						256,
 						454,
 						52,
 						22
 					],
-					"id": "obj-34"
+					"id": "obj-44"
 				}
 			},
 			{
@@ -1040,7 +1370,7 @@
 					"maxclass": "comment",
 					"numinlets": 1,
 					"numoutlets": 0,
-					"text": "Amp EQ",
+					"text": "HH Input",
 					"fontsize": 9,
 					"textjustification": 1,
 					"patching_rect": [
@@ -1056,25 +1386,34 @@
 						58,
 						16
 					],
-					"varname": "c_11_l",
-					"id": "obj-35"
+					"varname": "c_14_l",
+					"hidden": 1,
+					"id": "obj-45"
 				}
 			},
 			{
 				"box": {
-					"maxclass": "live.menu",
+					"maxclass": "live.text",
 					"numinlets": 1,
-					"numoutlets": 3,
+					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"",
-						"float"
+						""
+					],
+					"mode": 1,
+					"text": "Normal",
+					"texton": "FET",
+					"activebgoncolor": [
+						0.35,
+						0.72,
+						0.85,
+						1
 					],
 					"patching_rect": [
 						306,
 						400,
 						48,
-						15
+						18
 					],
 					"presentation_rect": [
 						277,
@@ -1086,205 +1425,20 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Amp EQ",
-							"parameter_shortname": "Amp EQ",
-							"parameter_modmode": 0,
-							"parameter_type": 2,
-							"parameter_mmax": 1,
 							"parameter_enum": [
-								"EQ1",
-								"EQ2"
-							]
-						}
-					},
-					"varname": "c_11",
-					"id": "obj-36"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 11",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						306,
-						454,
-						52,
-						22
-					],
-					"id": "obj-37"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.35,
-						0.72,
-						0.85,
-						1
-					],
-					"patching_rect": [
-						372,
-						300,
-						44,
-						48
-					],
-					"presentation_rect": [
-						345,
-						21,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_longname": "3in1 SmOp",
-							"parameter_shortname": "3in1 SmOp",
+								"Normal",
+								"FET"
+							],
+							"parameter_longname": "HH Input",
+							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
-						}
-					},
-					"varname": "c_12",
-					"id": "obj-38"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 12",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						372,
-						354,
-						52,
-						22
-					],
-					"id": "obj-39"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.35,
-						0.72,
-						0.85,
-						1
-					],
-					"patching_rect": [
-						422,
-						300,
-						44,
-						48
-					],
-					"presentation_rect": [
-						395,
-						21,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_longname": "3in1 Headrm",
-							"parameter_shortname": "3in1 Headrm",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
-						}
-					},
-					"varname": "c_13",
-					"id": "obj-40"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "newobj",
-					"text": "prepend ui 13",
-					"numinlets": 1,
-					"numoutlets": 1,
-					"outlettype": [
-						""
-					],
-					"patching_rect": [
-						422,
-						354,
-						52,
-						22
-					],
-					"id": "obj-41"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.dial",
-					"numinlets": 1,
-					"numoutlets": 2,
-					"outlettype": [
-						"",
-						"float"
-					],
-					"activedialcolor": [
-						0.35,
-						0.72,
-						0.85,
-						1
-					],
-					"patching_rect": [
-						372,
-						400,
-						44,
-						48
-					],
-					"presentation_rect": [
-						345,
-						76,
-						44,
-						48
-					],
-					"parameter_enable": 1,
-					"presentation": 1,
-					"saved_attribute_attributes": {
-						"valueof": {
-							"parameter_longname": "3in1 Sig83",
-							"parameter_shortname": "3in1 Sig83",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
+							"parameter_shortname": "HH Input",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_14",
-					"id": "obj-42"
+					"hidden": 1,
+					"id": "obj-46"
 				}
 			},
 			{
@@ -1297,12 +1451,12 @@
 						""
 					],
 					"patching_rect": [
-						372,
+						306,
 						454,
 						52,
 						22
 					],
-					"id": "obj-43"
+					"id": "obj-47"
 				}
 			},
 			{
@@ -1315,20 +1469,20 @@
 						"float"
 					],
 					"activedialcolor": [
-						0.35,
-						0.72,
-						0.85,
+						0.55,
+						0.8,
+						0.4,
 						1
 					],
 					"patching_rect": [
-						422,
-						400,
+						156,
+						300,
 						44,
 						48
 					],
 					"presentation_rect": [
-						395,
-						76,
+						129,
+						21,
 						44,
 						48
 					],
@@ -1336,17 +1490,18 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "3in1 Room",
-							"parameter_shortname": "3in1 Room",
+							"parameter_longname": "83 Gain",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
+							"parameter_shortname": "83 Gain",
 							"parameter_type": 0,
-							"parameter_mmin": -37.4,
-							"parameter_mmax": 6,
-							"parameter_unitstyle": 4
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_15",
-					"id": "obj-44"
+					"hidden": 1,
+					"id": "obj-48"
 				}
 			},
 			{
@@ -1359,12 +1514,930 @@
 						""
 					],
 					"patching_rect": [
-						422,
+						156,
+						354,
+						52,
+						22
+					],
+					"id": "obj-49"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.55,
+						0.8,
+						0.4,
+						1
+					],
+					"patching_rect": [
+						206,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						179,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "83 Bass",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "83 Bass",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_16",
+					"hidden": 1,
+					"id": "obj-50"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 16",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						206,
+						354,
+						52,
+						22
+					],
+					"id": "obj-51"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.55,
+						0.8,
+						0.4,
+						1
+					],
+					"patching_rect": [
+						256,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						229,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "83 Mid",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "83 Mid",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_17",
+					"hidden": 1,
+					"id": "obj-52"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 17",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						256,
+						354,
+						52,
+						22
+					],
+					"id": "obj-53"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.55,
+						0.8,
+						0.4,
+						1
+					],
+					"patching_rect": [
+						306,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						279,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "83 Treble",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "83 Treble",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_18",
+					"hidden": 1,
+					"id": "obj-54"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 18",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						306,
+						354,
+						52,
+						22
+					],
+					"id": "obj-55"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.55,
+						0.8,
+						0.4,
+						1
+					],
+					"patching_rect": [
+						356,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						329,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "83 Presence",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "83 Presence",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_19",
+					"hidden": 1,
+					"id": "obj-56"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 19",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						356,
+						354,
+						52,
+						22
+					],
+					"id": "obj-57"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.55,
+						0.8,
+						0.4,
+						1
+					],
+					"patching_rect": [
+						156,
+						400,
+						44,
+						48
+					],
+					"presentation_rect": [
+						129,
+						76,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "83 Master",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "83 Master",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_20",
+					"hidden": 1,
+					"id": "obj-58"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 20",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						156,
 						454,
 						52,
 						22
 					],
-					"id": "obj-45"
+					"id": "obj-59"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.55,
+						0.8,
+						0.4,
+						1
+					],
+					"patching_rect": [
+						206,
+						400,
+						44,
+						48
+					],
+					"presentation_rect": [
+						179,
+						76,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "83 Output",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "83 Output",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_21",
+					"hidden": 1,
+					"id": "obj-60"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 21",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						206,
+						454,
+						52,
+						22
+					],
+					"id": "obj-61"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.text",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						""
+					],
+					"mode": 1,
+					"text": "83 Bright",
+					"texton": "83 Bright",
+					"activebgoncolor": [
+						0.55,
+						0.8,
+						0.4,
+						1
+					],
+					"patching_rect": [
+						256,
+						400,
+						48,
+						18
+					],
+					"presentation_rect": [
+						227,
+						90,
+						48,
+						18
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "83 Bright",
+							"parameter_mmax": 1,
+							"parameter_modmode": 0,
+							"parameter_shortname": "83 Bright",
+							"parameter_type": 2
+						}
+					},
+					"varname": "c_22",
+					"hidden": 1,
+					"id": "obj-62"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 22",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						256,
+						454,
+						52,
+						22
+					],
+					"id": "obj-63"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "comment",
+					"numinlets": 1,
+					"numoutlets": 0,
+					"text": "83 EQ",
+					"fontsize": 9,
+					"textjustification": 1,
+					"patching_rect": [
+						306,
+						382,
+						60,
+						18
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						272,
+						77,
+						58,
+						16
+					],
+					"varname": "c_23_l",
+					"hidden": 1,
+					"id": "obj-64"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.text",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						""
+					],
+					"mode": 1,
+					"text": "EQ1",
+					"texton": "EQ2",
+					"activebgoncolor": [
+						0.55,
+						0.8,
+						0.4,
+						1
+					],
+					"patching_rect": [
+						306,
+						400,
+						48,
+						18
+					],
+					"presentation_rect": [
+						277,
+						94,
+						48,
+						15
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_enum": [
+								"EQ1",
+								"EQ2"
+							],
+							"parameter_longname": "83 EQ",
+							"parameter_mmax": 1,
+							"parameter_modmode": 0,
+							"parameter_shortname": "83 EQ",
+							"parameter_type": 2
+						}
+					},
+					"varname": "c_23",
+					"hidden": 1,
+					"id": "obj-65"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 23",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						306,
+						454,
+						52,
+						22
+					],
+					"id": "obj-66"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.72,
+						0.52,
+						0.9,
+						1
+					],
+					"patching_rect": [
+						156,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						129,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "3in1 Gain",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "3in1 Gain",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_24",
+					"hidden": 1,
+					"id": "obj-67"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 24",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						156,
+						354,
+						52,
+						22
+					],
+					"id": "obj-68"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.72,
+						0.52,
+						0.9,
+						1
+					],
+					"patching_rect": [
+						206,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						179,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "3in1 Output",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "3in1 Output",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_25",
+					"hidden": 1,
+					"id": "obj-69"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 25",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						206,
+						354,
+						52,
+						22
+					],
+					"id": "obj-70"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.72,
+						0.52,
+						0.9,
+						1
+					],
+					"patching_rect": [
+						256,
+						300,
+						44,
+						48
+					],
+					"presentation_rect": [
+						229,
+						21,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "3in1 SmOp",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "3in1 SmOp",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_26",
+					"hidden": 1,
+					"id": "obj-71"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 26",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						256,
+						354,
+						52,
+						22
+					],
+					"id": "obj-72"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.72,
+						0.52,
+						0.9,
+						1
+					],
+					"patching_rect": [
+						156,
+						400,
+						44,
+						48
+					],
+					"presentation_rect": [
+						129,
+						76,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "3in1 Headrm",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "3in1 Headrm",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_27",
+					"hidden": 1,
+					"id": "obj-73"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 27",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						156,
+						454,
+						52,
+						22
+					],
+					"id": "obj-74"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.72,
+						0.52,
+						0.9,
+						1
+					],
+					"patching_rect": [
+						206,
+						400,
+						44,
+						48
+					],
+					"presentation_rect": [
+						179,
+						76,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "3in1 Sig83",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "3in1 Sig83",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
+						}
+					},
+					"varname": "c_28",
+					"hidden": 1,
+					"id": "obj-75"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 28",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						206,
+						454,
+						52,
+						22
+					],
+					"id": "obj-76"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.dial",
+					"numinlets": 1,
+					"numoutlets": 2,
+					"outlettype": [
+						"",
+						"float"
+					],
+					"activedialcolor": [
+						0.72,
+						0.52,
+						0.9,
+						1
+					],
+					"patching_rect": [
+						256,
+						400,
+						44,
+						48
+					],
+					"presentation_rect": [
+						229,
+						76,
+						44,
+						48
+					],
+					"parameter_enable": 1,
+					"presentation": 1,
+					"saved_attribute_attributes": {
+						"valueof": {
+							"parameter_longname": "3in1 Room",
+							"parameter_mmax": 6,
+							"parameter_mmin": -37.4,
+							"parameter_modmode": 0,
+							"parameter_shortname": "3in1 Room",
+							"parameter_type": 0,
+							"parameter_unitstyle": 4
+						}
+					},
+					"varname": "c_29",
+					"hidden": 1,
+					"id": "obj-77"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "prepend ui 29",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						256,
+						454,
+						52,
+						22
+					],
+					"id": "obj-78"
 				}
 			},
 			{
@@ -1385,10 +2458,10 @@
 					"presentation_rect": [
 						4,
 						151,
-						444,
+						378,
 						16
 					],
-					"id": "obj-46"
+					"id": "obj-79"
 				}
 			},
 			{
@@ -1414,10 +2487,10 @@
 					"presentation_rect": [
 						4,
 						151,
-						444,
+						378,
 						16
 					],
-					"id": "obj-47"
+					"id": "obj-80"
 				}
 			}
 		],
@@ -1461,71 +2534,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-12",
-						0
-					],
-					"destination": [
-						"obj-13",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
-						"obj-13",
-						0
-					],
-					"destination": [
-						"obj-3",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
-						"obj-14",
-						0
-					],
-					"destination": [
-						"obj-15",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
-						"obj-15",
-						0
-					],
-					"destination": [
-						"obj-3",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
-						"obj-16",
-						0
-					],
-					"destination": [
-						"obj-17",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
 						"obj-17",
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-18",
 						0
 					]
 				}
@@ -1537,7 +2550,7 @@
 						0
 					],
 					"destination": [
-						"obj-19",
+						"obj-3",
 						0
 					]
 				}
@@ -1549,7 +2562,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-20",
 						0
 					]
 				}
@@ -1561,7 +2574,7 @@
 						0
 					],
 					"destination": [
-						"obj-21",
+						"obj-3",
 						0
 					]
 				}
@@ -1573,7 +2586,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-22",
 						0
 					]
 				}
@@ -1585,7 +2598,7 @@
 						0
 					],
 					"destination": [
-						"obj-23",
+						"obj-3",
 						0
 					]
 				}
@@ -1597,7 +2610,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-24",
 						0
 					]
 				}
@@ -1609,7 +2622,7 @@
 						0
 					],
 					"destination": [
-						"obj-25",
+						"obj-3",
 						0
 					]
 				}
@@ -1621,7 +2634,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-26",
 						0
 					]
 				}
@@ -1633,7 +2646,7 @@
 						0
 					],
 					"destination": [
-						"obj-27",
+						"obj-3",
 						0
 					]
 				}
@@ -1645,7 +2658,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-28",
 						0
 					]
 				}
@@ -1657,7 +2670,7 @@
 						0
 					],
 					"destination": [
-						"obj-29",
+						"obj-3",
 						0
 					]
 				}
@@ -1669,7 +2682,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-30",
 						0
 					]
 				}
@@ -1681,7 +2694,7 @@
 						0
 					],
 					"destination": [
-						"obj-31",
+						"obj-3",
 						0
 					]
 				}
@@ -1690,6 +2703,18 @@
 				"patchline": {
 					"source": [
 						"obj-31",
+						0
+					],
+					"destination": [
+						"obj-32",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-32",
 						0
 					],
 					"destination": [
@@ -1725,11 +2750,23 @@
 			{
 				"patchline": {
 					"source": [
+						"obj-35",
+						0
+					],
+					"destination": [
+						"obj-36",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
 						"obj-36",
 						0
 					],
 					"destination": [
-						"obj-37",
+						"obj-3",
 						0
 					]
 				}
@@ -1741,7 +2778,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-38",
 						0
 					]
 				}
@@ -1753,7 +2790,7 @@
 						0
 					],
 					"destination": [
-						"obj-39",
+						"obj-3",
 						0
 					]
 				}
@@ -1765,7 +2802,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-40",
 						0
 					]
 				}
@@ -1777,7 +2814,7 @@
 						0
 					],
 					"destination": [
-						"obj-41",
+						"obj-3",
 						0
 					]
 				}
@@ -1789,7 +2826,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-42",
 						0
 					]
 				}
@@ -1801,7 +2838,7 @@
 						0
 					],
 					"destination": [
-						"obj-43",
+						"obj-3",
 						0
 					]
 				}
@@ -1813,7 +2850,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-44",
 						0
 					]
 				}
@@ -1825,7 +2862,7 @@
 						0
 					],
 					"destination": [
-						"obj-45",
+						"obj-3",
 						0
 					]
 				}
@@ -1833,11 +2870,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-45",
+						"obj-46",
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-47",
 						0
 					]
 				}
@@ -1853,85 +2890,527 @@
 						0
 					]
 				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-48",
+						0
+					],
+					"destination": [
+						"obj-49",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-49",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-50",
+						0
+					],
+					"destination": [
+						"obj-51",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-51",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-52",
+						0
+					],
+					"destination": [
+						"obj-53",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-53",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-54",
+						0
+					],
+					"destination": [
+						"obj-55",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-55",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-56",
+						0
+					],
+					"destination": [
+						"obj-57",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-57",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-58",
+						0
+					],
+					"destination": [
+						"obj-59",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-59",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-60",
+						0
+					],
+					"destination": [
+						"obj-61",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-61",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-62",
+						0
+					],
+					"destination": [
+						"obj-63",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-63",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-65",
+						0
+					],
+					"destination": [
+						"obj-66",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-66",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-67",
+						0
+					],
+					"destination": [
+						"obj-68",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-68",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-69",
+						0
+					],
+					"destination": [
+						"obj-70",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-70",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-71",
+						0
+					],
+					"destination": [
+						"obj-72",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-72",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-73",
+						0
+					],
+					"destination": [
+						"obj-74",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-74",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-75",
+						0
+					],
+					"destination": [
+						"obj-76",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-76",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-77",
+						0
+					],
+					"destination": [
+						"obj-78",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-78",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-80",
+						0
+					],
+					"destination": [
+						"obj-3",
+						0
+					]
+				}
 			}
 		],
 		"parameters": {
-			"obj-12": [
+			"obj-17": [
 				"Amp",
 				"Amp",
 				0
 			],
-			"obj-14": [
-				"Gain",
-				"Gain",
+			"obj-19": [
+				"SO Volume",
+				"SO Volume",
 				0
 			],
-			"obj-16": [
-				"Bass",
-				"Bass",
+			"obj-21": [
+				"SO Bass",
+				"SO Bass",
 				0
 			],
-			"obj-18": [
-				"Mid",
-				"Mid",
+			"obj-23": [
+				"SO Treble",
+				"SO Treble",
 				0
 			],
-			"obj-20": [
-				"Treble",
-				"Treble",
+			"obj-25": [
+				"SO Output",
+				"SO Output",
 				0
 			],
-			"obj-22": [
-				"Presence",
-				"Presence",
+			"obj-27": [
+				"SO Bright",
+				"SO Bright",
 				0
 			],
-			"obj-24": [
-				"Master",
-				"Master",
+			"obj-29": [
+				"HH Gain",
+				"HH Gain",
 				0
 			],
-			"obj-26": [
-				"Amp Out",
-				"Amp Out",
-				0
-			],
-			"obj-28": [
-				"Bright",
-				"Bright",
-				0
-			],
-			"obj-30": [
-				"Mid Boost",
-				"Mid Boost",
+			"obj-31": [
+				"HH Bass",
+				"HH Bass",
 				0
 			],
 			"obj-33": [
-				"Input Jack",
-				"Input Jack",
+				"HH Middle",
+				"HH Middle",
 				0
 			],
-			"obj-36": [
-				"Amp EQ",
-				"Amp EQ",
+			"obj-35": [
+				"HH Treble",
+				"HH Treble",
 				0
 			],
-			"obj-38": [
+			"obj-37": [
+				"HH Master",
+				"HH Master",
+				0
+			],
+			"obj-39": [
+				"HH Output",
+				"HH Output",
+				0
+			],
+			"obj-41": [
+				"HH Bright",
+				"HH Bright",
+				0
+			],
+			"obj-43": [
+				"HH Mid Boost",
+				"HH Mid Boost",
+				0
+			],
+			"obj-46": [
+				"HH Input",
+				"HH Input",
+				0
+			],
+			"obj-48": [
+				"83 Gain",
+				"83 Gain",
+				0
+			],
+			"obj-50": [
+				"83 Bass",
+				"83 Bass",
+				0
+			],
+			"obj-52": [
+				"83 Mid",
+				"83 Mid",
+				0
+			],
+			"obj-54": [
+				"83 Treble",
+				"83 Treble",
+				0
+			],
+			"obj-56": [
+				"83 Presence",
+				"83 Presence",
+				0
+			],
+			"obj-58": [
+				"83 Master",
+				"83 Master",
+				0
+			],
+			"obj-60": [
+				"83 Output",
+				"83 Output",
+				0
+			],
+			"obj-62": [
+				"83 Bright",
+				"83 Bright",
+				0
+			],
+			"obj-65": [
+				"83 EQ",
+				"83 EQ",
+				0
+			],
+			"obj-67": [
+				"3in1 Gain",
+				"3in1 Gain",
+				0
+			],
+			"obj-69": [
+				"3in1 Output",
+				"3in1 Output",
+				0
+			],
+			"obj-71": [
 				"3in1 SmOp",
 				"3in1 SmOp",
 				0
 			],
-			"obj-40": [
+			"obj-73": [
 				"3in1 Headrm",
 				"3in1 Headrm",
 				0
 			],
-			"obj-42": [
+			"obj-75": [
 				"3in1 Sig83",
 				"3in1 Sig83",
 				0
 			],
-			"obj-44": [
+			"obj-77": [
 				"3in1 Room",
 				"3in1 Room",
 				0
@@ -1942,27 +3421,13 @@
 					"name": "AMP",
 					"parameters": [
 						"Amp",
-						"Gain",
-						"Bass",
-						"Mid",
-						"Treble",
-						"Presence",
-						"Master",
-						"Amp Out"
-					]
-				},
-				"1": {
-					"index": 1,
-					"name": "AMP 2",
-					"parameters": [
-						"Bright",
-						"Mid Boost",
-						"Input Jack",
-						"Amp EQ",
-						"3in1 SmOp",
-						"3in1 Headrm",
-						"3in1 Sig83",
-						"3in1 Room"
+						"SO Volume",
+						"SO Bass",
+						"SO Treble",
+						"SO Output",
+						"-",
+						"-",
+						"-"
 					]
 				}
 			},

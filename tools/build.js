@@ -21,129 +21,173 @@ const DEVICE_H = 169;
 
 function fail(msg) { console.error('error: ' + msg); process.exit(1); }
 
-// Profile: pages (tabs in Live) > groups (one panel each) > controls.
-// Each group is one Push bank unless consecutive groups share a "bank" name.
+// Profile: pages > groups > controls.
+//   In Live a page is a tab and a group is a panel.
+//   On Push a page is one bank: knobs and menus go on the eight encoders, two-state
+//   switches on the eight buttons above the display. When a page holds more than fits,
+//   its first encoder becomes a selector and the rest show the selected group (a "view").
+//   A page with "switch" follows a plugin switch instead (one group per position).
 function compile(profile, file, facts) {
   facts = facts || {};
   const tables = {};
   if (!profile.device || !/^[A-Za-z0-9_-]+$/.test(profile.device)) fail(`${file}: "device" must be a simple file name (letters, digits, - _)`);
-  const switches = profile.switches || {};
-  const controls = [], groups = [], banks = [], seen = {};
+  const switches = Object.assign({}, profile.switches || {});
+  const controls = [], panels = [], banks = [], seen = {};
   const pages = profile.pages || [];
+
+  function makeControl(c, where) {
+    if (!c.label) fail(`${where}: missing "label"`);
+    if (seen[c.label]) fail(`${where}: label "${c.label}" is used twice; Live needs unique parameter names`);
+    seen[c.label] = true;
+    let type = c.type || 'dial', items = c.items, invert = !!c.invert, states = null, dial = null;
+    if (!['dial', 'toggle', 'menu'].includes(type)) fail(`${where}: unknown type "${type}"`);
+    // What the plugin itself reports (from a dump) decides the control type, position
+    // names, unit and range. Explicit "items" in the profile are left alone.
+    const names = [].concat.apply([], (c.by ? c.params || [] : [c.param]).map((x) => [].concat(x || [])));
+    const fact = names.map((nm) => facts[key(nm)]).filter((f) => f && f.kind !== 'unknown')[0];
+    if (fact && !c.items) {
+      if (fact.kind === 'steps') {
+        const low = fact.items.map((x) => x.toLowerCase());
+        if (low.length === 2 && low.indexOf('on') >= 0 && low.indexOf('off') >= 0) { type = 'toggle'; invert = low[0] === 'on'; }
+        else if (low.length === 2) { type = 'toggle'; states = fact.items; }
+        else { type = 'menu'; items = fact.items; }
+      } else {
+        type = 'dial';
+        dial = { unit: fact.unit, lo: fact.lo, hi: fact.hi, mid: fact.mid };
+        // Variants the dump did not cover (other amps' versions of this knob) borrow the curve of one it did.
+        names.forEach((nm) => { const f = facts[key(nm)]; const t = f && f.kind === 'cont' ? f.table : fact.table; if (t) tables[key(nm)] = t; });
+      }
+    }
+    if (type === 'menu' && !(Array.isArray(items) && items.length >= 2)) fail(`${where}: a menu needs "items"`);
+    const out = { label: c.label, type };
+    if (items) out.items = items;
+    if (states) out.states = states;
+    if (invert) out.invert = true;
+    if (dial) Object.assign(out, dial);
+    if (c.sets) {
+      if (!switches[c.sets]) fail(`${where}: unknown switch "${c.sets}"`);
+      if (type !== 'menu' || items.length !== switches[c.sets].count) fail(`${where}: "sets" needs a menu with ${switches[c.sets].count} items`);
+      out.sets = c.sets;
+    }
+    if (c.by) {
+      const sw = switches[c.by];
+      if (!sw) fail(`${where}: unknown switch "${c.by}"`);
+      if (!Array.isArray(c.params) || c.params.length !== sw.count) fail(`${where}: "params" needs ${sw.count} entries, one per "${c.by}" value`);
+      if (c.labels && c.labels.length !== sw.count) fail(`${where}: "labels" needs ${sw.count} entries`);
+      out.by = c.by; out.params = c.params;
+      if (c.labels) out.labels = c.labels;
+    } else if (c.param) {
+      out.param = c.param;
+    } else if (!c.local) {
+      fail(`${where}: missing "param"`);
+    }
+    return out;
+  }
+
+  const split = (list) => ({ enc: list.filter((x) => x.type !== 'toggle').map((x) => x.label), btn: list.filter((x) => x.type === 'toggle').map((x) => x.label) });
+
   pages.forEach((page, p) => {
     if (!page.name) fail(`${file}: page ${p + 1} has no name`);
-    let lastBank = null;
-    (page.groups || []).forEach((group) => {
+    const groups = (page.groups || []).map((group) => {
       if (!group.name) fail(`${file}: page "${page.name}" has a group without a name`);
-      const list = (group.controls || []).filter(Boolean);
-      if (list.length > 8) fail(`${file}: group "${group.name}" has more than 8 controls`);
-      const bankName = group.bank || group.name;
-      let bank = lastBank && lastBank.name === bankName ? lastBank : null;
-      if (!bank) { bank = { name: bankName, labels: [] }; banks.push(bank); lastBank = bank; }
-      const g = groups.length;
-      groups.push({ name: group.name, page: p, n: list.length });
-      list.forEach((c, pos) => {
-        const where = `${file}: group "${group.name}" control ${pos + 1}`;
-        if (!c.label) fail(`${where}: missing "label"`);
-        if (seen[c.label]) fail(`${where}: label "${c.label}" is used twice; Live needs unique parameter names`);
-        seen[c.label] = true;
-        let type = c.type || 'dial', items = c.items, invert = !!c.invert;
-        if (!['dial', 'toggle', 'menu'].includes(type)) fail(`${where}: unknown type "${type}"`);
-        // What the plugin itself reports (from a dump) decides the control type, position
-        // names, unit and range. Explicit "items" in the profile are left alone.
-        const names = [].concat.apply([], (c.by ? c.params || [] : [c.param]).map((x) => [].concat(x || [])));
-        const fact = names.map((nm) => facts[key(nm)]).filter((f) => f && f.kind !== 'unknown')[0];
-        let dial = null;
-        if (fact && !c.items) {
-          if (fact.kind === 'steps') {
-            const low = fact.items.map((x) => x.toLowerCase());
-            if (low.length === 2 && low.indexOf('on') >= 0 && low.indexOf('off') >= 0) { type = 'toggle'; invert = low[0] === 'on'; }
-            else { type = 'menu'; items = fact.items; }
-          } else {
-            type = 'dial';
-            dial = { unit: fact.unit, lo: fact.lo, hi: fact.hi, mid: fact.mid };
-            // Variants the dump did not cover (other amps' versions of this knob) borrow the curve of one it did.
-            names.forEach((nm) => { const f = facts[key(nm)]; const t = f && f.kind === 'cont' ? f.table : fact.table; if (t) tables[key(nm)] = t; });
-          }
-        }
-        if (type === 'menu' && !(Array.isArray(items) && items.length >= 2)) fail(`${where}: a menu needs "items"`);
-        if (bank.labels.length >= 8) fail(`${where}: Push bank "${bank.name}" has more than 8 controls`);
-        bank.labels.push(c.label);
-        const out = { label: c.label, type, page: p, group: g, pos };
-        if (items) out.items = items;
-        if (invert) out.invert = true;
-        if (dial) Object.assign(out, dial);
-        if (c.sets) {
-          if (!switches[c.sets]) fail(`${where}: unknown switch "${c.sets}"`);
-          if (type !== 'menu' || items.length !== switches[c.sets].count) fail(`${where}: "sets" needs a menu with ${switches[c.sets].count} items`);
-          out.sets = c.sets;
-        }
-        if (c.by) {
-          const sw = switches[c.by];
-          if (!sw) fail(`${where}: unknown switch "${c.by}"`);
-          if (!Array.isArray(c.params) || c.params.length !== sw.count) fail(`${where}: "params" needs ${sw.count} entries, one per "${c.by}" value`);
-          if (c.labels && c.labels.length !== sw.count) fail(`${where}: "labels" needs ${sw.count} entries`);
-          out.by = c.by; out.params = c.params;
-          if (c.labels) out.labels = c.labels;
-        } else {
-          if (!c.param) fail(`${where}: missing "param"`);
-          out.param = c.param;
-        }
-        controls.push(out);
-      });
+      const list = (group.controls || []).filter(Boolean).map((c, i) => makeControl(c, `${file}: group "${group.name}" control ${i + 1}`));
+      return { name: group.name, short: group.short || group.name, list };
     });
+    let head = (page.head || []).map((c, i) => makeControl(c, `${file}: page "${page.name}" head control ${i + 1}`));
+    let headName = page.headName || '', by = null, exclusive = false, views;
+    const all = split([].concat.apply(head, groups.map((g) => g.list)));
+
+    if (page.switch) {
+      if (!switches[page.switch]) fail(`${file}: page "${page.name}" uses unknown switch "${page.switch}"`);
+      if (groups.length !== switches[page.switch].count) fail(`${file}: page "${page.name}" needs ${switches[page.switch].count} groups, one per "${page.switch}" position`);
+      by = page.switch; exclusive = true;
+    } else if (all.enc.length > 8 || all.btn.length > 8) {
+      by = 'view' + p;
+      switches[by] = { param: null, count: groups.length };
+      head = [makeControl({ label: page.selector || page.name + ' View', type: 'menu', items: groups.map((g) => g.short), sets: by, local: true }, `${file}: page "${page.name}" selector`)].concat(head);
+      headName = headName || 'Push shows';
+    }
+    if (by) {
+      views = groups.map((g) => {
+        const v = split(head.concat(g.list));
+        if (v.enc.length > 8) fail(`${file}: "${g.name}" on page "${page.name}" needs ${v.enc.length} encoders; Push has 8 (the selector takes one)`);
+        if (v.btn.length > 8) fail(`${file}: "${g.name}" on page "${page.name}" has ${v.btn.length} two-state switches; Push has 8 buttons`);
+        return v;
+      });
+    } else {
+      views = [all];
+    }
+    banks.push({ name: page.name, by, exclusive, views });
+
+    const place = (list, panel) => list.forEach((ctl, pos) => { ctl.panel = panel; ctl.pos = pos; controls.push(ctl); });
+    if (head.length) { panels.push({ name: headName, page: p, view: -1, n: head.length }); place(head, panels.length - 1); }
+    groups.forEach((g, k) => { panels.push({ name: g.name, page: p, view: by ? k : -1, stacked: exclusive, n: g.list.length }); place(g.list, panels.length - 1); });
   });
   Object.keys(switches).forEach((k) => {
-    if (!switches[k].param || !(switches[k].count >= 2)) fail(`${file}: switch "${k}" needs "param" and "count" (2 or more)`);
+    if (!(switches[k].count >= 2) || (!switches[k].param && k.indexOf('view') !== 0)) fail(`${file}: switch "${k}" needs "param" and "count" (2 or more)`);
   });
-  return { device: profile.device, match: profile.match || [], switches, controls, groups, tables, banks, pageNames: pages.map((x) => x.name) };
+  return { device: profile.device, match: profile.match || [], switches, controls, panels, tables, banks, pageNames: pages.map((x) => x.name) };
 }
+
+const sorted = (o) => Object.keys(o).sort().reduce((a, k) => { a[k] = o[k]; return a; }, {});
 
 function buildPatcher(c, jsFile, jsKey, stamp) {
   const boxes = [], lines = [], parameters = {};
-  const ui = c.pageNames.map(() => []);
   let n = 0;
   const add = (box) => { box.id = 'obj-' + (++n); boxes.push({ box }); return box.id; };
   const wire = (a, ao, b, bi) => lines.push({ patchline: { source: [a, ao], destination: [b, bi] } });
   const obj = (text, ins, outs, rect, extra) => add(Object.assign({
     maxclass: 'newobj', text, numinlets: ins, numoutlets: outs.length, outlettype: outs, patching_rect: rect,
   }, extra || {}));
-  const onPage = (box, page, name) => { box.varname = name; if (page !== 0) box.hidden = 1; ui[page].push(name); return box; };
 
   const plugin = obj('plugin~', 2, ['signal', 'signal'], [30, 30, 60, 22]);
   const plugout = obj('plugout~', 2, ['signal', 'signal'], [30, 70, 60, 22]);
   wire(plugin, 0, plugout, 0);
   wire(plugin, 1, plugout, 1);
-  const js = obj('js ' + jsFile + ' ' + jsKey + ' ' + stamp, 1, [''], [200, 110, 160, 22], { saved_object_attributes: { filename: jsFile, parameter_enable: 0 } });
+  const js = obj('js ' + jsFile + ' ' + jsKey + ' ' + stamp, 1, [''], [200, 110, 200, 22], { saved_object_attributes: { filename: jsFile, parameter_enable: 0 } });
   const thisdev = obj('live.thisdevice', 1, ['bang', 'int', 'int'], [200, 30, 90, 22]);
   wire(thisdev, 0, js, 0);
+  obj('live.banks', 1, [''], [200, 70, 70, 22], { varname: 'banks' });
 
-  // Lay each page's groups out left to right; all pages share the same screen area.
+  // Each panel is one part of the interface that is shown or hidden as a whole.
   const top = c.pageNames.length > 1 ? TAB_H + 2 * GAP : GAP;
   const panelH = DEVICE_H - STATUS_H - top - 2;
   const cursor = c.pageNames.map(() => GAP);
-  c.groups.forEach((g, gi) => {
+  const stackEnd = c.pageNames.map(() => 0);
+  const parts = c.panels.map((g) => ({ page: g.page, bank: g.page, view: g.view, names: [] }));
+  const onPart = (box, gi, name) => {
+    const g = c.panels[gi];
+    box.varname = name;
+    if (g.page !== 0 || (g.stacked && g.view > 0)) box.hidden = 1;
+    parts[gi].names.push(name);
+    return box;
+  };
+  c.panels.forEach((g, gi) => {
     g.cols = Math.max(Math.ceil(g.n / 2), 2);
     g.w = g.cols * CELL_W + 2 * PAD;
     g.x = cursor[g.page];
-    cursor[g.page] += g.w + GAP;
+    // Panels of which only one shows at a time (one per amp) share the same spot.
+    if (g.stacked) stackEnd[g.page] = Math.max(stackEnd[g.page], g.x + g.w + GAP);
+    else cursor[g.page] += g.w + GAP;
     const col = PALETTE[gi % PALETTE.length];
     g.rgba = [col[0], col[1], col[2], 1];
     const py = 260 + g.page * 240;
-    add(onPage({ maxclass: 'panel', numinlets: 1, numoutlets: 0, mode: 0, rounded: 6, background: 1,
+    add(onPart({ maxclass: 'panel', numinlets: 1, numoutlets: 0, mode: 0, rounded: 6, background: 1,
       bgcolor: [col[0], col[1], col[2], 0.16], border: 1, bordercolor: [col[0], col[1], col[2], 0.7],
-      patching_rect: [30 + g.x, py, g.w, 16], presentation: 1, presentation_rect: [g.x, top, g.w, panelH] }, g.page, 'g_' + gi + '_p'));
-    add(onPage({ maxclass: 'comment', numinlets: 1, numoutlets: 0, text: g.name, fontface: 1, fontsize: 10, textjustification: 1,
-      patching_rect: [30 + g.x, py + 18, g.w, 18], presentation: 1, presentation_rect: [g.x, top + 1, g.w, TITLE_H + 2] }, g.page, 'g_' + gi + '_t'));
+      patching_rect: [30 + g.x, py, g.w, 16], presentation: 1, presentation_rect: [g.x, top, g.w, panelH] }, gi, 'g_' + gi + '_p'));
+    add(onPart({ maxclass: 'comment', numinlets: 1, numoutlets: 0, text: g.name, fontface: 1, fontsize: 10, textjustification: 1,
+      patching_rect: [30 + g.x, py + 18, g.w, 18], presentation: 1, presentation_rect: [g.x, top + 1, g.w, TITLE_H + 2] }, gi, 'g_' + gi + '_t'));
   });
-  const width = Math.max(Math.max.apply(null, cursor.concat([0])), 330);
+  const width = Math.max(Math.max.apply(null, cursor.concat(stackEnd, [0])), 330);
 
   c.controls.forEach((ctl, i) => {
-    const g = c.groups[ctl.group];
+    const g = c.panels[ctl.panel];
     const cx = g.x + PAD + (ctl.pos % g.cols) * CELL_W;
     const cy = top + TITLE_H + 3 + Math.floor(ctl.pos / g.cols) * ROW_H;
-    const px = 30 + cx, py = 300 + ctl.page * 240 + Math.floor(ctl.pos / g.cols) * 100;
+    const px = 30 + cx, py = 300 + g.page * 240 + Math.floor(ctl.pos / g.cols) * 100;
     const valueof = { parameter_longname: ctl.label, parameter_shortname: ctl.label, parameter_modmode: 0 };
+    const caption = () => add(onPart({ maxclass: 'comment', numinlets: 1, numoutlets: 0, text: ctl.label, fontsize: 9, textjustification: 1,
+      patching_rect: [px, py - 18, 60, 18], presentation: 1, presentation_rect: [cx - 4, cy + 1, 58, 16] }, ctl.panel, 'c_' + i + '_l'));
     let box;
     if (ctl.type === 'dial') {
       const lo = ctl.lo === undefined ? 0 : ctl.lo, hi = ctl.hi === undefined ? 100 : ctl.hi;
@@ -161,19 +205,21 @@ function buildPatcher(c, jsFile, jsKey, stamp) {
       box = { maxclass: 'live.dial', numinlets: 1, numoutlets: 2, outlettype: ['', 'float'], activedialcolor: g.rgba,
         patching_rect: [px, py, 44, 48], presentation_rect: [cx + 3, cy, 44, 48] };
     } else if (ctl.type === 'toggle') {
-      Object.assign(valueof, { parameter_type: 2, parameter_mmax: 1, parameter_enum: ['Off', 'On'] });
+      // Plain on/off switches carry their name; other two-state switches show the state and get a caption.
+      const st = ctl.states;
+      Object.assign(valueof, { parameter_type: 2, parameter_mmax: 1, parameter_enum: st || ['Off', 'On'] });
       box = { maxclass: 'live.text', numinlets: 1, numoutlets: 2, outlettype: ['', ''], mode: 1,
-        text: ctl.label, texton: ctl.label, activebgoncolor: g.rgba,
-        patching_rect: [px, py, 48, 18], presentation_rect: [cx + 1, cy + 14, 48, 18] };
+        text: st ? st[0] : ctl.label, texton: st ? st[1] : ctl.label, activebgoncolor: g.rgba,
+        patching_rect: [px, py, 48, 18], presentation_rect: [cx + 1, cy + (st ? 18 : 14), 48, st ? 15 : 18] };
+      if (st) caption();
     } else {
       Object.assign(valueof, { parameter_type: 2, parameter_mmax: ctl.items.length - 1, parameter_enum: ctl.items });
       box = { maxclass: 'live.menu', numinlets: 1, numoutlets: 3, outlettype: ['', '', 'float'],
         patching_rect: [px, py, 48, 15], presentation_rect: [cx + 1, cy + 18, 48, 15] };
-      add(onPage({ maxclass: 'comment', numinlets: 1, numoutlets: 0, text: ctl.label, fontsize: 9, textjustification: 1,
-        patching_rect: [px, py - 18, 60, 18], presentation: 1, presentation_rect: [cx - 4, cy + 1, 58, 16] }, ctl.page, 'c_' + i + '_l'));
+      caption();
     }
-    Object.assign(box, { parameter_enable: 1, presentation: 1, saved_attribute_attributes: { valueof } });
-    const id = add(onPage(box, ctl.page, 'c_' + i));
+    Object.assign(box, { parameter_enable: 1, presentation: 1, saved_attribute_attributes: { valueof: sorted(valueof) } });
+    const id = add(onPart(box, ctl.panel, 'c_' + i));
     parameters[id] = [ctl.label, ctl.label, 0];
     const pre = obj('prepend ui ' + i, 1, [''], [px, py + 54, 52, 22]);
     wire(id, 0, pre, 0);
@@ -184,8 +230,8 @@ function buildPatcher(c, jsFile, jsKey, stamp) {
     const tab = add({ maxclass: 'live.tab', numinlets: 1, numoutlets: 3, outlettype: ['', '', 'float'],
       num_lines_patching: 1, num_lines_presentation: 1, parameter_enable: 1, varname: 'tabs',
       patching_rect: [420, 30, 400, 20], presentation: 1, presentation_rect: [GAP, GAP, Math.min(width - 2 * GAP, c.pageNames.length * 90), TAB_H],
-      saved_attribute_attributes: { valueof: { parameter_longname: 'Wrapper Page', parameter_shortname: 'Page', parameter_type: 2,
-        parameter_mmax: c.pageNames.length - 1, parameter_enum: c.pageNames, parameter_invisible: 1 } } });
+      saved_attribute_attributes: { valueof: sorted({ parameter_longname: 'Wrapper Page', parameter_shortname: 'Page', parameter_type: 2,
+        parameter_mmax: c.pageNames.length - 1, parameter_enum: c.pageNames, parameter_invisible: 1 }) } });
     parameters[tab] = ['Wrapper Page', 'Page', 0];
     const pre = obj('prepend tab', 1, [''], [420, 60, 70, 22]);
     wire(tab, 0, pre, 0);
@@ -212,15 +258,16 @@ function buildPatcher(c, jsFile, jsKey, stamp) {
     patching_rect: [30, 232, 330, 18], presentation: 1, presentation_rect: [sx, sy, width - sx - GAP, 16] });
   wire(again, 0, js, 0);
 
+  // Saved banks hold each page's first view; the script re-points them (and fills the buttons) as selectors move.
   const banks = {};
   c.banks.forEach((bank, b) => {
-    banks[String(b)] = { index: b, name: bank.name, parameters: bank.labels.concat(Array(8).fill('-')).slice(0, 8) };
+    banks[String(b)] = { index: b, name: bank.name, parameters: bank.views[0].enc.concat(Array(8).fill('-')).slice(0, 8) };
   });
   if (!c.banks.length) banks['0'] = { index: 0, name: '', parameters: Array(8).fill('-') };
   parameters.parameterbanks = banks;
   parameters.inherited_shortname = 1;
 
-  return { ui, patcher: { patcher: {
+  return { ui: parts, patcher: { patcher: {
     fileversion: 1,
     appversion: { major: 8, minor: 6, revision: 0, architecture: 'x64', modernui: 1 },
     classnamespace: 'box',
@@ -255,9 +302,9 @@ function emit(profile, source, jsFile, jsKey, stamp) {
   fs.writeFileSync(path.join(DIST, c.device + '.maxpat'), json + '\n');
   fs.writeFileSync(path.join(DIST, c.device + '.amxd'), amxd(json));
   console.log(`built dist/${c.device}.amxd  (${c.pageNames.length} pages, ${c.banks.length} Push banks, ${c.controls.length} controls)`);
-  return { match: c.match, switches: c.switches, ui: built.ui, tables: c.tables, controls: c.controls.map((x) => {
-    const o = Object.assign({}, x); delete o.page; delete o.group; delete o.pos; delete o.unit; delete o.mid; return o;
-  }) };
+  return { match: c.match, switches: c.switches, ui: built.ui, tables: c.tables,
+    banks: c.banks.map((b) => ({ by: b.by, exclusive: b.exclusive, views: b.views })),
+    controls: c.controls.map((x) => { const o = Object.assign({}, x); delete o.panel; delete o.pos; delete o.unit; delete o.mid; delete o.states; return o; }) };
 }
 
 // One device with every page as a tab, plus one small device per page for modular use.

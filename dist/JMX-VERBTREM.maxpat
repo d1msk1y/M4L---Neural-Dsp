@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js JohnMayerX.js VERBTREM b89d807",
+					"text": "js JohnMayerX.js VERBTREM be10769",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
@@ -75,7 +75,7 @@
 					"patching_rect": [
 						200,
 						110,
-						160,
+						200,
 						22
 					],
 					"saved_object_attributes": {
@@ -103,6 +103,25 @@
 						22
 					],
 					"id": "obj-4"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "newobj",
+					"text": "live.banks",
+					"numinlets": 1,
+					"numoutlets": 1,
+					"outlettype": [
+						""
+					],
+					"patching_rect": [
+						200,
+						70,
+						70,
+						22
+					],
+					"varname": "banks",
+					"id": "obj-5"
 				}
 			},
 			{
@@ -140,7 +159,7 @@
 						145
 					],
 					"varname": "g_0_p",
-					"id": "obj-5"
+					"id": "obj-6"
 				}
 			},
 			{
@@ -166,7 +185,7 @@
 						16
 					],
 					"varname": "g_0_t",
-					"id": "obj-6"
+					"id": "obj-7"
 				}
 			},
 			{
@@ -204,7 +223,7 @@
 						145
 					],
 					"varname": "g_1_p",
-					"id": "obj-7"
+					"id": "obj-8"
 				}
 			},
 			{
@@ -230,7 +249,7 @@
 						16
 					],
 					"varname": "g_1_t",
-					"id": "obj-8"
+					"id": "obj-9"
 				}
 			},
 			{
@@ -267,19 +286,19 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Spring On",
-							"parameter_shortname": "Spring On",
-							"parameter_modmode": 0,
-							"parameter_type": 2,
-							"parameter_mmax": 1,
 							"parameter_enum": [
 								"Off",
 								"On"
-							]
+							],
+							"parameter_longname": "Spring On",
+							"parameter_mmax": 1,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Spring On",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_0",
-					"id": "obj-9"
+					"id": "obj-10"
 				}
 			},
 			{
@@ -297,7 +316,7 @@
 						52,
 						22
 					],
-					"id": "obj-10"
+					"id": "obj-11"
 				}
 			},
 			{
@@ -332,16 +351,16 @@
 					"saved_attribute_attributes": {
 						"valueof": {
 							"parameter_longname": "Spring Mix",
-							"parameter_shortname": "Spring Mix",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
 							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Spring Mix",
+							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_1",
-					"id": "obj-11"
+					"id": "obj-12"
 				}
 			},
 			{
@@ -359,7 +378,7 @@
 						52,
 						22
 					],
-					"id": "obj-12"
+					"id": "obj-13"
 				}
 			},
 			{
@@ -394,16 +413,16 @@
 					"saved_attribute_attributes": {
 						"valueof": {
 							"parameter_longname": "Spring Tone",
-							"parameter_shortname": "Spring Tone",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
 							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Spring Tone",
+							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_2",
-					"id": "obj-13"
+					"id": "obj-14"
 				}
 			},
 			{
@@ -421,7 +440,7 @@
 						52,
 						22
 					],
-					"id": "obj-14"
+					"id": "obj-15"
 				}
 			},
 			{
@@ -455,19 +474,19 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
+							"parameter_exponent": 2,
 							"parameter_longname": "Spring Decay",
-							"parameter_shortname": "Spring Decay",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0.85,
 							"parameter_mmax": 4.66,
-							"parameter_unitstyle": 9,
+							"parameter_mmin": 0.85,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Spring Decay",
+							"parameter_type": 0,
 							"parameter_units": "%.2f s",
-							"parameter_exponent": 2
+							"parameter_unitstyle": 9
 						}
 					},
 					"varname": "c_3",
-					"id": "obj-15"
+					"id": "obj-16"
 				}
 			},
 			{
@@ -485,7 +504,7 @@
 						52,
 						22
 					],
-					"id": "obj-16"
+					"id": "obj-17"
 				}
 			},
 			{
@@ -522,19 +541,19 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Trem On",
-							"parameter_shortname": "Trem On",
-							"parameter_modmode": 0,
-							"parameter_type": 2,
-							"parameter_mmax": 1,
 							"parameter_enum": [
 								"Off",
 								"On"
-							]
+							],
+							"parameter_longname": "Trem On",
+							"parameter_mmax": 1,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Trem On",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_4",
-					"id": "obj-17"
+					"id": "obj-18"
 				}
 			},
 			{
@@ -552,7 +571,7 @@
 						52,
 						22
 					],
-					"id": "obj-18"
+					"id": "obj-19"
 				}
 			},
 			{
@@ -587,16 +606,16 @@
 					"saved_attribute_attributes": {
 						"valueof": {
 							"parameter_longname": "Trem Speed",
-							"parameter_shortname": "Trem Speed",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
 							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Trem Speed",
+							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_5",
-					"id": "obj-19"
+					"id": "obj-20"
 				}
 			},
 			{
@@ -614,7 +633,7 @@
 						52,
 						22
 					],
-					"id": "obj-20"
+					"id": "obj-21"
 				}
 			},
 			{
@@ -649,16 +668,16 @@
 					"saved_attribute_attributes": {
 						"valueof": {
 							"parameter_longname": "Trem Intens",
-							"parameter_shortname": "Trem Intens",
-							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
 							"parameter_mmax": 100,
+							"parameter_mmin": 0,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Trem Intens",
+							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_6",
-					"id": "obj-21"
+					"id": "obj-22"
 				}
 			},
 			{
@@ -676,7 +695,7 @@
 						52,
 						22
 					],
-					"id": "obj-22"
+					"id": "obj-23"
 				}
 			},
 			{
@@ -713,19 +732,19 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Trem Sync",
-							"parameter_shortname": "Trem Sync",
-							"parameter_modmode": 0,
-							"parameter_type": 2,
-							"parameter_mmax": 1,
 							"parameter_enum": [
 								"Off",
 								"On"
-							]
+							],
+							"parameter_longname": "Trem Sync",
+							"parameter_mmax": 1,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Trem Sync",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_7",
-					"id": "obj-23"
+					"id": "obj-24"
 				}
 			},
 			{
@@ -743,7 +762,7 @@
 						52,
 						22
 					],
-					"id": "obj-24"
+					"id": "obj-25"
 				}
 			},
 			{
@@ -768,7 +787,7 @@
 						16
 					],
 					"varname": "c_8_l",
-					"id": "obj-25"
+					"id": "obj-26"
 				}
 			},
 			{
@@ -797,11 +816,6 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Trem Note",
-							"parameter_shortname": "Trem Note",
-							"parameter_modmode": 0,
-							"parameter_type": 2,
-							"parameter_mmax": 16,
 							"parameter_enum": [
 								"1/32",
 								"1/16T",
@@ -820,11 +834,16 @@
 								"1/2D",
 								"1/1",
 								"1/1D"
-							]
+							],
+							"parameter_longname": "Trem Note",
+							"parameter_mmax": 16,
+							"parameter_modmode": 0,
+							"parameter_shortname": "Trem Note",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_8",
-					"id": "obj-26"
+					"id": "obj-27"
 				}
 			},
 			{
@@ -842,7 +861,7 @@
 						52,
 						22
 					],
-					"id": "obj-27"
+					"id": "obj-28"
 				}
 			},
 			{
@@ -866,7 +885,7 @@
 						322,
 						16
 					],
-					"id": "obj-28"
+					"id": "obj-29"
 				}
 			},
 			{
@@ -895,7 +914,7 @@
 						322,
 						16
 					],
-					"id": "obj-29"
+					"id": "obj-30"
 				}
 			}
 		],
@@ -939,23 +958,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-9",
-						0
-					],
-					"destination": [
-						"obj-10",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
 						"obj-10",
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-11",
 						0
 					]
 				}
@@ -967,7 +974,7 @@
 						0
 					],
 					"destination": [
-						"obj-12",
+						"obj-3",
 						0
 					]
 				}
@@ -979,7 +986,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-13",
 						0
 					]
 				}
@@ -991,7 +998,7 @@
 						0
 					],
 					"destination": [
-						"obj-14",
+						"obj-3",
 						0
 					]
 				}
@@ -1003,7 +1010,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-15",
 						0
 					]
 				}
@@ -1015,7 +1022,7 @@
 						0
 					],
 					"destination": [
-						"obj-16",
+						"obj-3",
 						0
 					]
 				}
@@ -1027,7 +1034,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-17",
 						0
 					]
 				}
@@ -1039,7 +1046,7 @@
 						0
 					],
 					"destination": [
-						"obj-18",
+						"obj-3",
 						0
 					]
 				}
@@ -1051,7 +1058,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-19",
 						0
 					]
 				}
@@ -1063,7 +1070,7 @@
 						0
 					],
 					"destination": [
-						"obj-20",
+						"obj-3",
 						0
 					]
 				}
@@ -1075,7 +1082,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-21",
 						0
 					]
 				}
@@ -1087,7 +1094,7 @@
 						0
 					],
 					"destination": [
-						"obj-22",
+						"obj-3",
 						0
 					]
 				}
@@ -1099,7 +1106,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-23",
 						0
 					]
 				}
@@ -1111,7 +1118,7 @@
 						0
 					],
 					"destination": [
-						"obj-24",
+						"obj-3",
 						0
 					]
 				}
@@ -1120,6 +1127,18 @@
 				"patchline": {
 					"source": [
 						"obj-24",
+						0
+					],
+					"destination": [
+						"obj-25",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-25",
 						0
 					],
 					"destination": [
@@ -1131,11 +1150,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-26",
+						"obj-27",
 						0
 					],
 					"destination": [
-						"obj-27",
+						"obj-28",
 						0
 					]
 				}
@@ -1143,7 +1162,7 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-27",
+						"obj-28",
 						0
 					],
 					"destination": [
@@ -1155,7 +1174,7 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-29",
+						"obj-30",
 						0
 					],
 					"destination": [
@@ -1166,47 +1185,47 @@
 			}
 		],
 		"parameters": {
-			"obj-9": [
+			"obj-10": [
 				"Spring On",
 				"Spring On",
 				0
 			],
-			"obj-11": [
+			"obj-12": [
 				"Spring Mix",
 				"Spring Mix",
 				0
 			],
-			"obj-13": [
+			"obj-14": [
 				"Spring Tone",
 				"Spring Tone",
 				0
 			],
-			"obj-15": [
+			"obj-16": [
 				"Spring Decay",
 				"Spring Decay",
 				0
 			],
-			"obj-17": [
+			"obj-18": [
 				"Trem On",
 				"Trem On",
 				0
 			],
-			"obj-19": [
+			"obj-20": [
 				"Trem Speed",
 				"Trem Speed",
 				0
 			],
-			"obj-21": [
+			"obj-22": [
 				"Trem Intens",
 				"Trem Intens",
 				0
 			],
-			"obj-23": [
+			"obj-24": [
 				"Trem Sync",
 				"Trem Sync",
 				0
 			],
-			"obj-26": [
+			"obj-27": [
 				"Trem Note",
 				"Trem Note",
 				0
@@ -1214,28 +1233,14 @@
 			"parameterbanks": {
 				"0": {
 					"index": 0,
-					"name": "Spring Reverb",
+					"name": "VERB/TREM",
 					"parameters": [
-						"Spring On",
 						"Spring Mix",
 						"Spring Tone",
 						"Spring Decay",
-						"-",
-						"-",
-						"-",
-						"-"
-					]
-				},
-				"1": {
-					"index": 1,
-					"name": "Harmonic Tremolo",
-					"parameters": [
-						"Trem On",
 						"Trem Speed",
 						"Trem Intens",
-						"Trem Sync",
 						"Trem Note",
-						"-",
 						"-",
 						"-"
 					]
