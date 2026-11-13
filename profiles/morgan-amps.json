@@ -26,16 +26,16 @@
               "param": "Compressor Compression"
             },
             {
+              "label": "Comp Release",
+              "param": "Compressor Release"
+            },
+            {
               "label": "Comp Level",
               "param": "Compressor Level"
             },
             {
               "label": "Comp Mix",
               "param": "Compressor Mix"
-            },
-            {
-              "label": "Comp Release",
-              "param": "Compressor Release"
             }
           ],
           "short": "Comp"
@@ -52,12 +52,12 @@
               "param": "Overdrive1 Drive"
             },
             {
-              "label": "OD1 Tone",
-              "param": "Overdrive1 Tone"
-            },
-            {
               "label": "OD1 Level",
               "param": "Overdrive1 Level"
+            },
+            {
+              "label": "OD1 Tone",
+              "param": "Overdrive1 Tone"
             }
           ],
           "short": "OD 1"
@@ -74,16 +74,16 @@
               "param": "Overdrive2 Gain"
             },
             {
+              "label": "OD2 Level",
+              "param": "Overdrive2 Level"
+            },
+            {
               "label": "OD2 Bass",
               "param": "Overdrive2 Bass"
             },
             {
               "label": "OD2 Treble",
               "param": "Overdrive2 Treble"
-            },
-            {
-              "label": "OD2 Level",
-              "param": "Overdrive2 Level"
             }
           ],
           "short": "OD 2"
@@ -100,16 +100,16 @@
               "param": "Tremolo Rate"
             },
             {
+              "label": "Trem Sync",
+              "param": "Tremolo Sync Mode"
+            },
+            {
               "label": "Trem Depth",
               "param": "Tremolo Depth"
             },
             {
               "label": "Trem Level",
               "param": "Tremolo Level"
-            },
-            {
-              "label": "Trem Sync",
-              "param": "Tremolo Sync Mode"
             }
           ]
         }
@@ -141,24 +141,24 @@
           "name": "AC20",
           "controls": [
             {
-              "label": "AC Bright",
-              "param": "AC20 Bright"
-            },
-            {
-              "label": "AC Bass Cut",
-              "param": "AC20 Bass Cut"
-            },
-            {
-              "label": "AC Volume",
-              "param": "AC20 Volume"
+              "label": "AC Power",
+              "param": "AC20 Power"
             },
             {
               "label": "AC Cut",
               "param": "AC20 Cut"
             },
             {
-              "label": "AC Power",
-              "param": "AC20 Power"
+              "label": "AC Volume",
+              "param": "AC20 Volume"
+            },
+            {
+              "label": "AC Bright",
+              "param": "AC20 Bright"
+            },
+            {
+              "label": "AC Bass Cut",
+              "param": "AC20 Bass Cut"
             }
           ]
         },
@@ -166,8 +166,12 @@
           "name": "PR12",
           "controls": [
             {
-              "label": "PR Volume",
-              "param": "PR12 Volume"
+              "label": "PR Dwell",
+              "param": "PR12 Dwell"
+            },
+            {
+              "label": "PR Reverb",
+              "param": "PR12 Reverb"
             },
             {
               "label": "PR Bass",
@@ -178,12 +182,8 @@
               "param": "PR12 Treble"
             },
             {
-              "label": "PR Reverb",
-              "param": "PR12 Reverb"
-            },
-            {
-              "label": "PR Dwell",
-              "param": "PR12 Dwell"
+              "label": "PR Volume",
+              "param": "PR12 Volume"
             }
           ]
         },
@@ -191,16 +191,12 @@
           "name": "SW50R",
           "controls": [
             {
-              "label": "SW Bright",
-              "param": "SW50R Bright"
+              "label": "SW Reverb",
+              "param": "SW50R Reverb"
             },
             {
-              "label": "SW Bass Emph",
-              "param": "SW50R Bass Emphasis"
-            },
-            {
-              "label": "SW Volume",
-              "param": "SW50R Volume"
+              "label": "SW Level",
+              "param": "SW50R Level"
             },
             {
               "label": "SW Bass",
@@ -215,12 +211,16 @@
               "param": "SW50R Treble"
             },
             {
-              "label": "SW Level",
-              "param": "SW50R Level"
+              "label": "SW Bass Emph",
+              "param": "SW50R Bass Emphasis"
             },
             {
-              "label": "SW Reverb",
-              "param": "SW50R Reverb"
+              "label": "SW Bright",
+              "param": "SW50R Bright"
+            },
+            {
+              "label": "SW Volume",
+              "param": "SW50R Volume"
             }
           ]
         }
@@ -398,16 +398,16 @@
           "name": "Delay Tone",
           "controls": [
             {
+              "label": "Dly HPF",
+              "param": "Delay HPF"
+            },
+            {
               "label": "Dly Drive",
               "param": "Delay Tape Drive"
             },
             {
               "label": "Dly Width",
               "param": "Delay Width"
-            },
-            {
-              "label": "Dly HPF",
-              "param": "Delay HPF"
             },
             {
               "label": "Dly LPF",

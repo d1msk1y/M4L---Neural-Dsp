@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js MorganAmps.js ba53627",
+					"text": "js MorganAmps.js b9e44f9",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
@@ -1453,14 +1453,42 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "comment",
+					"numinlets": 1,
+					"numoutlets": 0,
+					"text": "Comp Release",
+					"fontsize": 9,
+					"textjustification": 1,
+					"patching_rect": [
+						256,
+						282,
+						60,
+						18
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						222,
+						42,
+						58,
+						16
+					],
+					"varname": "c_3_l",
+					"id": "obj-47"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.text",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"float"
+						""
 					],
-					"activedialcolor": [
+					"mode": 1,
+					"text": "Slow",
+					"texton": "Fast",
+					"activebgoncolor": [
 						0.9,
 						0.3,
 						0.28,
@@ -1469,30 +1497,32 @@
 					"patching_rect": [
 						256,
 						300,
-						44,
-						48
+						48,
+						18
 					],
 					"presentation_rect": [
-						229,
-						41,
-						44,
-						48
+						227,
+						59,
+						48,
+						15
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Comp Level",
-							"parameter_mmax": 100,
-							"parameter_mmin": 0,
+							"parameter_enum": [
+								"Slow",
+								"Fast"
+							],
+							"parameter_longname": "Comp Release",
+							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Comp Level",
-							"parameter_type": 0,
-							"parameter_unitstyle": 5
+							"parameter_shortname": "Comp Release",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_3",
-					"id": "obj-47"
+					"id": "obj-48"
 				}
 			},
 			{
@@ -1510,7 +1540,7 @@
 						52,
 						22
 					],
-					"id": "obj-48"
+					"id": "obj-49"
 				}
 			},
 			{
@@ -1544,17 +1574,17 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Comp Mix",
+							"parameter_longname": "Comp Level",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Comp Mix",
+							"parameter_shortname": "Comp Level",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_4",
-					"id": "obj-49"
+					"id": "obj-50"
 				}
 			},
 			{
@@ -1572,47 +1602,19 @@
 						52,
 						22
 					],
-					"id": "obj-50"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "comment",
-					"numinlets": 1,
-					"numoutlets": 0,
-					"text": "Comp Release",
-					"fontsize": 9,
-					"textjustification": 1,
-					"patching_rect": [
-						206,
-						382,
-						60,
-						18
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						172,
-						97,
-						58,
-						16
-					],
-					"varname": "c_5_l",
 					"id": "obj-51"
 				}
 			},
 			{
 				"box": {
-					"maxclass": "live.text",
+					"maxclass": "live.dial",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						""
+						"float"
 					],
-					"mode": 1,
-					"text": "Slow",
-					"texton": "Fast",
-					"activebgoncolor": [
+					"activedialcolor": [
 						0.9,
 						0.3,
 						0.28,
@@ -1621,28 +1623,26 @@
 					"patching_rect": [
 						206,
 						400,
-						48,
-						18
+						44,
+						48
 					],
 					"presentation_rect": [
-						177,
-						114,
-						48,
-						15
+						179,
+						96,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_enum": [
-								"Slow",
-								"Fast"
-							],
-							"parameter_longname": "Comp Release",
-							"parameter_mmax": 1,
+							"parameter_longname": "Comp Mix",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Comp Release",
-							"parameter_type": 2
+							"parameter_shortname": "Comp Mix",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_5",
@@ -1827,11 +1827,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "OD1 Tone",
+							"parameter_longname": "OD1 Level",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "OD1 Tone",
+							"parameter_shortname": "OD1 Level",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -1889,11 +1889,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "OD1 Level",
+							"parameter_longname": "OD1 Tone",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "OD1 Level",
+							"parameter_shortname": "OD1 Tone",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -2080,11 +2080,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "OD2 Bass",
+							"parameter_longname": "OD2 Level",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "OD2 Bass",
+							"parameter_shortname": "OD2 Level",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -2142,11 +2142,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "OD2 Treble",
+							"parameter_longname": "OD2 Bass",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "OD2 Treble",
+							"parameter_shortname": "OD2 Bass",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -2204,11 +2204,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "OD2 Level",
+							"parameter_longname": "OD2 Treble",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "OD2 Level",
+							"parameter_shortname": "OD2 Treble",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -2367,14 +2367,42 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "comment",
+					"numinlets": 1,
+					"numoutlets": 0,
+					"text": "Trem Sync",
+					"fontsize": 9,
+					"textjustification": 1,
+					"patching_rect": [
+						704,
+						282,
+						60,
+						18
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						670,
+						42,
+						58,
+						16
+					],
+					"varname": "c_17_l",
+					"id": "obj-76"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.text",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"float"
+						""
 					],
-					"activedialcolor": [
+					"mode": 1,
+					"text": "Free",
+					"texton": "Sync",
+					"activebgoncolor": [
 						0.72,
 						0.52,
 						0.9,
@@ -2383,30 +2411,32 @@
 					"patching_rect": [
 						704,
 						300,
-						44,
-						48
+						48,
+						18
 					],
 					"presentation_rect": [
-						677,
-						41,
-						44,
-						48
+						675,
+						59,
+						48,
+						15
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Trem Depth",
-							"parameter_mmax": 100,
-							"parameter_mmin": 0,
+							"parameter_enum": [
+								"Free",
+								"Sync"
+							],
+							"parameter_longname": "Trem Sync",
+							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Trem Depth",
-							"parameter_type": 0,
-							"parameter_unitstyle": 5
+							"parameter_shortname": "Trem Sync",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_17",
-					"id": "obj-76"
+					"id": "obj-77"
 				}
 			},
 			{
@@ -2424,7 +2454,7 @@
 						52,
 						22
 					],
-					"id": "obj-77"
+					"id": "obj-78"
 				}
 			},
 			{
@@ -2458,17 +2488,17 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Trem Level",
+							"parameter_longname": "Trem Depth",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Trem Level",
+							"parameter_shortname": "Trem Depth",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_18",
-					"id": "obj-78"
+					"id": "obj-79"
 				}
 			},
 			{
@@ -2486,47 +2516,19 @@
 						52,
 						22
 					],
-					"id": "obj-79"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "comment",
-					"numinlets": 1,
-					"numoutlets": 0,
-					"text": "Trem Sync",
-					"fontsize": 9,
-					"textjustification": 1,
-					"patching_rect": [
-						654,
-						382,
-						60,
-						18
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						620,
-						97,
-						58,
-						16
-					],
-					"varname": "c_19_l",
 					"id": "obj-80"
 				}
 			},
 			{
 				"box": {
-					"maxclass": "live.text",
+					"maxclass": "live.dial",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						""
+						"float"
 					],
-					"mode": 1,
-					"text": "Free",
-					"texton": "Sync",
-					"activebgoncolor": [
+					"activedialcolor": [
 						0.72,
 						0.52,
 						0.9,
@@ -2535,28 +2537,26 @@
 					"patching_rect": [
 						654,
 						400,
-						48,
-						18
+						44,
+						48
 					],
 					"presentation_rect": [
-						625,
-						114,
-						48,
-						15
+						627,
+						96,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_enum": [
-								"Free",
-								"Sync"
-							],
-							"parameter_longname": "Trem Sync",
-							"parameter_mmax": 1,
+							"parameter_longname": "Trem Level",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Trem Sync",
-							"parameter_type": 2
+							"parameter_shortname": "Trem Level",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_19",
@@ -2738,17 +2738,14 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.text",
+					"maxclass": "live.dial",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						""
+						"float"
 					],
-					"mode": 1,
-					"text": "AC Bright",
-					"texton": "AC Bright",
-					"activebgoncolor": [
+					"activedialcolor": [
 						0.4,
 						0.8,
 						0.7,
@@ -2757,28 +2754,26 @@
 					"patching_rect": [
 						156,
 						540,
-						48,
-						18
+						44,
+						48
 					],
 					"presentation_rect": [
-						127,
-						55,
-						48,
-						18
+						129,
+						41,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_enum": [
-								"Off",
-								"On"
-							],
-							"parameter_longname": "AC Bright",
-							"parameter_mmax": 1,
+							"parameter_longname": "AC Power",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "AC Bright",
-							"parameter_type": 2
+							"parameter_shortname": "AC Power",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_22",
@@ -2806,43 +2801,14 @@
 			},
 			{
 				"box": {
-					"maxclass": "comment",
-					"numinlets": 1,
-					"numoutlets": 0,
-					"text": "AC Bass Cut",
-					"fontsize": 9,
-					"textjustification": 1,
-					"patching_rect": [
-						206,
-						522,
-						60,
-						18
-					],
-					"presentation": 1,
-					"presentation_rect": [
-						172,
-						42,
-						58,
-						16
-					],
-					"varname": "c_23_l",
-					"hidden": 1,
-					"id": "obj-90"
-				}
-			},
-			{
-				"box": {
-					"maxclass": "live.text",
+					"maxclass": "live.dial",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						""
+						"float"
 					],
-					"mode": 1,
-					"text": "Bass",
-					"texton": "Treble",
-					"activebgoncolor": [
+					"activedialcolor": [
 						0.4,
 						0.8,
 						0.7,
@@ -2851,33 +2817,31 @@
 					"patching_rect": [
 						206,
 						540,
-						48,
-						18
+						44,
+						48
 					],
 					"presentation_rect": [
-						177,
-						59,
-						48,
-						15
+						179,
+						41,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_enum": [
-								"Bass",
-								"Treble"
-							],
-							"parameter_longname": "AC Bass Cut",
-							"parameter_mmax": 1,
+							"parameter_longname": "AC Cut",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "AC Bass Cut",
-							"parameter_type": 2
+							"parameter_shortname": "AC Cut",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_23",
 					"hidden": 1,
-					"id": "obj-91"
+					"id": "obj-90"
 				}
 			},
 			{
@@ -2895,7 +2859,7 @@
 						52,
 						22
 					],
-					"id": "obj-92"
+					"id": "obj-91"
 				}
 			},
 			{
@@ -2940,7 +2904,7 @@
 					},
 					"varname": "c_24",
 					"hidden": 1,
-					"id": "obj-93"
+					"id": "obj-92"
 				}
 			},
 			{
@@ -2958,19 +2922,22 @@
 						52,
 						22
 					],
-					"id": "obj-94"
+					"id": "obj-93"
 				}
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "live.text",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"float"
+						""
 					],
-					"activedialcolor": [
+					"mode": 1,
+					"text": "AC Bright",
+					"texton": "AC Bright",
+					"activebgoncolor": [
 						0.4,
 						0.8,
 						0.7,
@@ -2979,31 +2946,33 @@
 					"patching_rect": [
 						156,
 						640,
-						44,
-						48
+						48,
+						18
 					],
 					"presentation_rect": [
-						129,
-						96,
-						44,
-						48
+						127,
+						110,
+						48,
+						18
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "AC Cut",
-							"parameter_mmax": 100,
-							"parameter_mmin": 0,
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "AC Bright",
+							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "AC Cut",
-							"parameter_type": 0,
-							"parameter_unitstyle": 5
+							"parameter_shortname": "AC Bright",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_25",
 					"hidden": 1,
-					"id": "obj-95"
+					"id": "obj-94"
 				}
 			},
 			{
@@ -3021,19 +2990,48 @@
 						52,
 						22
 					],
+					"id": "obj-95"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "comment",
+					"numinlets": 1,
+					"numoutlets": 0,
+					"text": "AC Bass Cut",
+					"fontsize": 9,
+					"textjustification": 1,
+					"patching_rect": [
+						206,
+						622,
+						60,
+						18
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						172,
+						97,
+						58,
+						16
+					],
+					"varname": "c_26_l",
+					"hidden": 1,
 					"id": "obj-96"
 				}
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "live.text",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"float"
+						""
 					],
-					"activedialcolor": [
+					"mode": 1,
+					"text": "Bass",
+					"texton": "Treble",
+					"activebgoncolor": [
 						0.4,
 						0.8,
 						0.7,
@@ -3042,26 +3040,28 @@
 					"patching_rect": [
 						206,
 						640,
-						44,
-						48
+						48,
+						18
 					],
 					"presentation_rect": [
-						179,
-						96,
-						44,
-						48
+						177,
+						114,
+						48,
+						15
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "AC Power",
-							"parameter_mmax": 100,
-							"parameter_mmin": 0,
+							"parameter_enum": [
+								"Bass",
+								"Treble"
+							],
+							"parameter_longname": "AC Bass Cut",
+							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "AC Power",
-							"parameter_type": 0,
-							"parameter_unitstyle": 5
+							"parameter_shortname": "AC Bass Cut",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_26",
@@ -3118,11 +3118,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "PR Volume",
+							"parameter_longname": "PR Dwell",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "PR Volume",
+							"parameter_shortname": "PR Dwell",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -3181,11 +3181,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "PR Bass",
+							"parameter_longname": "PR Reverb",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "PR Bass",
+							"parameter_shortname": "PR Reverb",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -3244,11 +3244,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "PR Treble",
+							"parameter_longname": "PR Bass",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "PR Treble",
+							"parameter_shortname": "PR Bass",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -3307,11 +3307,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "PR Reverb",
+							"parameter_longname": "PR Treble",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "PR Reverb",
+							"parameter_shortname": "PR Treble",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -3370,11 +3370,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "PR Dwell",
+							"parameter_longname": "PR Volume",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "PR Dwell",
+							"parameter_shortname": "PR Volume",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -3404,17 +3404,14 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.text",
+					"maxclass": "live.dial",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						""
+						"float"
 					],
-					"mode": 1,
-					"text": "SW Bright",
-					"texton": "SW Bright",
-					"activebgoncolor": [
+					"activedialcolor": [
 						0.96,
 						0.62,
 						0.2,
@@ -3423,28 +3420,26 @@
 					"patching_rect": [
 						156,
 						540,
-						48,
-						18
+						44,
+						48
 					],
 					"presentation_rect": [
-						127,
-						55,
-						48,
-						18
+						129,
+						41,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_enum": [
-								"Off",
-								"On"
-							],
-							"parameter_longname": "SW Bright",
-							"parameter_mmax": 1,
+							"parameter_longname": "SW Reverb",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "SW Bright",
-							"parameter_type": 2
+							"parameter_shortname": "SW Reverb",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_32",
@@ -3472,17 +3467,14 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.text",
+					"maxclass": "live.dial",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						""
+						"float"
 					],
-					"mode": 1,
-					"text": "SW Bass Emph",
-					"texton": "SW Bass Emph",
-					"activebgoncolor": [
+					"activedialcolor": [
 						0.96,
 						0.62,
 						0.2,
@@ -3491,28 +3483,26 @@
 					"patching_rect": [
 						206,
 						540,
-						48,
-						18
+						44,
+						48
 					],
 					"presentation_rect": [
-						177,
-						55,
-						48,
-						18
+						179,
+						41,
+						44,
+						48
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_enum": [
-								"Off",
-								"On"
-							],
-							"parameter_longname": "SW Bass Emph",
-							"parameter_mmax": 1,
+							"parameter_longname": "SW Level",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "SW Bass Emph",
-							"parameter_type": 2
+							"parameter_shortname": "SW Level",
+							"parameter_type": 0,
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_33",
@@ -3569,11 +3559,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "SW Volume",
+							"parameter_longname": "SW Bass",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "SW Volume",
+							"parameter_shortname": "SW Bass",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -3632,11 +3622,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "SW Bass",
+							"parameter_longname": "SW Mid",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "SW Bass",
+							"parameter_shortname": "SW Mid",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -3695,11 +3685,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "SW Mid",
+							"parameter_longname": "SW Treble",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "SW Mid",
+							"parameter_shortname": "SW Treble",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -3729,14 +3719,17 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "live.text",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"float"
+						""
 					],
-					"activedialcolor": [
+					"mode": 1,
+					"text": "SW Bass Emph",
+					"texton": "SW Bass Emph",
+					"activebgoncolor": [
 						0.96,
 						0.62,
 						0.2,
@@ -3745,26 +3738,28 @@
 					"patching_rect": [
 						206,
 						640,
-						44,
-						48
+						48,
+						18
 					],
 					"presentation_rect": [
-						179,
-						96,
-						44,
-						48
+						177,
+						110,
+						48,
+						18
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "SW Treble",
-							"parameter_mmax": 100,
-							"parameter_mmin": 0,
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "SW Bass Emph",
+							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "SW Treble",
-							"parameter_type": 0,
-							"parameter_unitstyle": 5
+							"parameter_shortname": "SW Bass Emph",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_37",
@@ -3792,14 +3787,17 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "live.text",
 					"numinlets": 1,
 					"numoutlets": 2,
 					"outlettype": [
 						"",
-						"float"
+						""
 					],
-					"activedialcolor": [
+					"mode": 1,
+					"text": "SW Bright",
+					"texton": "SW Bright",
+					"activebgoncolor": [
 						0.96,
 						0.62,
 						0.2,
@@ -3808,26 +3806,28 @@
 					"patching_rect": [
 						256,
 						640,
-						44,
-						48
+						48,
+						18
 					],
 					"presentation_rect": [
-						229,
-						96,
-						44,
-						48
+						227,
+						110,
+						48,
+						18
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "SW Level",
-							"parameter_mmax": 100,
-							"parameter_mmin": 0,
+							"parameter_enum": [
+								"Off",
+								"On"
+							],
+							"parameter_longname": "SW Bright",
+							"parameter_mmax": 1,
 							"parameter_modmode": 0,
-							"parameter_shortname": "SW Level",
-							"parameter_type": 0,
-							"parameter_unitstyle": 5
+							"parameter_shortname": "SW Bright",
+							"parameter_type": 2
 						}
 					},
 					"varname": "c_38",
@@ -3884,11 +3884,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "SW Reverb",
+							"parameter_longname": "SW Volume",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "SW Reverb",
+							"parameter_shortname": "SW Volume",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -5400,13 +5400,13 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Dly Drive",
-							"parameter_mmax": 100,
-							"parameter_mmin": 0,
+							"parameter_longname": "Dly HPF",
+							"parameter_mmax": 500,
+							"parameter_mmin": 60,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Dly Drive",
+							"parameter_shortname": "Dly HPF",
 							"parameter_type": 0,
-							"parameter_unitstyle": 5
+							"parameter_unitstyle": 3
 						}
 					},
 					"varname": "c_61",
@@ -5463,11 +5463,11 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Dly Width",
+							"parameter_longname": "Dly Drive",
 							"parameter_mmax": 100,
 							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Dly Width",
+							"parameter_shortname": "Dly Drive",
 							"parameter_type": 0,
 							"parameter_unitstyle": 5
 						}
@@ -5526,13 +5526,13 @@
 					"presentation": 1,
 					"saved_attribute_attributes": {
 						"valueof": {
-							"parameter_longname": "Dly HPF",
-							"parameter_mmax": 500,
-							"parameter_mmin": 60,
+							"parameter_longname": "Dly Width",
+							"parameter_mmax": 100,
+							"parameter_mmin": 0,
 							"parameter_modmode": 0,
-							"parameter_shortname": "Dly HPF",
+							"parameter_shortname": "Dly Width",
 							"parameter_type": 0,
-							"parameter_unitstyle": 3
+							"parameter_unitstyle": 5
 						}
 					},
 					"varname": "c_63",
@@ -6687,23 +6687,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-47",
-						0
-					],
-					"destination": [
-						"obj-48",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
 						"obj-48",
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-49",
 						0
 					]
 				}
@@ -6715,7 +6703,7 @@
 						0
 					],
 					"destination": [
-						"obj-50",
+						"obj-3",
 						0
 					]
 				}
@@ -6724,6 +6712,18 @@
 				"patchline": {
 					"source": [
 						"obj-50",
+						0
+					],
+					"destination": [
+						"obj-51",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-51",
 						0
 					],
 					"destination": [
@@ -7023,23 +7023,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-76",
-						0
-					],
-					"destination": [
-						"obj-77",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
 						"obj-77",
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-78",
 						0
 					]
 				}
@@ -7051,7 +7039,7 @@
 						0
 					],
 					"destination": [
-						"obj-79",
+						"obj-3",
 						0
 					]
 				}
@@ -7060,6 +7048,18 @@
 				"patchline": {
 					"source": [
 						"obj-79",
+						0
+					],
+					"destination": [
+						"obj-80",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
+						"obj-80",
 						0
 					],
 					"destination": [
@@ -7167,11 +7167,23 @@
 			{
 				"patchline": {
 					"source": [
+						"obj-90",
+						0
+					],
+					"destination": [
+						"obj-91",
+						0
+					]
+				}
+			},
+			{
+				"patchline": {
+					"source": [
 						"obj-91",
 						0
 					],
 					"destination": [
-						"obj-92",
+						"obj-3",
 						0
 					]
 				}
@@ -7183,7 +7195,7 @@
 						0
 					],
 					"destination": [
-						"obj-3",
+						"obj-93",
 						0
 					]
 				}
@@ -7195,18 +7207,6 @@
 						0
 					],
 					"destination": [
-						"obj-94",
-						0
-					]
-				}
-			},
-			{
-				"patchline": {
-					"source": [
-						"obj-94",
-						0
-					],
-					"destination": [
 						"obj-3",
 						0
 					]
@@ -7215,11 +7215,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-95",
+						"obj-94",
 						0
 					],
 					"destination": [
-						"obj-96",
+						"obj-95",
 						0
 					]
 				}
@@ -7227,7 +7227,7 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-96",
+						"obj-95",
 						0
 					],
 					"destination": [
@@ -8537,19 +8537,19 @@
 				"Comp Amount",
 				0
 			],
-			"obj-47": [
-				"Comp Level",
-				"Comp Level",
+			"obj-48": [
+				"Comp Release",
+				"Comp Release",
 				0
 			],
-			"obj-49": [
-				"Comp Mix",
-				"Comp Mix",
+			"obj-50": [
+				"Comp Level",
+				"Comp Level",
 				0
 			],
 			"obj-52": [
-				"Comp Release",
-				"Comp Release",
+				"Comp Mix",
+				"Comp Mix",
 				0
 			],
 			"obj-54": [
@@ -8563,13 +8563,13 @@
 				0
 			],
 			"obj-58": [
-				"OD1 Tone",
-				"OD1 Tone",
+				"OD1 Level",
+				"OD1 Level",
 				0
 			],
 			"obj-60": [
-				"OD1 Level",
-				"OD1 Level",
+				"OD1 Tone",
+				"OD1 Tone",
 				0
 			],
 			"obj-62": [
@@ -8583,18 +8583,18 @@
 				0
 			],
 			"obj-66": [
-				"OD2 Bass",
-				"OD2 Bass",
+				"OD2 Level",
+				"OD2 Level",
 				0
 			],
 			"obj-68": [
-				"OD2 Treble",
-				"OD2 Treble",
+				"OD2 Bass",
+				"OD2 Bass",
 				0
 			],
 			"obj-70": [
-				"OD2 Level",
-				"OD2 Level",
+				"OD2 Treble",
+				"OD2 Treble",
 				0
 			],
 			"obj-72": [
@@ -8607,19 +8607,19 @@
 				"Trem Rate",
 				0
 			],
-			"obj-76": [
-				"Trem Depth",
-				"Trem Depth",
+			"obj-77": [
+				"Trem Sync",
+				"Trem Sync",
 				0
 			],
-			"obj-78": [
-				"Trem Level",
-				"Trem Level",
+			"obj-79": [
+				"Trem Depth",
+				"Trem Depth",
 				0
 			],
 			"obj-81": [
-				"Trem Sync",
-				"Trem Sync",
+				"Trem Level",
+				"Trem Level",
 				0
 			],
 			"obj-84": [
@@ -8633,93 +8633,93 @@
 				0
 			],
 			"obj-88": [
-				"AC Bright",
-				"AC Bright",
+				"AC Power",
+				"AC Power",
 				0
 			],
-			"obj-91": [
-				"AC Bass Cut",
-				"AC Bass Cut",
+			"obj-90": [
+				"AC Cut",
+				"AC Cut",
 				0
 			],
-			"obj-93": [
+			"obj-92": [
 				"AC Volume",
 				"AC Volume",
 				0
 			],
-			"obj-95": [
-				"AC Cut",
-				"AC Cut",
+			"obj-94": [
+				"AC Bright",
+				"AC Bright",
 				0
 			],
 			"obj-97": [
-				"AC Power",
-				"AC Power",
+				"AC Bass Cut",
+				"AC Bass Cut",
 				0
 			],
 			"obj-99": [
-				"PR Volume",
-				"PR Volume",
+				"PR Dwell",
+				"PR Dwell",
 				0
 			],
 			"obj-101": [
-				"PR Bass",
-				"PR Bass",
+				"PR Reverb",
+				"PR Reverb",
 				0
 			],
 			"obj-103": [
-				"PR Treble",
-				"PR Treble",
+				"PR Bass",
+				"PR Bass",
 				0
 			],
 			"obj-105": [
-				"PR Reverb",
-				"PR Reverb",
+				"PR Treble",
+				"PR Treble",
 				0
 			],
 			"obj-107": [
-				"PR Dwell",
-				"PR Dwell",
+				"PR Volume",
+				"PR Volume",
 				0
 			],
 			"obj-109": [
-				"SW Bright",
-				"SW Bright",
+				"SW Reverb",
+				"SW Reverb",
 				0
 			],
 			"obj-111": [
-				"SW Bass Emph",
-				"SW Bass Emph",
+				"SW Level",
+				"SW Level",
 				0
 			],
 			"obj-113": [
-				"SW Volume",
-				"SW Volume",
+				"SW Bass",
+				"SW Bass",
 				0
 			],
 			"obj-115": [
-				"SW Bass",
-				"SW Bass",
+				"SW Mid",
+				"SW Mid",
 				0
 			],
 			"obj-117": [
-				"SW Mid",
-				"SW Mid",
+				"SW Treble",
+				"SW Treble",
 				0
 			],
 			"obj-119": [
-				"SW Treble",
-				"SW Treble",
+				"SW Bass Emph",
+				"SW Bass Emph",
 				0
 			],
 			"obj-121": [
-				"SW Level",
-				"SW Level",
+				"SW Bright",
+				"SW Bright",
 				0
 			],
 			"obj-123": [
-				"SW Reverb",
-				"SW Reverb",
+				"SW Volume",
+				"SW Volume",
 				0
 			],
 			"obj-126": [
@@ -8828,18 +8828,18 @@
 				0
 			],
 			"obj-171": [
-				"Dly Drive",
-				"Dly Drive",
+				"Dly HPF",
+				"Dly HPF",
 				0
 			],
 			"obj-173": [
-				"Dly Width",
-				"Dly Width",
+				"Dly Drive",
+				"Dly Drive",
 				0
 			],
 			"obj-175": [
-				"Dly HPF",
-				"Dly HPF",
+				"Dly Width",
+				"Dly Width",
 				0
 			],
 			"obj-177": [
@@ -8937,9 +8937,9 @@
 					"name": "AMP",
 					"parameters": [
 						"Amp",
-						"AC Volume",
-						"AC Cut",
 						"AC Power",
+						"AC Cut",
+						"AC Volume",
 						"-",
 						"-",
 						"-",
