@@ -6,6 +6,7 @@
 const key = (s) => String(s).toLowerCase().replace(/[^a-z0-9]/g, '');
 const NUMBER = /^([-+]?\d+(?:\.\d+)?)\s*([A-Za-z%]*)$/;
 const MAX_STEPS = 12;
+const MAX_NAMED_STEPS = 24; // lists of names (note values) can be longer than numeric steps
 
 function parseValue(text) {
   const m = NUMBER.exec(String(text).trim());
@@ -18,6 +19,7 @@ function describe(samples) {
   if (distinct.length <= MAX_STEPS) return { kind: 'steps', items: distinct };
 
   const parsed = samples.map(parseValue);
+  if (distinct.length <= MAX_NAMED_STEPS && !parsed.some(Boolean)) return { kind: 'steps', items: distinct };
   const units = parsed.filter(Boolean).map((p) => p.unit);
   if (!units.length) return { kind: 'unknown' };
   const has = (u) => units.indexOf(u) >= 0;
@@ -43,7 +45,10 @@ function describe(samples) {
   if (lo === hi) return { kind: 'unknown' };
   const rising = hi > lo;
   const monotonic = table.every((v, i) => i === 0 || (rising ? v >= table[i - 1] : v <= table[i - 1]));
-  return { kind: 'cont', unit, lo, hi, mid, table: monotonic ? table : null };
+  // A table that is only a rounded straight line adds nothing but rounding noise.
+  const last = table.length - 1;
+  const linear = table.every((v, i) => Math.abs(v - (lo + (hi - lo) * i / last)) <= Math.abs(hi - lo) * 0.006);
+  return { kind: 'cont', unit, lo, hi, mid, table: monotonic && !linear ? table : null };
 }
 
 function parseDump(text) {

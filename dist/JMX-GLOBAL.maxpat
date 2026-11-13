@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js JMX-GLOBAL.js",
+					"text": "js JohnMayerX.js GLOBAL",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
@@ -79,7 +79,7 @@
 						22
 					],
 					"saved_object_attributes": {
-						"filename": "JMX-GLOBAL.js",
+						"filename": "JohnMayerX.js",
 						"parameter_enable": 0
 					},
 					"id": "obj-3"
@@ -332,9 +332,9 @@
 							"parameter_shortname": "Input",
 							"parameter_modmode": 0,
 							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
+							"parameter_mmin": -24,
+							"parameter_mmax": 24,
+							"parameter_unitstyle": 4
 						}
 					},
 					"varname": "c_0",
@@ -394,9 +394,9 @@
 							"parameter_shortname": "Output",
 							"parameter_modmode": 0,
 							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
+							"parameter_mmin": -24,
+							"parameter_mmax": 24,
+							"parameter_unitstyle": 4
 						}
 					},
 					"varname": "c_1",
@@ -456,9 +456,9 @@
 							"parameter_shortname": "Transpose",
 							"parameter_modmode": 0,
 							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
+							"parameter_mmin": -12,
+							"parameter_mmax": 12,
+							"parameter_unitstyle": 7
 						}
 					},
 					"varname": "c_2",
@@ -585,9 +585,9 @@
 							"parameter_shortname": "Gate Thresh",
 							"parameter_modmode": 0,
 							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
+							"parameter_mmin": -96,
+							"parameter_mmax": 0,
+							"parameter_unitstyle": 4
 						}
 					},
 					"varname": "c_4",
@@ -714,9 +714,9 @@
 							"parameter_shortname": "Dblr Spread",
 							"parameter_modmode": 0,
 							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
+							"parameter_mmin": 3,
+							"parameter_mmax": 20,
+							"parameter_unitstyle": 2
 						}
 					},
 					"varname": "c_6",
@@ -747,7 +747,7 @@
 					"numinlets": 1,
 					"numoutlets": 0,
 					"varname": "status",
-					"text": "Script not running: keep JMX-GLOBAL.js in the same folder as this device",
+					"text": "Script not running: keep JohnMayerX.js in the same folder as this device",
 					"fontsize": 9,
 					"patching_rect": [
 						30,

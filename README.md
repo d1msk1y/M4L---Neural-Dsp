@@ -15,7 +15,7 @@ in the plugin moves Push. One generic engine, one small JSON profile per plugin.
 | `src/engine.js` | The generic engine (discovery, sync, switch-dependent remapping) |
 | `profiles/*.json` | One profile per plugin: banks, labels, parameter names |
 | `tools/build.js` | Turns a profile into a device |
-| `dist/` | Built devices: `<Name>.amxd` plus its `<Name>.js` (keep the two together) |
+| `dist/` | Built devices (`.amxd`) and one script per plugin (`<Name>.js`); keep them together |
 | `test/engine.test.js` | Engine tests against a fake Live |
 
 Names, banks and control types are baked in at build time because Live does not reliably
@@ -27,10 +27,13 @@ Every profile is built two ways from the same file. Use whichever suits you; do 
 both for the same plugin.
 
 - **Single:** `dist/<Name>.amxd` holds every page as a tab.
-- **Modular:** `dist/<Name>-modular/` holds one small device per page (for example
-  `JMX-PREFX`, `JMX-AMP`). Put any of them on the track before the plugin, in any order.
-  Each shows up as its own device on Push. They all find the plugin by name, so they do
-  not need to sit directly next to it.
+- **Modular:** one small device per page, in the same folder (for example
+  `JMX-PREFX.amxd`, `JMX-AMP.amxd`). Put any of them on the track before the plugin, in
+  any order. Each shows up as its own device on Push. They all find the plugin by name,
+  so they do not need to sit directly next to it.
+
+All devices for a plugin run the same script, `dist/<Name>.js`. Keep that one file in the
+same folder as the devices.
 
 ## First run
 

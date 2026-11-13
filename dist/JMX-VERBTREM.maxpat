@@ -66,7 +66,7 @@
 			{
 				"box": {
 					"maxclass": "newobj",
-					"text": "js JMX-VERBTREM.js",
+					"text": "js JohnMayerX.js VERBTREM",
 					"numinlets": 1,
 					"numoutlets": 1,
 					"outlettype": [
@@ -79,7 +79,7 @@
 						22
 					],
 					"saved_object_attributes": {
-						"filename": "JMX-VERBTREM.js",
+						"filename": "JohnMayerX.js",
 						"parameter_enable": 0
 					},
 					"id": "obj-3"
@@ -459,9 +459,11 @@
 							"parameter_shortname": "Spring Decay",
 							"parameter_modmode": 0,
 							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
+							"parameter_mmin": 0.85,
+							"parameter_mmax": 4.66,
+							"parameter_unitstyle": 9,
+							"parameter_units": "%.2f s",
+							"parameter_exponent": 2
 						}
 					},
 					"varname": "c_3",
@@ -746,30 +748,50 @@
 			},
 			{
 				"box": {
-					"maxclass": "live.dial",
+					"maxclass": "comment",
 					"numinlets": 1,
-					"numoutlets": 2,
+					"numoutlets": 0,
+					"text": "Trem Note",
+					"fontsize": 9,
+					"textjustification": 1,
+					"patching_rect": [
+						206,
+						382,
+						60,
+						18
+					],
+					"presentation": 1,
+					"presentation_rect": [
+						172,
+						77,
+						58,
+						16
+					],
+					"varname": "c_8_l",
+					"id": "obj-25"
+				}
+			},
+			{
+				"box": {
+					"maxclass": "live.menu",
+					"numinlets": 1,
+					"numoutlets": 3,
 					"outlettype": [
 						"",
+						"",
 						"float"
-					],
-					"activedialcolor": [
-						0.9,
-						0.3,
-						0.28,
-						1
 					],
 					"patching_rect": [
 						206,
 						400,
-						44,
-						48
+						48,
+						15
 					],
 					"presentation_rect": [
-						179,
-						76,
-						44,
-						48
+						177,
+						94,
+						48,
+						15
 					],
 					"parameter_enable": 1,
 					"presentation": 1,
@@ -778,14 +800,31 @@
 							"parameter_longname": "Trem Note",
 							"parameter_shortname": "Trem Note",
 							"parameter_modmode": 0,
-							"parameter_type": 0,
-							"parameter_mmin": 0,
-							"parameter_mmax": 100,
-							"parameter_unitstyle": 5
+							"parameter_type": 2,
+							"parameter_mmax": 16,
+							"parameter_enum": [
+								"1/32",
+								"1/16T",
+								"1/32D",
+								"1/16",
+								"1/8T",
+								"1/16D",
+								"1/8",
+								"1/4T",
+								"1/8D",
+								"1/4",
+								"1/2T",
+								"1/4D",
+								"1/2",
+								"1/1T",
+								"1/2D",
+								"1/1",
+								"1/1D"
+							]
 						}
 					},
 					"varname": "c_8",
-					"id": "obj-25"
+					"id": "obj-26"
 				}
 			},
 			{
@@ -803,7 +842,7 @@
 						52,
 						22
 					],
-					"id": "obj-26"
+					"id": "obj-27"
 				}
 			},
 			{
@@ -812,7 +851,7 @@
 					"numinlets": 1,
 					"numoutlets": 0,
 					"varname": "status",
-					"text": "Script not running: keep JMX-VERBTREM.js in the same folder as this device",
+					"text": "Script not running: keep JohnMayerX.js in the same folder as this device",
 					"fontsize": 9,
 					"patching_rect": [
 						30,
@@ -827,7 +866,7 @@
 						322,
 						16
 					],
-					"id": "obj-27"
+					"id": "obj-28"
 				}
 			},
 			{
@@ -856,7 +895,7 @@
 						322,
 						16
 					],
-					"id": "obj-28"
+					"id": "obj-29"
 				}
 			}
 		],
@@ -1092,11 +1131,11 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-25",
+						"obj-26",
 						0
 					],
 					"destination": [
-						"obj-26",
+						"obj-27",
 						0
 					]
 				}
@@ -1104,7 +1143,7 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-26",
+						"obj-27",
 						0
 					],
 					"destination": [
@@ -1116,7 +1155,7 @@
 			{
 				"patchline": {
 					"source": [
-						"obj-28",
+						"obj-29",
 						0
 					],
 					"destination": [
@@ -1167,7 +1206,7 @@
 				"Trem Sync",
 				0
 			],
-			"obj-25": [
+			"obj-26": [
 				"Trem Note",
 				"Trem Note",
 				0
